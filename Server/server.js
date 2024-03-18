@@ -1,7 +1,8 @@
 const express = require("express")
 const cors = require("cors")
 const {router} = require("./Routes/routes.js")
-const port = 3000
+require("dotenv").config()
+const port = process.env.PORT || 3000;
 
 const app = express()
 app.use(express.json())
