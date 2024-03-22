@@ -36,7 +36,7 @@ const Login = () => {
         <form action="" className='form' onSubmit={handleSubmit(onSubmit)}>
             <div className="inp">
 
-            <input type="emial" placeholder='Enter your Email' name='email' {...register("email",{required:"Email is required", pattern:{value:/^\S+@\S+$/i,message:"Invalid Email"}}) } />
+            <input type="email" placeholder='Enter your Email' name='email' {...register("email",{required:"Email is required", pattern:{value:/^\S+@\S+$/i,message:"Invalid Email"}}) } />
             {errors.email && <p className='err'>{errors.email.message}</p>}
             </div>
             <div className="inp">
