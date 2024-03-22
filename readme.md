@@ -6,6 +6,9 @@ This project aims to provide users with a comprehensive suite of tools for outfi
 ## Backend deployed Link
 https://s56-shriyans-capstone-vasara.onrender.com
 
+## Frontend deployed Link
+https://vasara.netlify.app/
+
 ## Features
 
 ### Material Education
