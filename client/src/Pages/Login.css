@@ -1,0 +1,79 @@
+body{
+    margin: 0%;
+    padding: 0%;
+    border: 2px solid;
+    height: 99vh;
+}
+
+.Login{
+    margin: 0%;
+    padding: 0%;
+    /* border: 2px solid red; */
+    height: 99vh;
+    width: 100%;
+    background-image: url("../assets/login_background.png");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.login-form{
+    margin-left: 60px;
+/* border: 2px solid green; */
+/* width: 25vw; */
+width: 360px;
+height: 45vh;
+text-align: center;
+}
+
+.form {
+    margin: auto;
+    padding: 20px;
+  }
+
+  
+  input {
+    width: 90%;
+    padding:15px;
+    margin-bottom: 12px;
+    background-color: white;
+
+    border-radius: 30px;
+    margin-bottom: 20px;
+    border: 1px solid black;
+    margin-bottom: 0;
+  }
+.btn{
+    /* background-color: blue; */
+    color: black;
+    border: none;
+    width: 40%;
+    font-weight: 800;
+    margin-bottom: 0%;
+}
+
+
+.err{
+    color: red;
+    /* margin-bottom: 15px; */
+    margin: 0%;
+}
+.inp{
+margin-bottom: 15px;
+}
+
+@media screen and (max-width: 600px) {
+    .Login{
+
+        background-image: url("../assets/Designer2.png");
+    }
+    .login-form{
+        margin-left: 0px;
+    background-color: rgba(222, 222, 222, 0.471);
+    backdrop-filter: blur(10px);
+
+        border-radius: 20px;
+    }
+}
