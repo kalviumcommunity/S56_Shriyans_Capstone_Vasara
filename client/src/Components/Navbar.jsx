@@ -25,7 +25,7 @@ const Navbar = () => {
         </div>
         {/* Login box */}
         <div className='login'>
-            {isloggedin==true ? (
+            {isloggedin===true ? (
                 <AccountMenu/>
 ):(            <div>
   {/* Sign in /singup buttonss */}
