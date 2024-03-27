@@ -11,7 +11,8 @@ import Tooltip from '@mui/material/Tooltip';
 import PersonAdd from '@mui/icons-material/PersonAdd';
 import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
-
+import Cookies from 'js-cookie';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 export default function AccountMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -21,6 +22,10 @@ export default function AccountMenu() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  let handleLogout=()=>{
+    Cookies.remove('token', { path: '' })
+    window.location.reload()
+  }
   return (
     <React.Fragment>
       <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
@@ -33,7 +38,8 @@ export default function AccountMenu() {
             aria-haspopup="true"
             aria-expanded={open ? 'true' : undefined}
           >
-            <Avatar sx={{ width: 32, height: 32 }}>M</Avatar>
+            {/* <Avatar sx={{ width: 32, height: 32 }}>A</Avatar> */}
+            <AccountCircleIcon sx={{color:"white",width: 32, height: 32}}/> 
           </IconButton>
         </Tooltip>
       </Box>
@@ -95,7 +101,10 @@ export default function AccountMenu() {
           <ListItemIcon>
             <Logout fontSize="small" />
           </ListItemIcon>
+          <p onClick={handleLogout}>
+
           Logout
+          </p>
         </MenuItem>
       </Menu>
     </React.Fragment>

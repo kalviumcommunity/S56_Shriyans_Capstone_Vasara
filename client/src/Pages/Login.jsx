@@ -6,8 +6,13 @@ import { useState } from 'react'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Link } from "react-router-dom";
+import axios from 'axios'
+import Cookies from "js-cookie"
+import { useNavigate } from 'react-router-dom'
+
 const Login = () => {
     const [regist,setRegist] = useState(false)
+    const navigate = useNavigate()
     const {
         register,
         handleSubmit,
@@ -15,18 +20,43 @@ const Login = () => {
       } = useForm()
 
       const onSubmit=(val)=>{
-        console.log(val)
-        setRegist(true)
-        toast.success('Login Successful!', {
-          position: "top-center",
-          autoClose: 1000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-          });
+        // console.log(val)
+          axios.post("http://localhost:3001/login",{email:val.email.toLowerCase(),password:val.password})
+          .then((res)=>{
+            Cookies.set('token', res.data.token, { expires: 7 , path: ''})
+            console.log(res.datas)
+            setRegist(true)
+            toast.success('Login Successful!', {
+              position: "top-center",
+              autoClose: 1000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+              });
+              setTimeout(() => {
+                
+                navigate("/")
+              }, 1500);
+          })
+          .catch((error)=>{
+            console.log(error.response.data)
+            toast.error(`${error.response.data}`, {
+              position: "top-center",
+              autoClose: 2000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+              });
+
+
+          })
+
       }
   return (
     <div className='Login'>

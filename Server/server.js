@@ -1,4 +1,5 @@
 const express = require("express")
+const mongoose = require("mongoose")
 const cors = require("cors")
 const {router} = require("./Routes/routes.js")
 require("dotenv").config()
@@ -7,6 +8,10 @@ const port = process.env.PORT || 3000;
 const app = express()
 app.use(express.json())
 app.use(cors())
+
+mongoose.connect(process.env.MongoUri)
+.then(()=>console.log("Connected to MongoDB!"))
+.catch((error)=>console.error("Failed to connect to mongodb",error))
 
 app.use(router)
 app.listen(port,()=>{
