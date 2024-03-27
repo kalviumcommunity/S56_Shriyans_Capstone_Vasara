@@ -26,9 +26,8 @@
     font-size: 18px;
     color: beige;
 }
-.nav-items li a{
+.nav-items a{
     text-decoration: none;
-    list-style: none;
     color: beige;
 }
 

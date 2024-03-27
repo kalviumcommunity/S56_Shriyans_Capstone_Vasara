@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form"
 import { useState } from 'react'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import { Link } from "react-router-dom";
 const Login = () => {
     const [regist,setRegist] = useState(false)
     const {
@@ -50,7 +50,8 @@ const Login = () => {
         </div>
             <input className='btn' type="submit" value="submit" />
             <br />
-            Signup
+            <Link to={"/signup"} className='loginbtn'>Signup</Link>
+            
         </form>
       </div>
     </div>

@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-// import Singup_image from "../assets/register.png"
+import { Link } from "react-router-dom";
 const Signup = () => {
   const [regist, setRegist] = useState(false);
   const {
@@ -42,7 +42,9 @@ const Signup = () => {
                 type="text"
                 placeholder="Enter your First Name"
                 name="firstName"
-                {...register("firstName")}
+                {...register("firstName", {
+                  required: "First Name is required",
+                })}
               />
               {errors.firstName && (
                 <p className="err">{errors.firstName.message}</p>
@@ -70,12 +72,15 @@ const Signup = () => {
             </div>
 
             <div className="inp">
-              <select name="gender" className="gender"  {...register("gender")}>
-                <option value="none">Select Gender</option>
+              <select name="gender" className="gender-select"  {...register("gender", {
+                  required: "Gender is required",
+                })}>
+                <option value="">Select Gender</option>
                 <option value="male">male</option>
                 <option value="female">female</option>
                 <option value="other">other</option>
               </select>
+              {errors.gender && <p className="err">{errors.gender.message}</p>}
             </div>
 
             <div className="inp">
@@ -113,7 +118,8 @@ const Signup = () => {
             </div>
             <input className="signup_btn btn" type="submit" value="Signup" />
             <br />
-            Login
+            <Link to={"/login"} className="loginbtn">Login</Link>
+            
           </form>
         </div>
       </div>
