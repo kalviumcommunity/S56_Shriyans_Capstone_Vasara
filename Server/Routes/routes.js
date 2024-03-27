@@ -18,7 +18,7 @@ router.post("/signup",async(req,res)=>{
             ...req.body,
             password: hashedPassword,
         })
-        const token = jwt.sign({_id:newUser._id},process.env.JWT_TOKEN,{
+        const token = jwt.sign({_id:newUser._id},process.env.JWT_Token,{
             expiresIn:'90d',
         })
         res.status(201).json({
@@ -44,10 +44,10 @@ router.post("/login",async(req,res)=>{
         }
         const isPasswordValid = await bcrypt.compare(password,user.password)
         if(!isPasswordValid){
-            return res.status(401).send("Incorrect email or password password")
+            return res.status(401).send("Incorrect email or password")
         }
     
-        const token = jwt.sign({_id:user._id},process.env.JWT_TOKEN,{
+        const token = jwt.sign({_id:user._id},process.env.JWT_Token,{
             expiresIn:'90d',
         })
         res.status(200).json({
