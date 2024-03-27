@@ -7,9 +7,8 @@ import Style_img from "../assets/what_is_style.png";
 import Style1 from "../assets/style1.png";
 import Style2 from "../assets/style2.png";
 
-import { BiPhoneCall } from "react-icons/bi";
-import { CiMail } from "react-icons/ci";
-import { CiLocationOn } from "react-icons/ci";
+
+import Footer from "../Components/Footer";
 
 const HomePage = () => {
   return (
@@ -94,43 +93,7 @@ const HomePage = () => {
           <button>Explore More</button>
         </div>
       </div>
-{/* footer */}
-      <footer>
-        <div className="footer">
-          {/* logo in footer */}
-          <div className="logo-footer">
-            <img src={logo} alt="" />
-          </div>
-          {/* link of all the pages */}
-          <div className="allPages">
-            <h2>Pages</h2>
-            <ul>
-              <li>Home</li>
-              <li>Styles</li>
-              <li>Fabrics</li>
-              <li>About</li>
-              <li>Contact Us</li>
-            </ul>
-          </div>
-          {/* contact information */}
-          <div className="Contactus">
-            <h2>Contact Us</h2>
-            <ul>
-              <li>
-                {" "}
-                <BiPhoneCall /> 98243-87234
-              </li>
-              <li>
-                <CiMail /> Vasara@gmail.com
-              </li>
-              <li>
-                <CiLocationOn /> Mit adt university
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className="copyright">Copyright © VASARA. All rights reserved</div>
-      </footer>
+      <Footer/>
     </div>
   );
 };
