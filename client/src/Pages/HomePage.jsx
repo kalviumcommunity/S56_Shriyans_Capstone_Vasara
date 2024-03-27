@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from 'react';
 import { Link } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import "./HomePage.css";
@@ -11,6 +11,13 @@ import Style2 from "../assets/style2.png";
 import Footer from "../Components/Footer";
 
 const HomePage = () => {
+  const scrolldiv = useRef(null);
+
+  const scrollToDiv = () => {
+    if (scrolldiv.current) {
+      scrolldiv.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   return (
     <div>
       <Navbar />
@@ -19,7 +26,7 @@ const HomePage = () => {
         <div className="hero-heading">
           {/* text in hero section */}
           <h1>Discover your perfect look, uniquely curated by Vasara.</h1>
-          <button>Explore</button>
+          <button onClick={scrollToDiv}>Explore</button>
         </div>
       </div>
       {/* what is style section */}
@@ -44,7 +51,7 @@ const HomePage = () => {
         </div>
       </div>
       {/* explore different styles */}
-      <div className="explore">
+      <div className="explore" ref={scrolldiv}>
         <div className="style-heading">Explore Different Styles</div>
         <div className="diff-styles">
           {/* first style */}

@@ -13,7 +13,8 @@ const Navbar = () => {
         {/* Navitems */}
         <div className='nav-items'>
             <ul>
-                <li>Home</li>
+            <li><Link to={"/"}>Home</Link></li>
+                
                 <li>Colors</li>
                 <li>About</li>
                 <li>Contact Us</li>
@@ -30,8 +31,9 @@ const Navbar = () => {
 ):(            <div>
   {/* Sign in /singup buttonss */}
   <Link to={"/login"}><button className='Signin'>Sign in</button></Link>
+  <Link to={"/signup"}><button className='Signup'>Sign up</button></Link>
     
-    <button className='Signup'>Sign up</button></div>)}
+    </div>)}
             {/* <button className='Signin'>Sign in</button>
             <button className='Signup'>Sign up</button> */}
             
