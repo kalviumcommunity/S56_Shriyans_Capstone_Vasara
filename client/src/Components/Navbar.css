@@ -26,6 +26,11 @@
     font-size: 18px;
     color: beige;
 }
+.nav-items li a{
+    text-decoration: none;
+    list-style: none;
+    color: beige;
+}
 
 /* logo */
 .logo{

@@ -1,0 +1,48 @@
+.signup{
+    background-color: #FCFAEE;
+    height: 100vh;
+    overflow: hidden;
+}
+.sigun_container{
+    width: 100vw;
+    /* border: 2px solid red; */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.signup_image {
+    background-image: url(../assets/register.png);
+    background-position: center;
+    background-size: cover;
+    width: 35vw;
+    height: 90vh;
+    /* border: 2px solid; */
+}
+.signup_form{
+    width: 35vw;
+    /* border: 2px solid red; */
+    text-align: center;
+    padding: 0px 20px;
+}
+.gender
+{
+        width: 97%;
+        padding:15px;
+        margin-bottom: 12px;
+        background-color: white;
+    
+        border-radius: 30px;
+        margin-bottom: 20px;
+        border: 1px solid black;
+        margin-bottom: 0;
+      }
+.signup_btn{
+    background-color: #839C96;
+    color: white;
+    border: 1px solid black;
+}
+.register{
+    color: #713A11;
+    margin-bottom: 0%;
+}

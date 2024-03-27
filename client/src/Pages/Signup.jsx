@@ -1,0 +1,125 @@
+import React from "react";
+import "./Signup.css";
+import Navbar from "../Components/Navbar";
+import { useForm } from "react-hook-form";
+import { useState } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+// import Singup_image from "../assets/register.png"
+const Signup = () => {
+  const [regist, setRegist] = useState(false);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const onSubmit=(val)=>{
+    console.log(val)
+    setRegist(true)
+    toast.success('Registration Successful!', {
+      position: "top-center",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      });
+  }
+  return (
+    <div className="signup">
+      <Navbar />
+      <div className="sigun_container">
+        <div className="signup_image">
+          {/* <img src={Singup_image} alt="" /> */}
+        </div>
+        <div className="signup_form">
+          <h1 className="register">Register</h1>
+          <form action="" className="form" onSubmit={handleSubmit(onSubmit)}>
+            <div className="inp">
+              <input
+                type="text"
+                placeholder="Enter your First Name"
+                name="firstName"
+                {...register("firstName")}
+              />
+              {errors.firstName && (
+                <p className="err">{errors.firstName.message}</p>
+              )}
+            </div>
+            <div className="inp">
+              <input
+                type="text"
+                placeholder="Enter your Last Name"
+                name="lastName"
+                {...register("lastName")}
+              />
+              {errors.lastName && (
+                <p className="err">{errors.lastName.message}</p>
+              )}
+            </div>
+            <div className="inp">
+              <input
+                type="number"
+                placeholder="Enter your Age"
+                name="age"
+                {...register("age")}
+              />
+              {errors.age && <p className="err">{errors.age.message}</p>}
+            </div>
+
+            <div className="inp">
+              <select name="gender" className="gender"  {...register("gender")}>
+                <option value="none">Select Gender</option>
+                <option value="male">male</option>
+                <option value="female">female</option>
+                <option value="other">other</option>
+              </select>
+            </div>
+
+            <div className="inp">
+              <input
+                type="email"
+                placeholder="Enter your Email"
+                name="email"
+                {...register("email", {
+                  required: "Email is required",
+                  pattern: { value: /^\S+@\S+$/i, message: "Invalid Email" },
+                })}
+              />
+              {errors.email && <p className="err">{errors.email.message}</p>}
+            </div>
+            <div className="inp">
+              <input
+                type="password"
+                placeholder="Enter your password"
+                name="password"
+                {...register("password", {
+                  required: "Password is required",
+                  minLength: {
+                    value: 5,
+                    message: "Password must be more than 4 characters",
+                  },
+                  maxLength: {
+                    value: 20,
+                    message: "Password cannot be more than 20 characters",
+                  },
+                })}
+              />
+              {errors.password && (
+                <p className="err">{errors.password.message}</p>
+              )}
+            </div>
+            <input className="signup_btn btn" type="submit" value="Signup" />
+            <br />
+            Login
+          </form>
+        </div>
+      </div>
+      <ToastContainer/>
+    </div>
+  );
+};
+
+export default Signup;
