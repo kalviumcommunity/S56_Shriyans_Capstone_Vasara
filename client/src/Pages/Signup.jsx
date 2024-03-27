@@ -16,7 +16,7 @@ const Signup = () => {
   } = useForm();
   const onSubmit=(val)=>{
     console.log(val)
-      axios.post("http://localhost:3001/signup",{firstName: val.firstName, lastName:val.lastName,age:val.age,gender:val.gender,email:val.email.toLowerCase(),password:val.password}).then((res)=>{
+      axios.post("https://s56-shriyans-capstone-vasara.onrender.com/signup",{firstName: val.firstName, lastName:val.lastName,age:val.age,gender:val.gender,email:val.email.toLowerCase(),password:val.password}).then((res)=>{
         setRegist(true)
         toast.success('Registration Successful!', {
           position: "top-center",
