@@ -1,0 +1,44 @@
+
+/* footer */
+footer{
+    margin-top: 50px;
+    background-color: #414642;
+    height: 350px;
+    padding: 80px 200px;
+    box-sizing: border-box;
+    padding-bottom: 0%;
+}
+.footer{
+/* border: 2px solid red; */
+display: flex;
+justify-content: space-between;
+}
+
+/* logo in footer */
+.logo-footer img{
+    width: 200px;
+}
+
+/* container of 2 and column */
+.allPages,.Contactus{
+color: beige;
+}
+.allPages h2,.Contactus h2{
+    font-size: 30px;
+    margin: 0%;
+}
+.allPages ul,.Contactus ul{
+    padding: 0%;
+}
+.allPages li,.Contactus li{
+    margin: 0%;
+    list-style: none;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.copyright{
+    color: rgb(190, 190, 190);
+    text-align: center;
+    margin-top: 35px;
+}
