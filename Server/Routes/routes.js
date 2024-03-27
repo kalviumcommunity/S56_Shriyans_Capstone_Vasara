@@ -3,6 +3,7 @@ const router = express.Router()
 const User = require("../models/UserModel")
 const bcrypt = require("bcryptjs")
 const jwt = require("jsonwebtoken")
+require("dotenv").config()
 router.get("/",(req,res)=>{
     res.send("Server is working!")
 })
@@ -17,7 +18,7 @@ router.post("/signup",async(req,res)=>{
             ...req.body,
             password: hashedPassword,
         })
-        const token = jwt.sign({_id:newUser._id},"secretkey123",{
+        const token = jwt.sign({_id:newUser._id},process.env.JWT_TOKEN,{
             expiresIn:'90d',
         })
         res.status(201).json({
@@ -26,7 +27,7 @@ router.post("/signup",async(req,res)=>{
             token
         })
     } catch (error) {
-        res.json(error)
+        res.send(error)
         
     }
 })
@@ -46,7 +47,7 @@ router.post("/login",async(req,res)=>{
             return res.status(401).send("Incorrect email or password password")
         }
     
-        const token = jwt.sign({_id:user._id},"secretkey123",{
+        const token = jwt.sign({_id:user._id},process.env.JWT_TOKEN,{
             expiresIn:'90d',
         })
         res.status(200).json({
