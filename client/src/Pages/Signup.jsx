@@ -6,6 +6,7 @@ import { useState } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Link } from "react-router-dom";
+import axios from "axios"
 const Signup = () => {
   const [regist, setRegist] = useState(false);
   const {
@@ -15,17 +16,31 @@ const Signup = () => {
   } = useForm();
   const onSubmit=(val)=>{
     console.log(val)
-    setRegist(true)
-    toast.success('Registration Successful!', {
-      position: "top-center",
-      autoClose: 1000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-      });
+      axios.post("https://s56-shriyans-capstone-vasara.onrender.com/signup",{firstName: val.firstName, lastName:val.lastName,age:val.age,gender:val.gender,email:val.email.toLowerCase(),password:val.password}).then((res)=>{
+        setRegist(true)
+        toast.success('Registration Successful!', {
+          position: "top-center",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          });
+      })          .catch((error)=>{
+        console.log(error.response.data)
+        toast.error(`${error.response.data}`, {
+          position: "top-center",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          });
+      })
   }
   return (
     <div className="signup">

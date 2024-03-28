@@ -1,10 +1,20 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./Navbar.css"
 import logo from "../assets/logo.png"
 import AccountMenu from './AccountMenu'
 import { Link } from 'react-router-dom'
+import Cookies from "js-cookie"
+
 const Navbar = () => {
-    const [isloggedin,SetIsloggedin]=useState(false)
+  let token = Cookies.get("token")
+
+  const [isloggedin,SetIsloggedin]=useState(false)
+  useEffect(()=>{
+    if(token){
+      SetIsloggedin(true)
+    }
+
+},[])
   return (
     <div>
       <nav>
