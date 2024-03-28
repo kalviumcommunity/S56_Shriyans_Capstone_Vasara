@@ -61,10 +61,10 @@ export default function DrawerMobileNavigation() {
           <Link to={"/styles"}>
           <ListItemButton>Styles</ListItemButton>
           </Link>
-          <Link>
+          <Link to={"/about"}>
           <ListItemButton>About</ListItemButton>
           </Link>
-          <Link>
+          <Link to={"/contact"}>
           <ListItemButton>Contact</ListItemButton>
           </Link>
         </List>

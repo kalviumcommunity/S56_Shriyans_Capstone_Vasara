@@ -18,7 +18,7 @@
     /* border: 2px solid red; */
     height: 380px;
     background-color:rgb(245 246 241);
-    border-radius: 10PX;
+    border-radius: 10px;
     box-shadow: 0 0 10px 0 #c1c1c1;
     cursor: pointer;
 }

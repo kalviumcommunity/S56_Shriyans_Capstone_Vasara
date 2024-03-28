@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "./Footer.css"
 import { BiPhoneCall } from "react-icons/bi";
 import { CiMail } from "react-icons/ci";
@@ -6,7 +6,10 @@ import { CiLocationOn } from "react-icons/ci";
 import logo from "../assets/logo.png";
 import { Link } from 'react-router-dom';
 const Footer = () => {
-  window.scroll({top:0})
+  useEffect(()=>{
+
+    window.scroll({top:0})
+  },[])
   return (
     <div>
       {/* footer */}
