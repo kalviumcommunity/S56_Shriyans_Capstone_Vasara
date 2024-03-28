@@ -4,17 +4,23 @@ import logo from "../assets/logo.png"
 import AccountMenu from './AccountMenu'
 import { Link } from 'react-router-dom'
 import Cookies from "js-cookie"
+import DrawerMobileNavigation from './Mobile_navigation'
 
 const Navbar = () => {
   let token = Cookies.get("token")
-
   const [isloggedin,SetIsloggedin]=useState(false)
+  var [w,setW] = useState(window.innerWidth)
+    useEffect(()=>{
+    setW(window.innerWidth);
+
+  })
   useEffect(()=>{
     if(token){
       SetIsloggedin(true)
     }
 
 },[])
+console.log(w)
   return (
     <div>
       <nav>
@@ -22,13 +28,20 @@ const Navbar = () => {
         <div className="navbar">
         {/* Navitems */}
         <div className='nav-items'>
-            <ul>
+
+{w>900?(     <ul>
             <li><Link to={"/"}>Home</Link></li>
                 
                 <li>Colors</li>
                 <li>About</li>
                 <li>Contact Us</li>
-            </ul>
+            </ul>):(
+                      <div>
+            
+                      <DrawerMobileNavigation/>
+                      </div>
+        )}
+
         </div>
         {/* Logo */}
         <div className='logo'>

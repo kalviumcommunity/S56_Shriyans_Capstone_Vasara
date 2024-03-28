@@ -97,7 +97,8 @@ const HomePage = () => {
         </div>
         <div className="explore_more_btn">
           {/* explore more button */}
-          <button>Explore More</button>
+          <Link to={"/styles"}><button>Explore More</button></Link>
+          
         </div>
       </div>
       <Footer/>
