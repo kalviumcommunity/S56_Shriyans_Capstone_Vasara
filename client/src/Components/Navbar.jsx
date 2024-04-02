@@ -20,7 +20,6 @@ const Navbar = () => {
     }
 
 },[])
-console.log(w)
   return (
     <div>
       <nav>

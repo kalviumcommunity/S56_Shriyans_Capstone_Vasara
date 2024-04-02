@@ -55,7 +55,7 @@ export default function DrawerMobileNavigation() {
             Home
             </ListItemButton>
             </Link>
-            <Link>
+            <Link to={"/colors"}>
           <ListItemButton>Colors</ListItemButton>
             </Link>
           <Link to={"/styles"}>

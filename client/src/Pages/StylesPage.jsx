@@ -22,7 +22,7 @@ const StylesPage = () => {
       <div className="explore_styles">
         <div className="style_card">
           <div className="style_img">
-          <img src={style1} alt="" />
+          <img src={style1} loading="lazy" alt="" />
           </div>
           <div className="style_name">
             <h1>Bohemian</h1>
@@ -30,7 +30,7 @@ const StylesPage = () => {
         </div>
         <div className="style_card">
           <div className="style_img">
-          <img src={style2} alt="" />
+          <img src={style2} loading="lazy" alt="" />
           </div>
           <div className="style_name">
             <h1>Artsy</h1>
@@ -38,7 +38,7 @@ const StylesPage = () => {
         </div>
         <div className="style_card">
           <div className="style_img">
-          <img src={style3} alt="" />
+          <img src={style3} loading="lazy" alt="" />
           </div>
           <div className="style_name">
             <h1>Biker clothing</h1>
@@ -46,7 +46,7 @@ const StylesPage = () => {
         </div>
         <div className="style_card">
           <div className="style_img">
-          <img src={style4} alt="" />
+          <img src={style4} loading="lazy" alt="" />
           </div>
           <div className="style_name">
             <h1>Casuals</h1>
@@ -54,7 +54,7 @@ const StylesPage = () => {
         </div>
         <div className="style_card">
           <div className="style_img">
-          <img src={style5} alt="" />
+          <img src={style5} loading="lazy" alt="" />
           </div>
           <div className="style_name">
             <h1>Gothic</h1>
@@ -62,7 +62,7 @@ const StylesPage = () => {
         </div>
         <div className="style_card">
           <div className="style_img">
-          <img src={style6} alt="" />
+          <img src={style6} loading="lazy" alt="" />
           </div>
           <div className="style_name">
             <h1>Military</h1>
@@ -70,7 +70,7 @@ const StylesPage = () => {
         </div>
         <div className="style_card">
           <div className="style_img">
-          <img src={style7} alt="" />
+          <img src={style7} loading="lazy" alt="" />
           </div>
           <div className="style_name">
             <h1>Streetwear</h1>
@@ -78,7 +78,7 @@ const StylesPage = () => {
         </div>
         <div className="style_card">
           <div className="style_img">
-          <img src={style8} alt="" />
+          <img src={style8} loading="lazy" alt="" />
           </div>
           <div className="style_name">
             <h1>Crape Georgette</h1>
@@ -86,7 +86,7 @@ const StylesPage = () => {
         </div>
         <div className="style_card">
           <div className="style_img">
-          <img src={style9} alt="" />
+          <img src={style9} loading="lazy" alt="" />
           </div>
           <div className="style_name">
             <h1>Kurta</h1>
@@ -94,7 +94,7 @@ const StylesPage = () => {
         </div>
         <div className="style_card">
           <div className="style_img">
-          <img src={style10} alt="" />
+          <img src={style10} loading="lazy" alt="" />
           </div>
           <div className="style_name">
             <h1>Sherwani</h1>
@@ -102,7 +102,7 @@ const StylesPage = () => {
         </div>
         <div className="style_card">
           <div className="style_img">
-          <img src={style11} alt="" />
+          <img src={style11} loading="lazy" alt="" />
           </div>
           <div className="style_name">
             <h1>Lehenga</h1>
