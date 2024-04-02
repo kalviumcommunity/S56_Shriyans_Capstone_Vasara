@@ -4,13 +4,7 @@ import "./Profile.css";
 import Cookies from "js-cookie";
 import axios from "axios";
 const Profile = () => {
-  let [token,setToken] = useState("")
-  useEffect(()=>{
-    Cookies.get("token")
-    axios.get("http://localhost:3001/"+token).then(res=>{
-      console.log(res)
-    }).catch(errr=>console.log(errr))
-  },[])
+
   return (
     <div>
       <Navbar />
