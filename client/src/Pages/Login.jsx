@@ -21,11 +21,12 @@ const Login = () => {
 
       const onSubmit=(val)=>{
         // console.log(val)
-          axios.post("https://s56-shriyans-capstone-vasara.onrender.com/login",{email:val.email.toLowerCase(),password:val.password})
+          axios.post("http://localhost:3001/login",{email:val.email.toLowerCase(),password:val.password})
           .then((res)=>{
             Cookies.set('token', res.data.token, { expires: 7 , path: ''})
             console.log(res.data)
             setRegist(true)
+            
             toast.success('Login Successful!', {
               position: "top-center",
               autoClose: 1000,

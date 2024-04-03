@@ -3,6 +3,11 @@ const router = express.Router()
 const User = require("../models/UserModel")
 const bcrypt = require("bcryptjs")
 const jwt = require("jsonwebtoken")
+const multer  = require('multer')
+const cloudinary = require('../Cloudinary')
+const upload = require('../multer')
+
+
 require("dotenv").config()
 router.get("/",(req,res)=>{
     res.send("Server is working!")
@@ -47,9 +52,10 @@ router.post("/login",async(req,res)=>{
             return res.status(401).send("Incorrect email or password")
         }
     
-        const token = jwt.sign({_id:user._id},process.env.JWT_Token,{
+        const token = jwt.sign({id:user._id},process.env.JWT_Token,{
             expiresIn:'90d',
         })
+
         res.status(200).json({
             status:"sucess",
             token,
@@ -65,6 +71,41 @@ router.post("/login",async(req,res)=>{
     }
     
 })
+router.get("/profile/:id",(req,res)=>{
+    const id = jwt.verify(req.params.id, process.env.JWT_Token);
+    // const id = req.params.id
+    // console.log(id.id)
+    User.findById({_id:id.id})
+    .then((el) => res.json(el))
+    .catch(err => res.json(err));
+})
+
+router.put("/profile/:id", upload.single('image'),(req,res)=>{
+    const id = jwt.verify(req.params.id, process.env.JWT_Token);
+    cloudinary.uploader.upload(req.file.path, function(error, result) {
+        // console.log(result, error)
+        // res.json({success:true,res: result.secure_url});
+
+        User.findByIdAndUpdate  (id.id,{Image:result.secure_url})
+        .then((el) => res.json(el))
+        .catch(err => res.json(err));
+    });
+})
+router.get("/updateProfile/:id",(req,res)=>{
+    const id = req.params.id
+    // console.log(id.id)
+    User.findById({_id:id})
+    .then((el) => res.json(el))
+    .catch(err => res.json(err));
+})
+
+router.put("/updateProfile/:id",(req,res)=>{
+    const id = req.params.id
+    User.findByIdAndUpdate  (id,req.body)
+    .then((el) => res.json(el))
+    .catch(err => res.json(err));
+}   
+)
 
 router.get('*', (req, res) => res.status(404).send('Page not found'))
 module.exports= {router}

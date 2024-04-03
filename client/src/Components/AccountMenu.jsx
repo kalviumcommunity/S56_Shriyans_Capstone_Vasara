@@ -79,11 +79,11 @@ export default function AccountMenu() {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        <MenuItem onClick={handleClose}>
           <Link to={`/profile/${Cookies.get("token")}`}>
+        <MenuItem onClick={handleClose}>
           <Avatar /> Profile
-          </Link>
         </MenuItem>
+          </Link>
         {/* <MenuItem onClick={handleClose}>
           <Avatar /> My account
         </MenuItem> */}

@@ -3,27 +3,64 @@ import Navbar from "../Components/Navbar";
 import "./Profile.css";
 import Cookies from "js-cookie";
 import axios from "axios";
+import { Link, useParams } from "react-router-dom";
 const Profile = () => {
-  let [token,setToken] = useState("")
-  useEffect(()=>{
-    Cookies.get("token")
-    axios.get("http://localhost:3001/"+token).then(res=>{
-      console.log(res)
-    }).catch(errr=>console.log(errr))
-  },[])
+  let [data,setData]=useState()
+  let [loading,setLoading] = useState(true) 
+  useEffect(() => {
+    const fetchProfileData = async () => {
+      const tokenFromCookie = Cookies.get("token");
+      try {
+        const response = await axios.get(`http://localhost:3001/profile/${tokenFromCookie}`);
+        
+        // console.log(response.data);
+        setData(response.data);
+      } catch (error) {
+        console.error("Error fetching profile data:", error);
+      }
+      finally {
+        // Code to stop loader
+        setLoading(false);
+
+      }
+
+    };
+
+    fetchProfileData();
+  }, []);
+  let handleSubmit =  (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    const tokenFromCookie = Cookies.get("token");
+    formData.append('image', e.target.image.files[0]);
+    axios.put(`http://localhost:3001/profile/${tokenFromCookie}`, formData).then((res) => {
+      console.log(res);
+    }).catch((err) => {
+      console.log(err);
+    });
+  };
+
   return (
     <div>
       <Navbar />
-
+      {loading ? <h1>Loading...</h1> :
+      (<div>
       <div className="profile-container">
+        <Link   to={`/updateProfile/${data._id}`}>
         <button className="edit-profile">Edit</button>
+        </Link>
         <div className="profile-img-container">
           <div className="lines"></div>
           <div className="lines"></div>
           <div className="lines"></div>
           <div className="card-header">
             <div className="outer-circle">
-              <div className="profile-picture"></div>
+              <div className="profile-picture">
+              <form onSubmit={handleSubmit}>
+        <input type="file" name='image' />
+        <input type="submit" value="Upload" />
+      </form>
+              </div>
             </div>
           </div>
         </div>
@@ -32,22 +69,22 @@ const Profile = () => {
         <div className="details">
           <div className="detail-group">
             <p>Name: </p>
-            <p>Shriyans</p>
+            <p>{data.firstName} {data.lastName}</p>
           </div>
           <hr />
           <div className="detail-group">
             <p>Age: </p>
-            <p>18</p>
+            <p>{data.age}</p>
           </div>
           <hr />
           <div className="detail-group">
             <p>Gender: </p>
-            <p>Male</p>
+            <p>{data.gender}</p>
           </div>
           <hr />
           <div className="detail-group">
             <p>Email: </p>
-            <p>Shriyansjindal@gmail.com</p>
+            <p>{data.email}</p>
           </div>
         </div>
 
@@ -64,6 +101,8 @@ const Profile = () => {
 
         </div>
       </div>
+      </div>)
+      }
     </div>
   );
 };

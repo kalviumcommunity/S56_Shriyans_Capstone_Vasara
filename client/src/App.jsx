@@ -6,6 +6,7 @@ import HomePage from './Pages/HomePage'
 import Signup from './Pages/Signup'
 import Styles from './Pages/StylesPage'
 import Profile from './Pages/Profile'
+import UpdateUserData from './Components/UpdateUserData'
 // import HOME from './Pages/HOME.JSX'
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
   <Route path='/signup' element={<Signup/>}/>
   <Route path='/styles' element={<Styles/>}/>
   <Route path='/profile/:id' element={<Profile/>}/>
+  <Route path='/updateProfile/:id' element={<UpdateUserData/>}/>
 </Routes>
     </>
   )

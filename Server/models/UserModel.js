@@ -1,5 +1,10 @@
 const mongoose = require("mongoose")
-
+const favColors= new mongoose.Schema({
+    Color1 : String,
+    Color2 : String,
+    Color3 : String,
+    Color4 : String
+})
 const userSchema = new mongoose.Schema({
     firstName:{
         type:String,
@@ -28,7 +33,9 @@ const userSchema = new mongoose.Schema({
     password:{
         type:String,
         required:true,
-    }
+    },
+    Colors:favColors,
+    Image: String
 
 })
 
