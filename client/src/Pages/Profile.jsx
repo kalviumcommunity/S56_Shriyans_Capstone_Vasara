@@ -5,6 +5,7 @@ import Cookies from "js-cookie";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 const Profile = () => {
+<<<<<<< HEAD
   let [data,setData]=useState()
   let [loading,setLoading] = useState(true) 
   useEffect(() => {
@@ -39,6 +40,8 @@ const Profile = () => {
       console.log(err);
     });
   };
+=======
+>>>>>>> f76cd492f46b7eb559ad591c41a03d2661430d63
 
   return (
     <div>
