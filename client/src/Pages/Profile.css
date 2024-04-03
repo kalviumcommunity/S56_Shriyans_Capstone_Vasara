@@ -108,3 +108,19 @@ hr{
   border-radius: 50%;
   border: 2px solid;
 }
+
+.upload-profile-pic{
+  position: absolute;
+  top: 120px;
+  left: 20px;
+}
+.upload-profile-pic input[type="file"] {
+  border: none;
+}
+.upload-profile-pic input[type="submit"] {
+  width: 100px;
+}
+.profile-picture{
+  background-size: cover;
+  background-position: center;
+}

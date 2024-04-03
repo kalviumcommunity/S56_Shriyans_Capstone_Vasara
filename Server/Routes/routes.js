@@ -71,26 +71,34 @@ router.post("/login",async(req,res)=>{
     }
     
 })
-router.get("/profile/:id",(req,res)=>{
-    const id = jwt.verify(req.params.id, process.env.JWT_Token);
-    // const id = req.params.id
-    // console.log(id.id)
-    User.findById({_id:id.id})
-    .then((el) => res.json(el))
-    .catch(err => res.json(err));
-})
+router.get("/profile/:id", (req, res) => {
+    try {
+        const id = jwt.verify(req.params.id, process.env.JWT_Token);
+        User.findById({ _id: id.id })
+            .then((el) => res.json(el))
+            .catch(err => res.status(400).json({ error: "Invalid or expired token" }));
+    } catch (err) {
+        res.status(400).json({ error: "Invalid or expired token" });
+    }
+});
 
-router.put("/profile/:id", upload.single('image'),(req,res)=>{
-    const id = jwt.verify(req.params.id, process.env.JWT_Token);
-    cloudinary.uploader.upload(req.file.path, function(error, result) {
-        // console.log(result, error)
-        // res.json({success:true,res: result.secure_url});
+router.put("/profile/:id", upload.single('image'), (req, res) => {
+    try {
+        const id = jwt.verify(req.params.id, process.env.JWT_Token);
+        cloudinary.uploader.upload(req.file.path, function (error, result) {
+            if (error) {
+                res.status(400).json({ error: "Error uploading image" });
+                return;
+            }
+            User.findByIdAndUpdate(id.id, { Image: result.secure_url })
+                .then((el) => res.json(el))
+                .catch(err => res.status(400).json(err));
+        });
+    } catch (err) {
+        res.status(400).json({ error: "Invalid or expired token" });
+    }
+});
 
-        User.findByIdAndUpdate  (id.id,{Image:result.secure_url})
-        .then((el) => res.json(el))
-        .catch(err => res.json(err));
-    });
-})
 router.get("/updateProfile/:id",(req,res)=>{
     const id = req.params.id
     // console.log(id.id)

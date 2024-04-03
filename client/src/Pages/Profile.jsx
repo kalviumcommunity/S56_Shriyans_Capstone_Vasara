@@ -5,7 +5,7 @@ import Cookies from "js-cookie";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 const Profile = () => {
-<<<<<<< HEAD
+
   let [data,setData]=useState()
   let [loading,setLoading] = useState(true) 
   useEffect(() => {
@@ -14,7 +14,7 @@ const Profile = () => {
       try {
         const response = await axios.get(`http://localhost:3001/profile/${tokenFromCookie}`);
         
-        // console.log(response.data);
+        console.log(response.data);
         setData(response.data);
       } catch (error) {
         console.error("Error fetching profile data:", error);
@@ -40,15 +40,19 @@ const Profile = () => {
       console.log(err);
     });
   };
-=======
->>>>>>> f76cd492f46b7eb559ad591c41a03d2661430d63
+
 
   return (
     <div>
       <Navbar />
+
       {loading ? <h1>Loading...</h1> :
       (<div>
       <div className="profile-container">
+      <form onSubmit={handleSubmit} className="upload-profile-pic">
+        <input type="file" name='image' />
+        <input type="submit" value="Upload" />
+      </form>
         <Link   to={`/updateProfile/${data._id}`}>
         <button className="edit-profile">Edit</button>
         </Link>
@@ -58,11 +62,8 @@ const Profile = () => {
           <div className="lines"></div>
           <div className="card-header">
             <div className="outer-circle">
-              <div className="profile-picture">
-              <form onSubmit={handleSubmit}>
-        <input type="file" name='image' />
-        <input type="submit" value="Upload" />
-      </form>
+              <div className="profile-picture" style={{backgroundImage: `url(${data.Image})`}}>
+                  
               </div>
             </div>
           </div>
