@@ -31,7 +31,8 @@ const Navbar = () => {
 {w>900?(     <ul>
             <li><Link to={"/"}>Home</Link></li>
                 
-                <li>Colors</li>
+                <li>
+                  <Link to={"/colors"}>Colors</Link></li>
                 <li>About</li>
                 <li>Contact Us</li>
             </ul>):(

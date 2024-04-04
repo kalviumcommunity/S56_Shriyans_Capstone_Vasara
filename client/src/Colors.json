@@ -1,0 +1,1735 @@
+[
+
+
+  {
+    "name": "Sunset Serenade",
+    "color1": {
+      "name": "Coral",
+      "code": "#FF7F50"
+    },
+    "color2": {
+      "name": "Sky Blue",
+      "code": "#87CEEB"
+    },
+    "climate": "Warm",
+    "mood": "Optimistic, Breezy",
+    "style": "Dressy Casual"
+  },
+  {
+    "name": "Spring Fling",
+    "color1": {
+      "name": "Pale Yellow",
+      "code": "#FFFF99"
+    },
+    "color2": {
+      "name": "Soft Green",
+      "code": "#90EE90"
+    },
+    "climate": "Mild and Sunny",
+    "mood": "Fresh, Vibrant",
+    "style": "Casual"
+  },
+  {
+    "name": "Chocolate Delight",
+    "color1": {
+      "name": "Chocolate Brown",
+      "code": "#D2691E"
+    },
+    "color2": {
+      "name": "Cream",
+      "code": "#FFF8DC"
+    },
+    "climate": "Varied",
+    "mood": "Rich, Decadent",
+    "style": "Formal"
+  },
+  {
+    "name": "Lilac Love",
+    "color1": {
+      "name": "Lilac",
+      "code": "#C8A2C8"
+    },
+    "color2": {
+      "name": "Soft Pink",
+      "code": "#FFB6C1"
+    },
+    "climate": "Mild and Breezy",
+    "mood": "Romantic, Dreamy",
+    "style": "Casual"
+  },
+  {
+    "name": "Golden Glow",
+    "color1": {
+      "name": "Golden Yellow",
+      "code": "#FFD700"
+    },
+    "color2": {
+      "name": "Warm Brown",
+      "code": "#964B00"
+    },
+    "climate": "Warm and Sunny",
+    "mood": "Radiant, Cozy",
+    "style": "Casual"
+  },
+  {
+    "name": "Crimson Crush",
+    "color1": {
+      "name": "Crimson",
+      "code": "#DC143C"
+    },
+    "color2": {
+      "name": "Deep Purple",
+      "code": "#800080"
+    },
+    "climate": "Varied",
+    "mood": "Bold, Passionate",
+    "style": "Formal"
+  },
+  {
+    "name": "Blueberry Bliss",
+    "color1": {
+      "name": "Royal Blue",
+      "code": "#4169E1"
+    },
+    "color2": {
+      "name": "Sky Blue",
+      "code": "#87CEEB"
+    },
+    "climate": "Mild and Breezy",
+    "mood": "Refreshing, Serene",
+    "style": "Casual"
+  },
+  {
+    "name": "Sunflower Spectacle",
+    "color1": {
+      "name": "Goldenrod",
+      "code": "#DAA520"
+    },
+    "color2": {
+      "name": "Bright Yellow",
+      "code": "#FFD300"
+    },
+    "climate": "Warm and Sunny",
+    "mood": "Cheerful, Bright",
+    "style": "Casual"
+  },
+  {
+    "name": "Misty Morning",
+    "color1": {
+      "name": "Pale Blue",
+      "code": "#AFEEEE"
+    },
+    "color2": {
+      "name": "Soft Gray",
+      "code": "#D3D3D3"
+    },
+    "climate": "Cool and Breezy",
+    "mood": "Tranquil, Hazy",
+    "style": "Casual"
+  },
+  {
+    "name": "Sunset Serenade",
+    "color1": {
+      "name": "White",
+      "code": "#FFFFFF"
+    },
+    "color2": {
+      "name": "Sky Blue",
+      "code": "#87CEEB"
+    },
+    "climate": "Warm",
+    "mood": "Optimistic, Breezy",
+    "style": "Dressy Casual"
+  },
+  {
+    "name": "Berry Burst",
+    "color1": {
+      "name": "Berry Red",
+      "code": "#990000"
+    },
+    "color2": {
+      "name": "Deep Purple",
+      "code": "#800080"
+    },
+    "climate": "Varied",
+    "mood": "Bold, Lively",
+    "style": "Casual"
+  },
+  {
+    "name": "Emerald Oasis",
+    "color1": {
+      "name": "Emerald Green",
+      "code": "#50C878"
+    },
+    "color2": {
+      "name": "Turquoise",
+      "code": "#40E0D0"
+    },
+    "climate": "Warm and Sunny",
+    "mood": "Vibrant, Refreshing",
+    "style": "Casual"
+  },
+  {
+    "name": "Cotton Candy",
+    "color1": {
+      "name": "Bubblegum Pink",
+      "code": "#FFC0CB"
+    },
+    "color2": {
+      "name": "Sky Blue",
+      "code": "#87CEEB"
+    },
+    "climate": "Mild and Breezy",
+    "mood": "Sweet, Playful",
+    "style": "Casual"
+  },
+  {
+    "name": "Rustic Charm",
+    "color1": {
+      "name": "Burnt Orange",
+      "code": "#CC5500"
+    },
+    "color2": {
+      "name": "Olive Green",
+      "code": "#6B8E23"
+    },
+    "climate": "Varied",
+    "mood": "Earthy, Warm",
+    "style": "Casual"
+  },
+  {
+    "name": "Midsummer Night",
+    "color1": {
+      "name": "Deep Blue",
+      "code": "#00008B"
+    },
+    "color2": {
+      "name": "Lavender",
+      "code": "#E6E6FA"
+    },
+    "climate": "Mild and Breezy",
+    "mood": "Mysterious, Dreamy",
+    "style": "Formal"
+  },
+  {
+    "name": "Sunset Bliss",
+    "color1": {
+      "name": "Peach",
+      "code": "#FFDAB9"
+    },
+    "color2": {
+      "name": "Crimson",
+      "code": "#DC143C"
+    },
+    "climate": "Warm and Sunny",
+    "mood": "Romantic, Warm",
+    "style": "Dressy Casual"
+  },
+  {
+    "name": "Oceanic Symphony",
+    "color1": {
+      "name": "Teal",
+      "code": "#008080"
+    },
+    "color2": {
+      "name": "Slate Blue",
+      "code": "#6A5ACD"
+    },
+    "climate": "Mild and Breezy",
+    "mood": "Calming, Serene",
+    "style": "Casual"
+  },
+  {
+    "name": "Fireside Elegance",
+    "color1": {
+      "name": "Burgundy",
+      "code": "#800020"
+    },
+    "color2": {
+      "name": "Charcoal Gray",
+      "code": "#36454F"
+    },
+    "climate": "Cool and Crisp",
+    "mood": "Sophisticated, Warm",
+    "style": "Formal"
+  },
+  {
+    "name": "Spring Meadow",
+    "color1": {
+      "name": "Grass Green",
+      "code": "#4B5320"
+    },
+    "color2": {
+      "name": "Buttercup Yellow",
+      "code": "#F3A975"
+    },
+    "climate": "Mild and Sunny",
+    "mood": "Fresh, Cheerful",
+    "style": "Casual"
+  },
+  {
+    "name": "Silver Lining",
+    "color1": {
+      "name": "Silver",
+      "code": "#C0C0C0"
+    },
+    "color2": {
+      "name": "Powder Blue",
+      "code": "#B0E0E6"
+    },
+    "climate": "Mild and Breezy",
+    "mood": "Elegant, Ethereal",
+    "style": "Formal"
+  },
+  {
+    "name": "Moonlit Sonata",
+    "color1": {
+      "name": "Midnight Blue",
+      "code": "#191970"
+    },
+    "color2": {
+      "name": "Soft Gray",
+      "code": "#D3D3D3"
+    },
+    "climate": "Cool and Breezy",
+    "mood": "Elegant, Mysterious",
+    "style": "Formal"
+  },
+  {
+    "name": "Golden Sunset",
+    "color1": {
+      "name": "Golden Yellow",
+      "code": "#FFD700"
+    },
+    "color2": {
+      "name": "Tangerine",
+      "code": "#F28500"
+    },
+    "climate": "Warm and Sunny",
+    "mood": "Radiant, Warm",
+    "style": "Dressy Casual"
+  },
+  {
+    "name": "Sapphire Sky",
+    "color1": {
+      "name": "Sapphire",
+      "code": "#0F52BA"
+    },
+    "color2": {
+      "name": "Silver",
+      "code": "#C0C0C0"
+    },
+    "climate": "Cool and Clear",
+    "mood": "Elegant, Serene",
+    "style": "Formal"
+  },
+  {
+    "name": "Desert Oasis",
+    "color1": {
+      "name": "Sandstone",
+      "code": "#D2B48C"
+    },
+    "color2": {
+      "name": "Turquoise",
+      "code": "#40E0D0"
+    },
+    "climate": "Hot and Dry",
+    "mood": "Earthy, Refreshing",
+    "style": "Casual"
+  },
+  {
+    "name": "Chocolate Covered Cherry",
+    "color1": {
+      "name": "Chocolate Brown",
+      "code": "#3D1F00"
+    },
+    "color2": {
+      "name": "Cherry Red",
+      "code": "#B2242D"
+    },
+    "climate": "Cool and Crisp",
+    "mood": "Decadent, Rich",
+    "style": "Formal"
+  },
+  {
+    "name": "Tranquil Tropics",
+    "color1": {
+      "name": "Teal",
+      "code": "#008080"
+    },
+    "color2": {
+      "name": "Coral",
+      "code": "#FF7F50"
+    },
+    "climate": "Warm and Humid",
+    "mood": "Lush, Relaxing",
+    "style": "Casual"
+  },
+  {
+    "name": "Sunset Serenade - Black",
+    "color1": {
+      "name": "Black",
+      "code": "#000000"
+    },
+    "color2": {
+      "name": "Coral",
+      "code": "#FF7F50"
+    },
+    "climate": "Warm",
+    "mood": "Optimistic, Breezy",
+    "style": "Dressy Casual"
+  }
+,  
+  {
+    "name": "Copper Canyon",
+    "color1": {
+      "name": "Copper",
+      "code": "#B87333"
+    },
+    "color2": {
+      "name": "Brick Red",
+      "code": "#8B0000"
+    },
+    "climate": "Varied",
+    "mood": "Earthy, Rich",
+    "style": "Casual"
+  },
+  {
+    "name": "Cotton Candy",
+    "color1": {
+      "name": "Cotton Candy Pink",
+      "code": "#FFBCD9"
+    },
+    "color2": {
+      "name": "Pastel Blue",
+      "code": "#AEC6CF"
+    },
+    "climate": "Mild and Breezy",
+    "mood": "Playful, Soft",
+    "style": "Casual"
+  },
+  {
+    "name": "Jungle Safari",
+    "color1": {
+      "name": "Khaki",
+      "code": "#C3B091"
+    },
+    "color2": {
+      "name": "Olive",
+      "code": "#808000"
+    },
+    "climate": "Hot and Humid",
+    "mood": "Earthy, Adventurous",
+    "style": "Casual"
+  },
+  {
+    "name": "Vintage Rose",
+    "color1": {
+      "name": "Vintage Pink",
+      "code": "#D8BFD8"
+    },
+    "color2": {
+      "name": "Soft Gray",
+      "code": "#D3D3D3"
+    },
+    "climate": "Mild and Breezy",
+    "mood": "Romantic, Timeless",
+    "style": "Formal"
+  },
+  {
+    "name": "Moonlit Meadow",
+    "color1": {
+      "name": "Lavender",
+      "code": "#E6E6FA"
+    },
+    "color2": {
+      "name": "Grass Green",
+      "code": "#4B5320"
+    },
+    "climate": "Mild and Breezy",
+    "mood": "Serene, Fresh",
+    "style": "Casual"
+  },
+  {
+    "name": "Sunset Serenade - White",
+    "color1": {
+      "name": "White",
+      "code": "#FFFFFF"
+    },
+    "color2": {
+      "name": "Black",
+      "code": "#000000"
+    },
+    "climate": "Warm",
+    "mood": "Optimistic, Breezy",
+    "style": "Dressy Casual"
+  }
+,  
+  {
+    "name": "Coral Reef",
+    "color1": {
+      "name": "Coral",
+      "code": "#FF7F50"
+    },
+    "color2": {
+      "name": "Aquamarine",
+      "code": "#7FFFD4"
+    },
+    "climate": "Warm and Sunny",
+    "mood": "Vibrant, Tropical",
+    "style": "Casual"
+  },
+  {
+    "name": "Moonlight Sonata",
+    "color1": {
+      "name": "Midnight Blue",
+      "code": "#191970"
+    },
+    "color2": {
+      "name": "Soft Gray",
+      "code": "#D3D3D3"
+    },
+    "climate": "Cool and Breezy",
+    "mood": "Elegant, Mysterious",
+    "style": "Formal"
+  },
+  {
+
+
+    "name": "Golden Sunset",
+    "color1": {
+      "name": "Golden Yellow",
+      "code": "#FFD700"
+    },
+    "color2": {
+      "name": "Tangerine",
+      "code": "#F28500"
+    },
+    "climate": "Warm and Sunny",
+    "mood": "Radiant, Warm",
+    "style": "Dressy Casual"
+  },
+  {
+    "name": "Sapphire Sky",
+    "color1": {
+      "name": "Sapphire",
+      "code": "#0F52BA"
+    },
+    "color2": {
+      "name": "Silver",
+      "code": "#C0C0C0"
+    },
+    "climate": "Cool and Clear",
+    "mood": "Elegant, Serene",
+    "style": "Formal"
+  },
+  {
+    "name": "Desert Oasis",
+    "color1": {
+      "name": "Sandstone",
+      "code": "#D2B48C"
+    },
+    "color2": {
+      "name": "Turquoise",
+      "code": "#40E0D0"
+    },
+    "climate": "Hot and Dry",
+    "mood": "Earthy, Refreshing",
+    "style": "Casual"
+  },
+  {
+    "name": "Chocolate Covered Cherry",
+    "color1": {
+      "name": "Chocolate Brown",
+      "code": "#3D1F00"
+    },
+    "color2": {
+      "name": "Cherry Red",
+      "code": "#B2242D"
+    },
+    "climate": "Cool and Crisp",
+    "mood": "Decadent, Rich",
+    "style": "Formal"
+  },
+  {
+    "name": "Tranquil Tropics",
+    "color1": {
+      "name": "Teal",
+      "code": "#008080"
+    },
+    "color2": {
+      "name": "Coral",
+      "code": "#FF7F50"
+    },
+    "climate": "Warm and Humid",
+    "mood": "Lush, Relaxing",
+    "style": "Casual"
+  },
+  {
+    "name": "Silver Lining",
+    "color1": {
+      "name": "Silver",
+      "code": "#C0C0C0"
+    },
+    "color2": {
+      "name": "Powder Blue",
+      "code": "#B0E0E6"
+    },
+    "climate": "Mild and Breezy",
+    "mood": "Elegant, Ethereal",
+    "style": "Formal"
+  },
+  
+  {
+    "name": "Sunrise Serenity",
+    "color1": {
+      "name": "Soft Pink",
+      "code": "#FFB6C1"
+    },
+    "color2": {
+      "name": "Golden Yellow",
+      "code": "#FFD700"
+    },
+    "climate": "Warm and Sunny",
+    "mood": "Calm, Cheerful",
+    "style": "Casual"
+  },
+  {
+    "name": "Blue Moon",
+    "color1": {
+      "name": "Navy Blue",
+      "code": "#000080"
+    },
+    "color2": {
+      "name": "Sky Blue",
+      "code": "#87CEEB"
+    },
+    "climate": "Cool and Breezy",
+    "mood": "Classic, Serene",
+    "style": "Casual"
+  },
+  {
+    "name": "Cherry Blossom",
+    "color1": {
+      "name": "Soft Pink",
+      "code": "#FFB6C1"
+    },
+    "color2": {
+      "name": "Soft Lilac",
+      "code": "#C8A2C8"
+    },
+    "climate": "Mild and Sunny",
+    "mood": "Romantic, Delicate",
+    "style": "Casual"
+  },
+  {
+    "name": "Icy Elegance",
+    "color1": {
+      "name": "Ice Blue",
+      "code": "#71A6D2"
+    },
+    "color2": {
+      "name": "Silver",
+      "code": "#C0C0C0"
+    },
+    "climate": "Cold and Crisp",
+    "mood": "Chic, Sophisticated",
+    "style": "Formal"
+  },
+  {
+    "name": "Sahara Sands",
+    "color1": {
+      "name": "Beige",
+      "code": "#F5F5DC"
+    },
+    "color2": {
+      "name": "Sand",
+      "code": "#C2B280"
+    },
+    "climate": "Hot and Dry",
+    "mood": "Neutral, Warm",
+    "style": "Casual"
+  },
+  {
+    "name": "Copper Canyon",
+    "color1": {
+      "name": "Copper",
+      "code": "#B87333"
+    },
+    "color2": {
+      "name": "Brick Red",
+      "code": "#8B0000"
+    },
+    "climate": "Varied",
+    "mood": "Earthy, Rich",
+    "style": "Casual"
+  },
+  {
+    "name": "Cotton Candy",
+    "color1": {
+      "name": "Cotton Candy Pink",
+      "code": "#FFBCD9"
+    },
+    "color2": {
+      "name": "Pastel Blue",
+      "code": "#AEC6CF"
+    },
+    "climate": "Mild and Breezy",
+    "mood": "Playful, Soft",
+    "style": "Casual"
+  },
+  {
+    "name": "Jungle Safari",
+    "color1": {
+      "name": "Khaki",
+      "code": "#C3B091"
+    },
+    "color2": {
+      "name": "Olive",
+      "code": "#808000"
+    },
+    "climate": "Hot and Humid",
+    "mood": "Earthy, Adventurous",
+    "style": "Casual"
+  },
+  {
+    "name": "Vintage Rose",
+    "color1": {
+      "name": "Vintage Pink",
+      "code": "#D8BFD8"
+    },
+    "color2": {
+      "name": "Soft Gray",
+      "code": "#D3D3D3"
+    },
+    "climate": "Mild and Breezy",
+    "mood": "Romantic, Timeless",
+    "style": "Formal"
+  },
+  {
+    "name": "Moonlit Meadow",
+    "color1": {
+      "name": "Lavender",
+      "code": "#E6E6FA"
+    },
+    "color2": {
+      "name": "Grass Green",
+      "code": "#4B5320"
+    },
+    "climate": "Mild and Breezy",
+    "mood": "Serene, Fresh",
+    "style": "Casual"
+
+
+  },
+  {
+    "name": "Coral Reef",
+    "color1": {
+      "name": "Coral",
+      "code": "#FF7F50"
+    },
+    "color2": {
+      "name": "Aquamarine",
+      "code": "#7FFFD4"
+    },
+    "climate": "Warm and Sunny",
+    "mood": "Vibrant, Tropical",
+    "style": "Casual"
+  },
+  {
+    "name": "Moonlight Sonata",
+    "color1": {
+      "name": "Midnight Blue",
+      "code": "#191970"
+    },
+    "color2": {
+      "name": "Soft Gray",
+      "code": "#D3D3D3"
+    },
+    "climate": "Cool and Breezy",
+    "mood": "Elegant, Mysterious",
+    "style": "Formal"
+  },
+  {
+    "name": "Golden Sunset",
+    "color1": {
+      "name": "Golden Yellow",
+      "code": "#FFD700"
+    },
+    "color2": {
+      "name": "Tangerine",
+      "code": "#F28500"
+    },
+    "climate": "Warm and Sunny",
+    "mood": "Radiant, Warm",
+    "style": "Dressy Casual"
+  },
+  {
+    "name": "Sapphire Sky",
+    "color1": {
+      "name": "Sapphire",
+      "code": "#0F52BA"
+    },
+    "color2": {
+      "name": "Silver",
+      "code": "#C0C0C0"
+    },
+    "climate": "Cool and Clear",
+    "mood": "Elegant, Serene",
+    "style": "Formal"
+  },
+  {
+    "name": "Desert Oasis",
+    "color1": {
+      "name": "Sandstone",
+      "code": "#D2B48C"
+    },
+    "color2": {
+      "name": "Turquoise",
+      "code": "#40E0D0"
+    },
+    "climate": "Hot and Dry",
+    "mood": "Earthy, Refreshing",
+    "style": "Casual"
+  },
+  {
+    "name": "Chocolate Covered Cherry",
+    "color1": {
+      "name": "Chocolate Brown",
+      "code": "#3D1F00"
+    },
+    "color2": {
+      "name": "Cherry Red",
+      "code": "#B2242D"
+    },
+    "climate": "Cool and Crisp",
+    "mood": "Decadent, Rich",
+    "style": "Formal"
+  },
+  {
+    "name": "Tranquil Tropics",
+    "color1": {
+      "name": "Teal",
+      "code": "#008080"
+    },
+    "color2": {
+      "name": "Coral",
+      "code": "#FF7F50"
+    },
+    "climate": "Warm and Humid",
+    "mood": "Lush, Relaxing",
+    "style": "Casual"
+  },
+  {
+    "name": "Silver Lining",
+    "color1": {
+      "name": "Silver",
+      "code": "#C0C0C0"
+    },
+    "color2": {
+      "name": "Powder Blue",
+      "code": "#B0E0E6"
+    },
+    "climate": "Mild and Breezy",
+    "mood": "Elegant, Ethereal",
+    "style": "Formal"
+  },
+  {
+    "name": "Sunrise Serenity",
+    "color1": {
+      "name": "Soft Pink",
+      "code": "#FFB6C1"
+    },
+    "color2": {
+      "name": "Golden Yellow",
+      "code": "#FFD700"
+    },
+    "climate": "Warm and Sunny",
+    "mood": "Calm, Cheerful",
+    "style": "Casual"
+  },
+  {
+    "name": "Blue Moon",
+    "color1": {
+      "name": "Navy Blue",
+      "code": "#000080"
+    },
+    "color2": {
+      "name": "Sky Blue",
+      "code": "#87CEEB"
+    },
+    "climate": "Cool and Breezy",
+    "mood": "Classic, Serene",
+    "style": "Casual"
+  },
+  {
+    "name": "Cherry Blossom",
+    "color1": {
+      "name": "Soft Pink",
+      "code": "#FFB6C1"
+    },
+    "color2": {
+      "name": "Soft Lilac",
+      "code": "#C8A2C8"
+    },
+    "climate": "Mild and Sunny",
+    "mood": "Romantic, Delicate",
+    "style": "Casual"
+  },
+  {
+    "name": "Icy Elegance",
+    "color1": {
+      "name": "Ice Blue",
+      "code": "#71A6D2"
+    },
+    "color2": {
+      "name": "Silver",
+      "code": "#C0C0C0"
+    },
+    "climate": "Cold and Crisp",
+    "mood": "Chic, Sophisticated",
+    "style": "Formal"
+  },
+  {
+    "name": "Sahara Sands",
+    "color1": {
+      "name": "Beige",
+      "code": "#F5F5DC"
+    },
+    "color2": {
+      "name": "Sand",
+      "code": "#C2B280"
+    },
+    "climate": "Hot and Dry",
+    "mood": "Neutral, Warm",
+    "style": "Casual"
+  },
+  {
+    "name": "Copper Canyon",
+    "color1": {
+      "name": "Copper",
+      "code": "#B87333"
+    },
+    "color2": {
+      "name": "Brick Red",
+      "code": "#8B0000"
+    },
+    "climate": "Varied",
+    "mood": "Earthy, Rich",
+    "style": "Casual"
+  },
+  {
+    "name": "Cotton Candy",
+    "color1": {
+      "name": "Cotton Candy Pink",
+      "code": "#FFBCD9"
+    },
+    "color2": {
+      "name": "Pastel Blue",
+      "code": "#AEC6CF"
+    },
+    "climate": "Mild and Breezy",
+    "mood": "Playful, Soft",
+    "style": "Casual"
+  },
+  {
+    "name": "Jungle Safari",
+    "color1": {
+      "name": "Khaki",
+      "code": "#C3B091"
+    },
+    "color2": {
+      "name": "Olive",
+      "code": "#808000"
+    },
+    "climate": "Hot and Humid",
+    "mood": "Earthy, Adventurous",
+    "style": "Casual"
+  },
+
+
+  {
+    "name": "Vintage Rose",
+    "color1": {
+      "name": "Vintage Pink",
+      "code": "#D8BFD8"
+    },
+    "color2": {
+      "name": "Soft Gray",
+      "code": "#D3D3D3"
+    },
+    "climate": "Mild and Breezy",
+    "mood": "Romantic, Timeless",
+    "style": "Formal"
+  },
+  {
+    "name": "Moonlit Meadow",
+    "color1": {
+      "name": "Lavender",
+      "code": "#E6E6FA"
+    },
+    "color2": {
+      "name": "Grass Green",
+      "code": "#4B5320"
+    },
+    "climate": "Mild and Breezy",
+    "mood": "Serene, Fresh",
+    "style": "Casual"
+  },
+  {
+    "name": "Coral Reef",
+    "color1": {
+      "name": "Coral",
+      "code": "#FF7F50"
+    },
+    "color2": {
+      "name": "Aquamarine",
+      "code": "#7FFFD4"
+    },
+    "climate": "Warm and Sunny",
+    "mood": "Vibrant, Tropical",
+    "style": "Casual"
+  },
+  {
+    "name": "Moonlight Sonata",
+    "color1": {
+      "name": "Midnight Blue",
+      "code": "#191970"
+    },
+    "color2": {
+      "name": "Soft Gray",
+      "code": "#D3D3D3"
+    },
+    "climate": "Cool and Breezy",
+    "mood": "Elegant, Mysterious",
+    "style": "Formal"
+  },
+  {
+    "name": "Golden Sunset",
+    "color1": {
+      "name": "Golden Yellow",
+      "code": "#FFD700"
+    },
+    "color2": {
+      "name": "Tangerine",
+      "code": "#F28500"
+    },
+    "climate": "Warm and Sunny",
+    "mood": "Radiant, Warm",
+    "style": "Dressy Casual"
+  },
+  {
+    "name": "Sapphire Sky",
+    "color1": {
+      "name": "Sapphire",
+      "code": "#0F52BA"
+    },
+    "color2": {
+      "name": "Silver",
+      "code": "#C0C0C0"
+    },
+    "climate": "Cool and Clear",
+    "mood": "Elegant, Serene",
+    "style": "Formal"
+  },
+  {
+    "name": "Desert Oasis",
+    "color1": {
+      "name": "Sandstone",
+      "code": "#D2B48C"
+    },
+    "color2": {
+      "name": "Turquoise",
+      "code": "#40E0D0"
+    },
+    "climate": "Hot and Dry",
+    "mood": "Earthy, Refreshing",
+    "style": "Casual"
+  },
+  {
+    "name": "Chocolate Covered Cherry",
+    "color1": {
+      "name": "Chocolate Brown",
+      "code": "#3D1F00"
+    },
+    "color2": {
+      "name": "Cherry Red",
+      "code": "#B2242D"
+    },
+    "climate": "Cool and Crisp",
+    "mood": "Decadent, Rich",
+    "style": "Formal"
+  },
+  {
+    "name": "Tranquil Tropics",
+    "color1": {
+      "name": "Teal",
+      "code": "#008080"
+    },
+    "color2": {
+      "name": "Coral",
+      "code": "#FF7F50"
+    },
+    "climate": "Warm and Humid",
+    "mood": "Lush, Relaxing",
+    "style": "Casual"
+  },
+  {
+    "name": "Silver Lining",
+    "color1": {
+      "name": "Silver",
+      "code": "#C0C0C0"
+    },
+    "color2": {
+      "name": "Powder Blue",
+      "code": "#B0E0E6"
+    },
+    "climate": "Mild and Breezy",
+    "mood": "Elegant, Ethereal",
+    "style": "Formal"
+  },
+  {
+    "name": "Sunrise Serenity",
+    "color1": {
+      "name": "Soft Pink",
+      "code": "#FFB6C1"
+    },
+    "color2": {
+      "name": "Golden Yellow",
+      "code": "#FFD700"
+    },
+    "climate": "Warm and Sunny",
+    "mood": "Calm, Cheerful",
+    "style": "Casual"
+  },
+  {
+    "name": "Blue Moon",
+    "color1": {
+      "name": "Navy Blue",
+      "code": "#000080"
+    },
+    "color2": {
+      "name": "Sky Blue",
+      "code": "#87CEEB"
+    },
+    "climate": "Cool and Breezy",
+    "mood": "Classic, Serene",
+    "style": "Casual"
+  },
+  {
+    "name": "Cherry Blossom",
+    "color1": {
+      "name": "Soft Pink",
+      "code": "#FFB6C1"
+    },
+    "color2": {
+      "name": "Soft Lilac",
+      "code": "#C8A2C8"
+    },
+    "climate": "Mild and Sunny",
+    "mood": "Romantic, Delicate",
+    "style": "Casual"
+  },
+  {
+    "name": "Icy Elegance",
+    "color1": {
+      "name": "Ice Blue",
+      "code": "#71A6D2"
+    },
+    "color2": {
+      "name": "Silver",
+      "code": "#C0C0C0"
+    },
+    "climate": "Cold and Crisp",
+    "mood": "Chic, Sophisticated",
+    "style": "Formal"
+  },
+  {
+    "name": "Sahara Sands",
+    "color1": {
+      "name": "Beige",
+      "code": "#F5F5DC"
+    },
+    "color2": {
+      "name": "Sand",
+      "code": "#C2B280"
+    },
+    "climate": "Hot and Dry",
+    "mood": "Neutral, Warm",
+    "style": "Casual"
+  },
+  {
+    "name": "Copper Canyon",
+    "color1": {
+      "name": "Copper",
+      "code": "#B87333"
+    },
+    "color2": {
+      "name": "Brick Red",
+      "code": "#8B0000"
+    },
+    "climate": "Varied",
+    "mood": "Earthy, Rich",
+    "style": "Casual"
+  },
+  {
+    "name": "Cotton Candy",
+    "color1": {
+      "name": "Cotton Candy Pink",
+      "code": "#FFBCD9"
+    },
+    "color2": {
+      "name": "Pastel Blue",
+      "code": "#AEC6CF"
+    },
+    "climate": "Mild and Breezy",
+    "mood": "Playful, Soft",
+    "style": "Casual"
+  },
+  {
+    "name": "Jungle Safari",
+    "color1": {
+      "name": "Khaki",
+      "code": "#C3B091"
+    },
+    "color2": {
+      "name": "Olive",
+      "code": "#808000"
+    },
+    "climate": "Hot and Humid",
+    "mood": "Earthy, Adventurous",
+    "style": "Casual"
+  },
+  {
+    "name": "Vintage Rose",
+    "color1": {
+      "name": "Vintage Pink",
+      "code": "#D8BFD8"
+    },
+    "color2": {
+      "name": "Soft Gray",
+      "code": "#D3D3D3"
+    },
+    "climate": "Mild and Breezy",
+    "mood": "Romantic, Timeless",
+    "style": "Formal"
+  },
+  {
+    "name": "Moonlit Meadow",
+    "color1": {
+      "name": "Lavender",
+      "code": "#E6E6FA"
+    },
+    "color2": {
+      "name": "Grass Green",
+      "code": "#4B5320"
+    },
+    "climate": "Mild and Breezy",
+    "mood": "Serene, Fresh",
+    "style": "Casual"
+  },
+  {
+    "name": "Coral Reef",
+    "color1": {
+      "name": "Coral",
+      "code": "#FF7F50"
+    },
+    "color2": {
+      "name": "Aquamarine",
+      "code": "#7FFFD4"
+    },
+    "climate": "Warm and Sunny",
+    "mood": "Vibrant, Tropical",
+    "style": "Casual"
+  },
+  {
+    "name": "Moonlight Sonata",
+    "color1": {
+      "name": "Midnight Blue",
+      "code": "#191970"
+    },
+    "color2": {
+      "name": "Soft Gray",
+      "code": "#D3D3D3"
+    },
+    "climate": "Cool and Breezy",
+    "mood": "Elegant, Mysterious",
+    "style": "Formal"
+  },
+  {
+    "name": "Golden Sunset",
+    "color1": {
+      "name": "Golden Yellow",
+      "code": "#FFD700"
+    },
+    "color2": {
+      "name": "Tangerine",
+      "code": "#F28500"
+    },
+    "climate": "Warm and Sunny",
+    "mood": "Radiant, Warm",
+    "style": "Dressy Casual"
+  },
+  {
+    "name": "Sapphire Sky",
+    "color1": {
+      "name": "Sapphire",
+      "code": "#0F52BA"
+    },
+    "color2": {
+      "name": "Silver",
+      "code": "#C0C0C0"
+    },
+    "climate": "Cool and Clear",
+    "mood": "Elegant, Serene",
+    "style": "Formal"
+  },
+  {
+    "name": "Desert Oasis",
+    "color1": {
+      "name": "Sandstone",
+      "code": "#D2B48C"
+    },
+    "color2": {
+      "name": "Turquoise",
+      "code": "#40E0D0"
+    },
+    "climate": "Hot and Dry",
+    "mood": "Earthy, Refreshing",
+    "style": "Casual"
+  },
+  {
+    "name": "Chocolate Covered Cherry",
+    "color1": {
+      "name": "Chocolate Brown",
+      "code": "#3D1F00"
+    },
+    "color2": {
+      "name": "Cherry Red",
+      "code": "#B2242D"
+    },
+    "climate": "Cool and Crisp",
+    "mood": "Decadent, Rich",
+    "style": "Formal"
+  },
+  {
+    "name": "Tranquil Tropics",
+    "color1": {
+      "name": "Teal",
+      "code": "#008080"
+    },
+    "color2": {
+      "name": "Coral",
+      "code": "#FF7F50"
+    },
+    "climate": "Warm and Humid",
+    "mood": "Lush, Relaxing",
+    "style": "Casual"
+  },
+  {
+    "name": "Silver Lining",
+    "color1": {
+      "name": "Silver",
+      "code": "#C0C0C0"
+    },
+    "color2": {
+      "name": "Powder Blue",
+      "code": "#B0E0E6"
+    },
+    "climate": "Mild and Breezy",
+    "mood": "Elegant, Ethereal",
+    "style": "Formal"
+  },
+  {
+    "name": "Sunrise Serenity",
+    "color1": {
+      "name": "Soft Pink",
+      "code": "#FFB6C1"
+    },
+    "color2": {
+      "name": "Golden Yellow",
+      "code": "#FFD700"
+    },
+    "climate": "Warm and Sunny",
+    "mood": "Calm, Cheerful",
+    "style": "Casual"
+  },
+  {
+    "name": "Blue Moon",
+    "color1": {
+      "name": "Navy Blue",
+      "code": "#000080"
+    },
+    "color2": {
+      "name": "Sky Blue",
+      "code": "#87CEEB"
+    },
+    "climate": "Cool and Breezy",
+    "mood": "Classic, Serene",
+    "style": "Casual"
+  },
+  {
+    "name": "Cherry Blossom",
+    "color1": {
+      "name": "Soft Pink",
+      "code": "#FFB6C1"
+    },
+    "color2": {
+      "name": "Soft Lilac",
+      "code": "#C8A2C8"
+    },
+    "climate": "Mild and Sunny",
+    "mood": "Romantic, Delicate",
+    "style": "Casual"
+  },
+  {
+    "name": "Icy Elegance",
+    "color1": {
+      "name": "Ice Blue",
+      "code": "#71A6D2"
+    },
+    "color2": {
+      "name": "Silver",
+      "code": "#C0C0C0"
+    },
+    "climate": "Cold and Crisp",
+    "mood": "Chic, Sophisticated",
+    "style": "Formal"
+  },
+  {
+    "name": "Sahara Sands",
+    "color1": {
+      "name": "Beige",
+      "code": "#F5F5DC"
+    },
+    "color2": {
+      "name": "Sand",
+      "code": "#C2B280"
+    },
+    "climate": "Hot and Dry",
+    "mood": "Neutral, Warm",
+    "style": "Casual"
+  },
+  {
+    "name": "Copper Canyon",
+    "color1": {
+      "name": "Copper",
+      "code": "#B87333"
+    },
+    "color2": {
+      "name": "Brick Red",
+      "code": "#8B0000"
+    },
+    "climate": "Varied",
+    "mood": "Earthy, Rich",
+    "style": "Casual"
+  },
+  {
+    "name": "Cotton Candy",
+    "color1": {
+      "name": "Cotton Candy Pink",
+      "code": "#FFBCD9"
+    },
+    "color2": {
+      "name": "Pastel Blue",
+      "code": "#AEC6CF"
+    },
+    "climate": "Mild and Breezy",
+    "mood": "Playful, Soft",
+    "style": "Casual"
+  },
+  {
+    "name": "Jungle Safari",
+    "color1": {
+      "name": "Khaki",
+      "code": "#C3B091"
+    },
+    "color2": {
+      "name": "Olive",
+      "code": "#808000"
+    },
+    "climate": "Hot and Humid",
+    "mood": "Earthy, Adventurous",
+    "style": "Casual"
+  },
+  {
+    "name": "Vintage Rose",
+    "color1": {
+      "name": "Vintage Pink",
+      "code": "#D8BFD8"
+    },
+    "color2": {
+      "name": "Soft Gray",
+      "code": "#D3D3D3"
+    },
+    "climate": "Mild and Breezy",
+    "mood": "Romantic, Timeless",
+    "style": "Formal"
+  },
+  {
+    "name": "Moonlit Meadow",
+    "color1": {
+      "name": "Lavender",
+      "code": "#E6E6FA"
+    },
+    "color2": {
+      "name": "Grass Green",
+      "code": "#4B5320"
+    },
+    "climate": "Mild and Breezy",
+    "mood": "Serene, Fresh",
+    "style": "Casual"
+  },
+  {
+    "name": "Coral Reef",
+    "color1": {
+      "name": "Coral",
+      "code": "#FF7F50"
+    },
+    "color2": {
+      "name": "Aquamarine",
+      "code": "#7FFFD4"
+    },
+    "climate": "Warm and Sunny",
+    "mood": "Vibrant, Tropical",
+    "style": "Casual"
+  },
+  {
+    "name": "Moonlight Sonata",
+    "color1": {
+      "name": "Midnight Blue",
+      "code": "#191970"
+    },
+    "color2": {
+      "name": "Soft Gray",
+      "code": "#D3D3D3"
+    },
+    "climate": "Cool and Breezy",
+    "mood": "Elegant, Mysterious",
+    "style": "Formal"
+  },
+  {
+    "name": "Golden Sunset",
+    "color1": {
+      "name": "Golden Yellow",
+      "code": "#FFD700"
+    },
+    "color2": {
+      "name": "Tangerine",
+      "code": "#F28500"
+    },
+    "climate": "Warm and Sunny",
+    "mood": "Radiant, Warm",
+    "style": "Dressy Casual"
+  },
+  {
+    "name": "Sapphire Sky",
+    "color1": {
+      "name": "Sapphire",
+      "code": "#0F52BA"
+    },
+    "color2": {
+      "name": "Silver",
+      "code": "#C0C0C0"
+    },
+    "climate": "Cool and Clear",
+    "mood": "Elegant, Serene",
+    "style": "Formal"
+  },
+  {
+    "name": "Desert Oasis",
+    "color1": {
+      "name": "Sandstone",
+      "code": "#D2B48C"
+    },
+    "color2": {
+      "name": "Turquoise",
+      "code": "#40E0D0"
+    },
+    "climate": "Hot and Dry",
+    "mood": "Earthy, Refreshing",
+    "style": "Casual"
+  },
+  {
+    "name": "Chocolate Covered Cherry",
+    "color1": {
+      "name": "Chocolate Brown",
+      "code": "#3D1F00"
+    },
+    "color2": {
+      "name": "Cherry Red",
+      "code": "#B2242D"
+    },
+    "climate": "Cool and Crisp",
+    "mood": "Decadent, Rich",
+    "style": "Formal"
+  },
+  {
+    "name": "Tranquil Tropics",
+    "color1": {
+      "name": "Teal",
+      "code": "#008080"
+    },
+    "color2": {
+      "name": "Coral",
+      "code": "#FF7F50"
+    },
+    "climate": "Warm and Humid",
+    "mood": "Lush, Relaxing",
+    "style": "Casual"
+  },
+  {
+    "name": "Silver Lining",
+    "color1": {
+      "name": "Silver",
+      "code": "#C0C0C0"
+    },
+    "color2": {
+      "name": "Powder Blue",
+      "code": "#B0E0E6"
+    },
+    "climate": "Mild and Breezy",
+    "mood": "Elegant, Ethereal",
+    "style": "Formal"
+  },
+  {
+    "name": "Sunrise Serenity",
+    "color1": {
+      "name": "Soft Pink",
+      "code": "#FFB6C1"
+    },
+    "color2": {
+      "name": "Golden Yellow",
+      "code": "#FFD700"
+    },
+    "climate": "Warm and Sunny",
+    "mood": "Calm, Cheerful",
+    "style": "Casual"
+  },
+  {
+    "name": "Blue Moon",
+    "color1": {
+      "name": "Navy Blue",
+      "code": "#000080"
+    },
+    "color2": {
+      "name": "Sky Blue",
+      "code": "#87CEEB"
+    },
+    "climate": "Cool and Breezy",
+    "mood": "Classic, Serene",
+    "style": "Casual"
+  },
+  {
+    "name": "Cherry Blossom",
+    "color1": {
+      "name": "Soft Pink",
+      "code": "#FFB6C1"
+    },
+    "color2": {
+      "name": "Soft Lilac",
+      "code": "#C8A2C8"
+    },
+    "climate": "Mild and Sunny",
+    "mood": "Romantic, Delicate",
+    "style": "Casual"
+  },
+  {
+    "name": "Icy Elegance",
+    "color1": {
+      "name": "Ice Blue",
+      "code": "#71A6D2"
+    },
+    "color2": {
+      "name": "Silver",
+      "code": "#C0C0C0"
+    },
+    "climate": "Cold and Crisp",
+    "mood": "Chic, Sophisticated",
+    "style": "Formal"
+  },
+  {
+    "name": "Sahara Sands",
+    "color1": {
+      "name": "Beige",
+      "code": "#F5F5DC"
+    },
+    "color2": {
+      "name": "Sand",
+      "code": "#C2B280"
+    },
+    "climate": "Hot and Dry",
+    "mood": "Neutral, Warm",
+    "style": "Casual"
+  },
+  {
+    "name": "Copper Canyon",
+    "color1": {
+      "name": "Copper",
+      "code": "#B87333"
+    },
+    "color2": {
+      "name": "Brick Red",
+      "code": "#8B0000"
+    },
+    "climate": "Varied",
+    "mood": "Earthy, Rich",
+    "style": "Casual"
+  },
+  {
+    "name": "Cotton Candy",
+    "color1": {
+      "name": "Cotton Candy Pink",
+      "code": "#FFBCD9"
+    },
+    "color2": {
+      "name": "Pastel Blue",
+      "code": "#AEC6CF"
+    },
+    "climate": "Mild and Breezy",
+    "mood": "Playful, Soft",
+    "style": "Casual"
+  },
+  {
+    "name": "Jungle Safari",
+    "color1": {
+      "name": "Khaki",
+      "code": "#C3B091"
+    },
+    "color2": {
+      "name": "Olive",
+      "code": "#808000"
+    },
+    "climate": "Hot and Humid",
+    "mood": "Earthy, Adventurous",
+    "style": "Casual"
+  },
+  {
+    "name": "Vintage Rose",
+    "color1": {
+      "name": "Vintage Pink",
+      "code": "#D8BFD8"
+    },
+    "color2": {
+      "name": "Soft Gray",
+      "code": "#D3D3D3"
+    },
+    "climate": "Mild and Breezy",
+    "mood": "Romantic, Timeless",
+    "style": "Formal"
+  },
+  {
+    "name": "Moonlit Meadow",
+    "color1": {
+      "name": "Lavender",
+      "code": "#E6E6FA"
+    },
+    "color2": {
+      "name": "Grass Green",
+      "code": "#4B5320"
+    },
+    "climate": "Mild and Breezy",
+    "mood": "Serene, Fresh",
+    "style": "Casual"
+  }
+]

@@ -90,7 +90,7 @@ hr{
 .favourite-colors h2{
   font-size: 20px;
 }
-.colors{
+.favourite-colors .colors{
   border: 2px solid black;
   width: 180px;
   padding: 10px;
@@ -102,7 +102,7 @@ hr{
   justify-content: space-evenly;
 
 }
-.color{
+.favourite-colors .color{
   width: 20px;
   height: 20px;
   border-radius: 50%;
