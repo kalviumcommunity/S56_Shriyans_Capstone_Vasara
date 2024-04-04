@@ -23,7 +23,7 @@ const Signup = () => {
   const onSubmit = (val) => {
     // console.log(val);
     axios
-      .post("http://localhost:3001/signup", {
+      .post("https://s56-shriyans-capstone-vasara.onrender.com/signup", {
         firstName: val.firstName,
         lastName: val.lastName,
         age: val.age,

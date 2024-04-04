@@ -10,7 +10,7 @@ let [loading,setLoading] = useState(true)
 let [data,setData] = useState();
 let [Colors,setColors] = useState()
 useEffect(() => {
-    axios.get(`http://localhost:3001/updateProfile/${id}`).then((res) => {
+    axios.get(`https://s56-shriyans-capstone-vasara.onrender.com/updateProfile/${id}`).then((res) => {
       setData(res.data);
       setColors(res.data.Colors);
     }).catch((err) => {
@@ -21,7 +21,7 @@ useEffect(() => {
   }, []);
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.put(`http://localhost:3001/updateProfile/${id}`,{...data,Colors}).then((res) => {
+    axios.put(`https://s56-shriyans-capstone-vasara.onrender.com/updateProfile/${id}`,{...data,Colors}).then((res) => {
         console.log(res);
         }
     ).catch((err) => {

@@ -7,12 +7,23 @@ import { Link, useParams } from "react-router-dom";
 const Profile = () => {
 
   let [data,setData]=useState()
-  let [loading,setLoading] = useState(true) 
+  let [loading,setLoading] = useState(true)
+  let handleFileChange =  (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    const tokenFromCookie = Cookies.get("token");
+    formData.append('image', e.target.files[0]);
+    axios.put(`http://localhost:3001/profile/${tokenFromCookie}`, formData).then((res) => {
+      console.log(res);
+    }).catch((err) => {
+      console.log(err);
+    });
+  }; 
   useEffect(() => {
     const fetchProfileData = async () => {
       const tokenFromCookie = Cookies.get("token");
       try {
-        const response = await axios.get(`https://s56-shriyans-capstone-vasara.onrender.com/profile/${tokenFromCookie}`);
+        const response = await axios.get(`http://localhost:3001/profile/${tokenFromCookie}`);
         
         console.log(response.data);
         setData(response.data);
@@ -28,18 +39,8 @@ const Profile = () => {
     };
 
     fetchProfileData();
-  }, []);
-  let handleSubmit =  (e) => {
-    e.preventDefault();
-    const formData = new FormData();
-    const tokenFromCookie = Cookies.get("token");
-    formData.append('image', e.target.image.files[0]);
-    axios.put(`http://localhost:3001/profile/${tokenFromCookie}`, formData).then((res) => {
-      console.log(res);
-    }).catch((err) => {
-      console.log(err);
-    });
-  };
+  }, [handleFileChange]);
+
 
 
   return (
@@ -49,10 +50,7 @@ const Profile = () => {
       {loading ? <h1>Loading...</h1> :
       (<div>
       <div className="profile-container">
-      <form onSubmit={handleSubmit} className="upload-profile-pic">
-        <input type="file" name='image' />
-        <input type="submit" value="Upload" />
-      </form>
+
         <Link   to={`/updateProfile/${data._id}`}>
         <button className="edit-profile">Edit</button>
         </Link>
@@ -63,7 +61,10 @@ const Profile = () => {
           <div className="card-header">
             <div className="outer-circle">
               <div className="profile-picture" style={{backgroundImage: `url(${data.Image})`}}>
-                  
+              <form  className="upload-profile-pic">
+        <input type="file" name='image' onChange={handleFileChange} />
+      </form>
+        <h2 className="upload-image">Upload Image</h2>
               </div>
             </div>
           </div>
