@@ -26,6 +26,7 @@ const Login = () => {
             Cookies.set('token', res.data.token, { expires: 7 , path: ''})
             console.log(res.data)
             setRegist(true)
+            
             toast.success('Login Successful!', {
               position: "top-center",
               autoClose: 1000,

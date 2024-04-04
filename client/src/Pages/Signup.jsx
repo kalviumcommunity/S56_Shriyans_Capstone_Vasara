@@ -3,22 +3,39 @@ import "./Signup.css";
 import Navbar from "../Components/Navbar";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
-import axios from "axios"
+import axios from "axios";
 const Signup = () => {
   const [regist, setRegist] = useState(false);
+  let Colors = {
+    Color1: "",
+    Color2: "",
+    Color3: "",
+    Color4: "",
+  };
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit=(val)=>{
-    console.log(val)
-      axios.post("https://s56-shriyans-capstone-vasara.onrender.com/signup",{firstName: val.firstName, lastName:val.lastName,age:val.age,gender:val.gender,email:val.email.toLowerCase(),password:val.password}).then((res)=>{
-        setRegist(true)
-        toast.success('Registration Successful!', {
+  const onSubmit = (val) => {
+    // console.log(val);
+    axios
+      .post("https://s56-shriyans-capstone-vasara.onrender.com/signup", {
+        firstName: val.firstName,
+        lastName: val.lastName,
+        age: val.age,
+        gender: val.gender,
+        email: val.email.toLowerCase(),
+        password: val.password,
+        Colors,
+        Image: "",
+      })
+      .then((res) => {
+        setRegist(true);
+        toast.success("Registration Successful!", {
           position: "top-center",
           autoClose: 1000,
           hideProgressBar: false,
@@ -27,9 +44,10 @@ const Signup = () => {
           draggable: true,
           progress: undefined,
           theme: "light",
-          });
-      })          .catch((error)=>{
-        console.log(error.response.data)
+        });
+      })
+      .catch((error) => {
+        console.log(error.response.data);
         toast.error(`${error.response.data}`, {
           position: "top-center",
           autoClose: 2000,
@@ -39,9 +57,9 @@ const Signup = () => {
           draggable: true,
           progress: undefined,
           theme: "light",
-          });
-      })
-  }
+        });
+      });
+  };
   return (
     <div className="signup">
       <Navbar />
@@ -87,13 +105,17 @@ const Signup = () => {
             </div>
 
             <div className="inp">
-              <select name="gender" className="gender-select"  {...register("gender", {
+              <select
+                name="gender"
+                className="gender-select"
+                {...register("gender", {
                   required: "Gender is required",
-                })}>
+                })}
+              >
                 <option value="">Select Gender</option>
-                <option value="male">male</option>
-                <option value="female">female</option>
-                <option value="other">other</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
               </select>
               {errors.gender && <p className="err">{errors.gender.message}</p>}
             </div>
@@ -133,12 +155,13 @@ const Signup = () => {
             </div>
             <input className="signup_btn btn" type="submit" value="Signup" />
             <br />
-            <Link to={"/login"} className="loginbtn">Login</Link>
-            
+            <Link to={"/login"} className="loginbtn">
+              Login
+            </Link>
           </form>
         </div>
       </div>
-      <ToastContainer/>
+      <ToastContainer />
     </div>
   );
 };
