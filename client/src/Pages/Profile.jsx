@@ -12,7 +12,7 @@ const Profile = () => {
     const fetchProfileData = async () => {
       const tokenFromCookie = Cookies.get("token");
       try {
-        const response = await axios.get(`http://localhost:3001/profile/${tokenFromCookie}`);
+        const response = await axios.get(`https://s56-shriyans-capstone-vasara.onrender.com/profile/${tokenFromCookie}`);
         
         console.log(response.data);
         setData(response.data);
