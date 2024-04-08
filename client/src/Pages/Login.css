@@ -28,7 +28,7 @@ height: 45vh;
 text-align: center;
 }
 
-.form {
+.login-form .form {
     margin: auto;
     padding: 20px;
   }
