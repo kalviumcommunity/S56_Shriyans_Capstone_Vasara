@@ -4,12 +4,12 @@ import "./Contact.css"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 const Contact = () => {
-    let [data,setData] = useState({ 
+    const [data,setData] = useState({ 
         name: "",
         email: "",
         message: ""
     })
-    let handlesubmit = (e) => {
+    const handlesubmit = (e) => {
         e.preventDefault();
         console.log(data)
         // alert("Your message has been sent successfully! We will get back to you soon.")

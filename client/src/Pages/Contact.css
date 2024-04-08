@@ -13,9 +13,10 @@
 }
 .form{
     /* border: 2px solid black; */
-    width: 400px;
+    width: 30vw;
     height: 500px;
     margin: 0%;
+    padding: 20px;
 }
 .form h1{
     text-align: center;
@@ -34,11 +35,11 @@
 .form input{
     margin: 10px;
     border-radius: 5px;
-    width: 300px;
+    width: 85%;
 }
 .form textarea{
     padding: 15px;
-    width: 300px;
+    width: 85%;
     height: 100px;
     margin: 10px;
     border-radius: 5px;
@@ -47,7 +48,7 @@
     text-align: center;
 }
 .form input[type="submit"]{
-    width: 200px;
+    width: 15vw;
     padding: 10px 20px; 
     border-radius: 5px;
     cursor: pointer;
