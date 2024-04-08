@@ -6,6 +6,7 @@ const jwt = require("jsonwebtoken")
 const multer  = require('multer')
 const cloudinary = require('../Cloudinary')
 const upload = require('../multer')
+const FeedbackModal = require("../models/FeedbackModal")
 
 
 require("dotenv").config()
@@ -113,6 +114,30 @@ router.put("/updateProfile/:id",(req,res)=>{
     .then((el) => res.json(el))
     .catch(err => res.json(err));
 }   
+)
+
+router.get("/feedback",async(req,res)=>{
+    try{
+        const feedback = await FeedbackModal.find({})
+        res.status(200).json(feedback)
+    }catch(error){
+        res.status(500).json({message:"Failed to get feedback",error})
+    }
+}
+)
+
+router.post("/feedback",async(req,res)=>{
+    const {name,email,message} = req.body
+    const newFeedback = new FeedbackModal({
+        name,email,message
+    })
+    try{
+        await newFeedback.save()
+        res.status(201).json({message:"Message sent!"})
+    }catch(error){
+        res.status(500).json({message:"Failed to submit",error})
+    }
+}
 )
 
 router.get('*', (req, res) => res.status(404).send('Page not found'))
