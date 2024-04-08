@@ -1,34 +1,57 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Navbar from '../Components/Navbar'
 import "./Contact.css"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import axios from 'axios';
 const Contact = () => {
     const [data,setData] = useState({ 
         name: "",
         email: "",
         message: ""
     })
+
     const handlesubmit = (e) => {
         e.preventDefault();
         console.log(data)
         // alert("Your message has been sent successfully! We will get back to you soon.")
-        toast.success('Message sent', {
-            position: "top-center",
-            autoClose: 1000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-            });
-        setData({
-            name: "",
-            email: "",
-            message: ""
+
+        axios.post("http://localhost:3001/feedback",data)
+        .then((res)=>{
+            console.log(res)
+            toast.success('Message sent', {
+                position: "top-center",
+                autoClose: 1000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                });
+            setData({
+                name: "",
+                email: "",
+                message: ""
+            })
         })
-    }
+        .catch((error)=>{
+            toast.error(`${error.message}`, {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                });
+  
+  
+            })
+        }
+
+
   return (
     <div className='contact_container'>
               <ToastContainer/>
