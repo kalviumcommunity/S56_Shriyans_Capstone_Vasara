@@ -8,6 +8,7 @@ import Styles from './Pages/StylesPage'
 import Profile from './Pages/Profile'
 import UpdateUserData from './Components/UpdateUserData'
 import ColorsPage from './Pages/ColorsPage'
+import Contact from './Pages/Contact'
 // import HOME from './Pages/HOME.JSX'
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
   <Route path='/profile/:id' element={<Profile/>}/>
   <Route path='/updateProfile/:id' element={<UpdateUserData/>}/>
   <Route path="/Colors" element={<ColorsPage/>}/>
+  <Route path='/contact_us' element={<Contact/>}/>
 </Routes>
     </>
   )
