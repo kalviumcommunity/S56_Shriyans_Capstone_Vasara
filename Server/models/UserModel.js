@@ -35,7 +35,8 @@ const userSchema = new mongoose.Schema({
         required:true,
     },
     Colors:favColors,
-    Image: String
+    Image: String,
+    favColors:[String],
 
 })
 

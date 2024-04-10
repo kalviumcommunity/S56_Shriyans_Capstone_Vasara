@@ -1,12 +1,24 @@
-import React from 'react'
+import React, { useState,useEffect } from 'react'
 import "./ColorsPage.css"
 import Navbar from '../Components/Navbar'
 import ColorCard from '../Components/ColorCard'
-import data from '../Colors.json'
+import axios from 'axios'
 const ColorsPage = () => {
 
+const [data,setData] = useState([])
+useEffect(() => {
+    const fetchData = async () => {
+        try {
+            const response = await axios.get("https://s56-shriyans-capstone-vasara.onrender.com/colors");
+            setData(response.data);
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
+    fetchData();
 
+}, []);
   return (
     <div>
         <Navbar/>

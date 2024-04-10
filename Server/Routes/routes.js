@@ -7,6 +7,7 @@ const multer  = require('multer')
 const cloudinary = require('../Cloudinary')
 const upload = require('../multer')
 const FeedbackModal = require("../models/FeedbackModal")
+const ColorModal = require("../models/ColorsModal")
 
 
 require("dotenv").config()
@@ -75,7 +76,7 @@ router.post("/login",async(req,res)=>{
 router.get("/profile/:id", (req, res) => {
     try {
         const id = jwt.verify(req.params.id, process.env.JWT_Token);
-        User.findById({ _id: id._id })
+        User.findById({ _id: id.id })
             .then((el) => res.json(el))
             .catch(err => res.status(400).json({ error: "Invalid or expired token" }));
     } catch (err) {
@@ -138,6 +139,60 @@ router.post("/feedback",async(req,res)=>{
         res.status(500).json({message:"Failed to submit",error})
     }
 }
+)
+
+router.get("/colors",async(req,res)=>{
+    try{
+        const colors = await ColorModal.find({})
+        res.status(200).json(colors)
+    }catch(error){
+        res.status(500).json({message:"Failed to get colors",error})
+    }
+}
+)
+
+router.get("/favorites/:id", (req, res) => {
+    try {
+        const id = jwt.verify(req.params.id, process.env.JWT_Token);
+        User.findById({ _id: id.id })
+            .then((el) => res.json(el))
+            .catch(err => res.status(400).json({ error: "Invalid or expired token" }));
+    } catch (err) {
+        res.status(400).json({ error: "Invalid or expired token" });
+    }
+});
+
+router.put("/favorites/:id", async (req, res) => {
+    try {
+        const id = jwt.verify(req.params.id, process.env.JWT_Token);
+        const updatedUser = await User.findByIdAndUpdate(id.id, { $set: req.body }, { new: true });
+        res.json(updatedUser);
+    } catch (err) {
+        res.json(err);
+    }
+});
+
+
+router.put("/favorites/:id",(req,res)=>{
+    const id = jwt.verify(req.params.id, process.env.JWT_Token);
+    if (req.body.favColors.some(colorId => !mongoose.Types.ObjectId.isValid(colorId))) {
+        return res.status(400).json({ error: "Invalid favColors array" });
+    }
+    let favColors = req.body.favColors
+    User.findById({ _id: id.id })
+    .then((el) => {
+        User.findByIdAndUpdate(id.id,{...el,favColors})
+        .then((el) => {
+            res.json(el)
+    })
+        .catch(err => res.json(err));
+        res.json(el)
+    
+    })
+    .catch(err => res.status(400).json({ error: "Invalid or expired token" }));
+
+
+}   
 )
 
 router.get('*', (req, res) => res.status(404).send('Page not found'))
