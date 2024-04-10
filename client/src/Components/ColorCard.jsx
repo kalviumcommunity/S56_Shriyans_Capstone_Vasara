@@ -1,10 +1,55 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "./ColorCard.css"
+import { useState } from 'react'
+import axios from 'axios'
+import Cookies from 'js-cookie'
 const ColorCard = ({props}) => {
     let data = props
     let color1 = data.color1.code
     let color2 = data.color2.code
+    let token = Cookies.get('token')
 
+    const [favorites, setFavorites] = useState([]);
+
+    useEffect(() => {
+      axios.get(`http://localhost:3001/favorites/${token}`)
+      .then(res => {
+        setFavorites(res.data.favColors || []);
+      })
+      .catch(err => console.log(err));
+    }
+    , []);
+
+  const handleFav = () => {
+    axios.get(`http://localhost:3001/favorites/${token}`)
+    .then(res => {
+      // setFavorites(res.data.favColors || []);
+
+      if (res.data.favColors.includes(data._id)) {
+        setFavorites(favorites.filter(id => id != data._id));
+        console.log(favorites)
+        axios.put(`http://localhost:3001/favorites/${token}`, {
+          favColors: favorites
+        })
+          .then(response => {
+            console.log('Updated user:', response.data);
+          })
+          .catch(error => {
+            console.error('Error updating user:', error);
+          })
+
+      } else {
+        // setFavorites([...updatedFavorites, data._id]);
+        axios.put(`http://localhost:3001/favorites/${token}`, { favColors : [...res.data.favColors, data._id] })
+          .then(res => {
+            console.log(favorites)
+            setFavorites([...favorites, data._id]);
+          })
+          .catch(err => console.log(err));
+      }
+    })
+    .catch(err => console.log(err));
+  }
   return (
 <div className="color-container" onClick={()=>{
   console.log(data)
@@ -18,8 +63,8 @@ const ColorCard = ({props}) => {
 
 
     <h2>{data.name}</h2>
-    <div className="heart-container" title="Like">
-            <input type="checkbox" className="checkbox" id="Give-It-An-Id"/>
+    <div className="heart-container" title="Like" onClick={handleFav}>
+            <input type="checkbox" className="checkbox" id="Give-It-An-Id" checked={favorites.includes(data._id)}/>
             <div className="svg-container">
                 <svg viewBox="0 0 24 24" className="svg-outline" xmlns="http://www.w3.org/2000/svg">
                     <path d="M17.5,1.917a6.4,6.4,0,0,0-5.5,3.3,6.4,6.4,0,0,0-5.5-3.3A6.8,6.8,0,0,0,0,8.967c0,4.547,4.786,9.513,8.8,12.88a4.974,4.974,0,0,0,6.4,0C19.214,18.48,24,13.514,24,8.967A6.8,6.8,0,0,0,17.5,1.917Zm-3.585,18.4a2.973,2.973,0,0,1-3.83,0C4.947,16.006,2,11.87,2,8.967a4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,11,8.967a1,1,0,0,0,2,0,4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,22,8.967C22,11.87,19.053,16.006,13.915,20.313Z">

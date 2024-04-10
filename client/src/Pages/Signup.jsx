@@ -32,6 +32,7 @@ const Signup = () => {
         password: val.password,
         Colors,
         Image: "",
+        favColors:[]
       })
       .then((res) => {
         setRegist(true);

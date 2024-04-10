@@ -11,7 +11,7 @@
     align-items: center;
     background-color: #fffefb;
 }
-.form{
+.contact-form-container .form{
     /* border: 2px solid black; */
     width: 30vw;
     height: 500px;
