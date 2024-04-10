@@ -7,16 +7,18 @@ const ColorsPage = () => {
 
 const [data,setData] = useState([])
 useEffect(() => {
-    axios.get("http://localhost:3001/colors")
-    .then((res)=>{
-        // console.log(res.data)
-        setData(res.data)
-    })
-    .catch((err)=>{
-        console.log(err)
-    })
-}
-,[])
+    const fetchData = async () => {
+        try {
+            const response = await axios.get("https://s56-shriyans-capstone-vasara.onrender.com/colors");
+            setData(response.data);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    fetchData();
+
+}, []);
   return (
     <div>
         <Navbar/>

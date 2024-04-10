@@ -162,16 +162,22 @@ router.get("/favorites/:id", (req, res) => {
     }
 });
 
-router.put("/favorites/:id",(req,res)=>{
-    const id = jwt.verify(req.params.id, process.env.JWT_Token);
-    User.findByIdAndUpdate(id.id,req.body)
-    .then((el) => res.json(el))
-    .catch(err => res.json(err));
-}   
-)
+router.put("/favorites/:id", async (req, res) => {
+    try {
+        const id = jwt.verify(req.params.id, process.env.JWT_Token);
+        const updatedUser = await User.findByIdAndUpdate(id.id, { $set: req.body }, { new: true });
+        res.json(updatedUser);
+    } catch (err) {
+        res.json(err);
+    }
+});
+
 
 router.put("/favorites/:id",(req,res)=>{
     const id = jwt.verify(req.params.id, process.env.JWT_Token);
+    if (req.body.favColors.some(colorId => !mongoose.Types.ObjectId.isValid(colorId))) {
+        return res.status(400).json({ error: "Invalid favColors array" });
+    }
     let favColors = req.body.favColors
     User.findById({ _id: id.id })
     .then((el) => {

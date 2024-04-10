@@ -12,7 +12,7 @@ const ColorCard = ({props}) => {
     const [favorites, setFavorites] = useState([]);
 
     useEffect(() => {
-      axios.get(`http://localhost:3001/favorites/${token}`)
+      axios.get(`https://s56-shriyans-capstone-vasara.onrender.com/favorites/${token}`)
       .then(res => {
         setFavorites(res.data.favColors || []);
       })
@@ -20,36 +20,26 @@ const ColorCard = ({props}) => {
     }
     , []);
 
-  const handleFav = () => {
-    axios.get(`http://localhost:3001/favorites/${token}`)
-    .then(res => {
-      // setFavorites(res.data.favColors || []);
-
-      if (res.data.favColors.includes(data._id)) {
-        setFavorites(favorites.filter(id => id != data._id));
-        console.log(favorites)
-        axios.put(`http://localhost:3001/favorites/${token}`, {
-          favColors: favorites
-        })
-          .then(response => {
-            console.log('Updated user:', response.data);
-          })
-          .catch(error => {
-            console.error('Error updating user:', error);
-          })
-
+  const handleFav = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await axios.get(`https://s56-shriyans-capstone-vasara.onrender.com/favorites/${token}`);
+      const favColors = res.data.favColors || [];
+  
+      if (favColors.includes(data._id)) {
+        const updatedFavorites = favColors.filter(id => id !== data._id);
+        await axios.put(`https://s56-shriyans-capstone-vasara.onrender.com/favorites/${token}`, { favColors: updatedFavorites });
+        setFavorites(updatedFavorites);
       } else {
-        // setFavorites([...updatedFavorites, data._id]);
-        axios.put(`http://localhost:3001/favorites/${token}`, { favColors : [...res.data.favColors, data._id] })
-          .then(res => {
-            console.log(favorites)
-            setFavorites([...favorites, data._id]);
-          })
-          .catch(err => console.log(err));
+        const updatedFavorites = [...favColors, data._id];
+        await axios.put(`https://s56-shriyans-capstone-vasara.onrender.com/favorites/${token}`, { favColors: updatedFavorites });
+        setFavorites(updatedFavorites);
       }
-    })
-    .catch(err => console.log(err));
-  }
+    } catch (error) {
+      console.error('Error handling favorites:', error);
+    }
+  };
+  
   return (
 <div className="color-container" onClick={()=>{
   console.log(data)
