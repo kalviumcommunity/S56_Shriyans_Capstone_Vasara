@@ -26,13 +26,13 @@
     padding: 0px 20px;
 }
 .gender-select
-{
-        width: 97%;
+    {
+        width: 91%;
         padding:15px;
         margin-bottom: 12px;
         background-color: white;
     
-        border-radius: 30px;
+        border-radius: 5px;
         margin-bottom: 20px;
         border: 1px solid black;
         margin-bottom: 0;

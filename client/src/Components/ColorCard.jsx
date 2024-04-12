@@ -3,6 +3,7 @@ import "./ColorCard.css"
 import { useState } from 'react'
 import axios from 'axios'
 import Cookies from 'js-cookie'
+import { Link } from 'react-router-dom'
 const ColorCard = ({props}) => {
     let data = props
     let color1 = data.color1.code
@@ -39,11 +40,8 @@ const ColorCard = ({props}) => {
       console.error('Error handling favorites:', error);
     }
   };
-  
   return (
-<div className="color-container" onClick={()=>{
-  console.log(data)
-}}>
+<div className="color-container">
   <div className="palette">
     <div className="color" style={{backgroundColor: color1}}><span>{data.color1.name}</span></div>
     <div className="color" style={{backgroundColor: color2}}><span>{data.color2.name}</span></div>
@@ -51,8 +49,9 @@ const ColorCard = ({props}) => {
   </div>
   <div className='color-name-container'> 
 
-
+    <Link to={`./colordetails/${data._id}`}>
     <h2>{data.name}</h2>
+    </Link>
     <div className="heart-container" title="Like" onClick={handleFav}>
             <input type="checkbox" className="checkbox" id="Give-It-An-Id" checked={favorites.includes(data._id)}/>
             <div className="svg-container">
