@@ -3,128 +3,156 @@ import "./ColorDetails.css";
 import Navbar from "../Components/Navbar";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import Footer from "../Components/Footer";
+import FlipCameraAndroidIcon from '@mui/icons-material/FlipCameraAndroid';
 const ColorDetails = () => {
   const id = useParams().id;
-  const [data,setData] = useState([])
-  console.log(id);
+  const [data, setData] = useState([]);
+  const [color1, setColor1] = useState("");
+  const [color2, setColor2] = useState("");
+  
   const [loader, setLoader] = useState(true);
   useEffect(() => {
     axios
       .get(`http://localhost:3001/colordetail/${id}`)
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         setData(res.data);
+		setColor1(res.data.color1.code);
+		setColor2(res.data.color2.code);
       })
       .catch((err) => console.log(err))
       .finally(() => setLoader(false));
-  }
-  , []);
+  }, []);
+
+  let handleChange = () => {
+	let temp = color1
+	setColor1(color2)
+	setColor2(temp)
+  
+}
   return (
     <div>
       <Navbar />
-      {loader ? (<div className="loader">Loading...</div>):(      <div className="colorDetailsCont">
-        <div className="displayCombination">
-          <div className="displayPolo">
-            <svg
-              xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-              xmlns="http://www.w3.org/2000/svg"
-              xmlns:cc="http://creativecommons.org/ns#"
-              xmlns:dc="http://purl.org/dc/elements/1.1/"
-              xmlns:svg="http://www.w3.org/2000/svg"
-              id="svg2"
-              viewBox="0 0 180 170"
-              version="1.0"
-            >
-              <g id="layer1" transform="translate(-21.75 -11.093)">
-                <g
-                  id="g3327"
-                  stroke="#000"
-                  transform="translate(-21.875 -690.13)"
-                >
-                  <path
-                    id="path3292"
-                    strokeWidth="2"
-                    fillRule="evenodd"
-                    fill={data.color1?.code}
-                    d="m126 724.61c11.26 1.51 20.64 1.15 29.25 0l5.25 7.25c22.64 8.58 35.77 7.65 60 21-3.12 10.49-3.71 21.99-13 30-7.75-6.09-15.5-4.8-23.25-6.75v88.25c-29.13 5.3-58.04 6.67-86.5 0v-88.25c-6.741 0.75-12.342 0.2-23.5 6-8.376-6.98-10.991-18.45-13.5-30 25.954-11.67 39.005-13.26 60.25-19.75l5-7.75z"
-                  />
-                  <path
-                    id="path3296"
-                    strokeWidth="1px"
-                    fill="none"
-                    d="m125.5 725.61c2.74 8.06 6.68 14.68 12.75 18.75l-7 7.75c-7.73-5.93-8.17-12.68-10.25-19.25"
-                  />
+      {loader ? (
+        <div className="loader">Loading...</div>
+      ) : (
+        <div className="colorDetailsCont">
+          <div className="displayCombination">
 
-                  <path
-                    id="path3298"
-                    strokeWidth="1px"
-                    fill="none"
-                    d="m98.5 739.36c2.06 11.05 6.24 24.83-0.25 36.5"
-                  />
-                  <path
-                    id="path3300"
-                    strokeWidth="1px"
-                    fill="none"
-                    d="m100 745.86l22-7.5"
-                  />
-                  <path
-                    id="path3302"
-                    strokeWidth="1px"
-                    fill="none"
-                    d="m64.75 751c1.429 11.5 6.974 20.65 13 28.86"
-                  />
-                  <path
-                    id="path3304"
-                    strokeWidth="1px"
-                    fill="none"
-                    d="m97.75 860.86c28.75 4.1 57.5 5.84 86.25 0"
-                  />
-                  <path
-                    id="path3314"
-                    strokeWidth="1px"
-                    fill="none"
-                    d="m155.5 725.11c-2.74 8.06-6.68 14.68-12.75 18.75l7 7.75c7.73-5.93 8.17-12.68 10.25-19.25"
-                  />
-                  <path
-                    id="path3316"
-                    strokeWidth="1px"
-                    fill="none"
-                    d="m183.5 739.11c-2.06 11.05-6.24 24.83 0.25 36.5"
-                  />
-                  <path
-                    id="path3318"
-                    strokeWidth="1px"
-                    fill="none"
-                    d="m182 745.86l-23.5-8"
-                  />
-                  <path
-                    id="path3320"
-                    strokeWidth="1px"
-                    fill="none"
-                    d="m216.5 751.36c-1.43 11.49-6.97 20.04-13 28.25"
-                  />
-                  <path
-                    id="path3322"
-                    strokeWidth="1px"
-                    fill="none"
-                    d="m128.75 733.36c7.4-2.31 14.94-1.99 23 0"
-                  />
-                  <path
-                    id="rect3324"
-                    strokeLinecap="round"
-                    fill="none"
-                    d="m138.5 744.11h3.75v23.25h-3.75v-23.25z"
-                  />
+            <div className="displayPolo">
+              <svg
+                xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:cc="http://creativecommons.org/ns#"
+                xmlns:dc="http://purl.org/dc/elements/1.1/"
+                xmlns:svg="http://www.w3.org/2000/svg"
+                id="svg2"
+                viewBox="0 0 180 170"
+                version="1.0"
+              >
+                <g id="layer1" transform="translate(-21.75 -11.093)">
+                  <g
+                    id="g3327"
+                    stroke="#000"
+                    transform="translate(-21.875 -690.13)"
+                  >
+                    <path
+                      id="path3292"
+                      strokeWidth="2"
+                      fillRule="evenodd"
+                      fill={color1}
+                      d="m126 724.61c11.26 1.51 20.64 1.15 29.25 0l5.25 7.25c22.64 8.58 35.77 7.65 60 21-3.12 10.49-3.71 21.99-13 30-7.75-6.09-15.5-4.8-23.25-6.75v88.25c-29.13 5.3-58.04 6.67-86.5 0v-88.25c-6.741 0.75-12.342 0.2-23.5 6-8.376-6.98-10.991-18.45-13.5-30 25.954-11.67 39.005-13.26 60.25-19.75l5-7.75z"
+                    />
+                    <path
+                      id="path3296"
+                      strokeWidth="1px"
+                      fill="none"
+                      d="m125.5 725.61c2.74 8.06 6.68 14.68 12.75 18.75l-7 7.75c-7.73-5.93-8.17-12.68-10.25-19.25"
+                    />
+
+                    <path
+                      id="path3298"
+                      strokeWidth="1px"
+                      fill="none"
+                      d="m98.5 739.36c2.06 11.05 6.24 24.83-0.25 36.5"
+                    />
+                    <path
+                      id="path3300"
+                      strokeWidth="1px"
+                      fill="none"
+                      d="m100 745.86l22-7.5"
+                    />
+                    <path
+                      id="path3302"
+                      strokeWidth="1px"
+                      fill="none"
+                      d="m64.75 751c1.429 11.5 6.974 20.65 13 28.86"
+                    />
+                    <path
+                      id="path3304"
+                      strokeWidth="1px"
+                      fill="none"
+                      d="m97.75 860.86c28.75 4.1 57.5 5.84 86.25 0"
+                    />
+                    <path
+                      id="path3314"
+                      strokeWidth="1px"
+                      fill="none"
+                      d="m155.5 725.11c-2.74 8.06-6.68 14.68-12.75 18.75l7 7.75c7.73-5.93 8.17-12.68 10.25-19.25"
+                    />
+                    <path
+                      id="path3316"
+                      strokeWidth="1px"
+                      fill="none"
+                      d="m183.5 739.11c-2.06 11.05-6.24 24.83 0.25 36.5"
+                    />
+                    <path
+                      id="path3318"
+                      strokeWidth="1px"
+                      fill="none"
+                      d="m182 745.86l-23.5-8"
+                    />
+                    <path
+                      id="path3320"
+                      strokeWidth="1px"
+                      fill="none"
+                      d="m216.5 751.36c-1.43 11.49-6.97 20.04-13 28.25"
+                    />
+                    <path
+                      id="path3322"
+                      strokeWidth="1px"
+                      fill="none"
+                      d="m128.75 733.36c7.4-2.31 14.94-1.99 23 0"
+                    />
+                    <path
+                      id="rect3324"
+                      strokeLinecap="round"
+                      fill="none"
+                      d="m138.5 744.11h3.75v23.25h-3.75v-23.25z"
+                    />
+                  </g>
                 </g>
-              </g>
-            </svg>
-          </div>
-          <div className="displayJeans">
-          <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="100px" viewBox="0 0 628 980" enable-background="new 0 0 628 980" xml:space="preserve">
-<path fill="#020202" opacity="1.000000" stroke="none" 
-	d="
-M629.000000,857.000000 
+              </svg>
+            </div>
+            <div className="displayJeans">
+              <svg
+                version="1.1"
+                id="Layer_1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlnsXlink="http://www.w3.org/1999/xlink"
+                x="0px"
+                y="0px"
+                width="100px"
+                viewBox="0 0 628 980"
+                enableBackground="new 0 0 628 980"
+                xmlSpace="preserve"
+              >
+                <path
+                  fill="#020202"
+                  opacity="1.000000"
+                  stroke="none"
+                  d="M629.000000,857.000000 
 	C629.000000,873.020874 629.000000,889.041809 628.617798,905.737854 
 	C628.154724,923.778015 628.065308,941.143005 628.035339,958.508057 
 	C628.034485,959.004822 628.664307,959.502625 629.000000,960.000000 
@@ -267,9 +295,13 @@ M97.499847,67.675743
 	C56.308777,39.285461 53.615929,40.671032 53.404678,41.845097 
 	C51.889862,50.263927 50.892307,58.775833 49.673298,67.675728 
 	C65.883286,67.675728 81.191566,67.675728 97.499847,67.675743 
-z"/>
-<path fill="#FEFEFE" opacity="1.000000" stroke="none" 
-	d="
+z"
+                />
+                <path
+                  fill="#efefef"
+                  opacity="1.000000"
+                  stroke="none"
+                  d="
 M0.999997,910.468628 
 	C1.331174,911.657837 1.888404,913.306152 1.958426,914.974915 
 	C2.628747,930.950684 3.193396,946.930725 3.839668,962.907532 
@@ -293,9 +325,13 @@ M0.999997,910.468628
 	C401.131409,977.627686 416.888916,978.843079 432.815796,980.603149 
 	C289.000000,981.000000 144.999969,981.000000 1.000000,981.000000 
 	C1.000000,957.563354 1.000000,934.250305 0.999997,910.468628 
-z"/>
-<path fill="#FBFBFB" opacity="1.000000" stroke="none" 
-	d="
+z"
+                />
+                <path
+                  fill="#efefef"
+                  opacity="1.000000"
+                  stroke="none"
+                  d="
 M629.000000,856.531372 
 	C628.671570,855.511719 628.073608,854.027222 628.053040,852.534668 
 	C625.945984,699.627502 624.188660,546.714661 621.686157,393.814056 
@@ -307,9 +343,13 @@ M629.000000,856.531372
 	C528.369263,2.673151 509.849030,2.537964 491.190308,1.394647 
 	C536.979736,1.000000 582.959534,1.000000 629.000000,1.000000 
 	C629.000000,286.020905 629.000000,571.041809 629.000000,856.531372 
-z"/>
-<path fill="#FBFBFB" opacity="1.000000" stroke="none" 
-	d="
+z"
+                />
+                <path
+                  fill="#efefef"
+                  opacity="1.000000"
+                  stroke="none"
+                  d="
 M143.531342,0.999999 
 	C142.840393,1.326032 141.693436,1.879360 140.519333,1.944632 
 	C115.584129,3.330864 90.620369,4.320997 65.721504,6.182131 
@@ -321,62 +361,94 @@ M143.531342,0.999999
 	C1.973709,672.326355 1.868040,672.987366 1.403903,673.824463 
 	C1.000000,449.786987 1.000000,225.573959 1.000000,1.000000 
 	C48.353615,1.000000 95.708153,1.000000 143.531342,0.999999 
-z"/>
-<path fill="#F7F7F7" opacity="1.000000" stroke="none" 
-	d="
+z"
+                />
+                <path
+                  fill="#efefef"
+                  opacity="1.000000"
+                  stroke="none"
+                  d="
 M574.468628,981.000000 
 	C580.640564,980.350525 587.294678,979.814087 593.918030,979.021179 
 	C601.179260,978.151794 608.444214,977.231262 615.648376,975.990173 
 	C622.738892,974.768677 627.381409,970.771240 628.650757,963.125366 
 	C629.000000,968.963806 629.000000,974.927612 629.000000,981.000000 
 	C610.979248,981.000000 592.958252,981.000000 574.468628,981.000000 
-z"/>
-<path fill="#111111" opacity="1.000000" stroke="none" 
-	d="
+z"
+                />
+                <path
+                  fill="#11111"
+                  opacity="1.000000"
+                  stroke="none"
+                  d="
 M368.531342,1.000001 
 	C367.773376,1.332268 366.547180,1.952930 365.320068,1.954765 
 	C331.719666,2.004993 298.119110,1.994325 264.518616,1.973299 
 	C263.874908,1.972896 263.231354,1.725980 262.293854,1.297040 
 	C297.354218,1.000000 332.708466,1.000000 368.531342,1.000001 
-z"/>
-<path fill="#6F6F6F" opacity="1.000000" stroke="none" 
-	d="
+z"
+                />
+                <path
+                  fill="#6F6F6F"
+                  opacity="1.000000"
+                  stroke="none"
+                  d="
 M1.828318,776.958618 
 	C1.801675,805.494629 1.775032,834.030640 1.374195,862.783325 
 	C1.000000,834.645752 1.000000,806.291565 1.206709,777.450928 
 	C1.413419,776.964478 1.828318,776.958618 1.828318,776.958618 
-z"/>
-<path fill="#797979" opacity="1.000000" stroke="none" 
-	d="
+z"
+                />
+                <path
+                  fill="#797979"
+                  opacity="1.000000"
+                  stroke="none"
+                  d="
 M629.000000,959.531372 
 	C628.664307,959.502625 628.034485,959.004822 628.035339,958.508057 
 	C628.065308,941.143005 628.154724,923.778015 628.617798,906.206543 
 	C629.000000,923.687561 629.000000,941.375122 629.000000,959.531372 
-z"/>
-<path fill="#8A8A8A" opacity="1.000000" stroke="none" 
-	d="
+z"
+                />
+                <path
+                  fill="#8A8A8A"
+                  opacity="1.000000"
+                  stroke="none"
+                  d="
 M1.875275,776.494873 
 	C1.828318,776.958618 1.413419,776.964478 1.206709,776.982239 
 	C1.000000,762.312439 1.000000,747.624878 0.999996,732.468628 
 	C1.344785,733.477112 1.983721,734.953308 1.988375,736.431458 
 	C2.029937,749.631165 1.959614,762.831177 1.875275,776.494873 
-z"/>
-<path fill="#191919" opacity="1.000000" stroke="none" 
-	d="
+z"
+                />
+                <path
+                  fill="#191919"
+                  opacity="1.000000"
+                  stroke="none"
+                  d="
 M224.531342,1.000001 
 	C224.438019,1.308467 223.874786,1.887935 223.314224,1.885385 
 	C212.067215,1.834226 200.820496,1.716046 189.286865,1.305687 
 	C200.687561,1.000000 212.375122,1.000000 224.531342,1.000001 
-z"/>
-<path fill="#292929" opacity="1.000000" stroke="none" 
-	d="
+z"
+                />
+                <path
+                  fill="#292929"
+                  opacity="1.000000"
+                  stroke="none"
+                  d="
 M450.531342,1.000000 
 	C449.293793,1.339999 447.586609,1.975528 445.881592,1.969691 
 	C437.781342,1.941963 429.681732,1.739517 421.290955,1.299638 
 	C430.687561,1.000000 440.375122,1.000000 450.531342,1.000000 
-z"/>
-<path fill={data.color2.code} opacity="1.000000" stroke="none" 
-	d="
+z"
+                />
+                <path
+                  fill={color2}
+                  opacity="1.000000"
+                  stroke="none"
+                  d="
 M347.000244,83.678192 
 	C372.664215,83.678192 397.829041,83.781807 422.991302,83.573570 
 	C427.062317,83.539894 429.529999,84.713486 432.084503,87.925850 
@@ -399,9 +471,13 @@ M347.000244,83.678192
 	C314.661407,145.492599 314.312256,117.331688 313.970490,89.170677 
 	C313.950531,87.527222 313.967896,85.883308 313.967896,83.678200 
 	C324.985443,83.678200 335.742828,83.678200 347.000244,83.678192 
-z"/>
-<path fill={data.color2.code} opacity="1.000000" stroke="none" 
-	d="
+z"
+                />
+                <path
+                  fill={color2}
+                  opacity="1.000000"
+                  stroke="none"
+                  d="
 M258.790283,665.648071 
 	C256.171417,691.952332 253.586411,717.800720 251.025970,743.651611 
 	C247.792633,776.296204 244.589996,808.943848 241.354080,841.588196 
@@ -422,27 +498,39 @@ M258.790283,665.648071
 	C288.740082,354.893463 284.518127,399.154999 280.241211,443.410767 
 	C276.092377,486.340942 272.004944,529.277039 267.865417,572.208130 
 	C264.876617,603.205261 261.846649,634.198425 258.790283,665.648071 
-z"/>
-<path fill={data.color2.code} opacity="1.000000" stroke="none" 
-	d="
+z"
+                />
+                <path
+                  fill={color2}
+                  opacity="1.000000"
+                  stroke="none"
+                  d="
 M561.283569,173.895050 
 	C538.363892,166.747742 519.613464,153.380402 501.941589,138.311966 
 	C482.911621,122.085457 465.851929,103.924385 449.412689,84.101891 
 	C493.200562,84.101891 536.313721,84.101891 580.278809,84.101891 
 	C581.613525,114.467644 582.961060,145.127151 584.376831,177.337479 
 	C576.239502,176.133911 568.961670,175.057449 561.283569,173.895050 
-z"/>
-<path fill={data.color2.code} opacity="1.000000" stroke="none" 
-	d="
+z"
+                />
+                <path
+                  fill={color2}
+                  opacity="1.000000"
+                  stroke="none"
+                  d="
 M142.530701,119.532730 
 	C122.860252,138.866516 102.400383,156.573196 77.488663,168.317886 
 	C65.319466,174.055115 54.417847,176.646210 43.345322,176.325134 
 	C44.952629,145.661102 46.558849,115.017860 48.182606,84.040085 
 	C90.453453,84.040085 132.142197,84.040085 175.595413,84.040085 
 	C164.135483,96.348091 153.457870,107.815887 142.530701,119.532730 
-z"/>
-<path fill={data.color2.code} opacity="1.000000" stroke="none" 
-	d="
+z"
+                />
+                <path
+                  fill={color2}
+                  opacity="1.000000"
+                  stroke="none"
+                  d="
 M141.998962,36.158703 
 	C143.406860,35.054985 144.806442,33.914742 146.220215,33.896866 
 	C176.877350,33.509289 207.535660,33.181862 238.194656,32.983761 
@@ -450,9 +538,13 @@ M141.998962,36.158703
 	C297.151489,44.503471 297.151489,55.736134 297.151489,67.324371 
 	C245.806427,67.324371 194.238312,67.324371 141.997269,67.324371 
 	C141.997269,57.152000 141.997269,46.898457 141.998962,36.158703 
-z"/>
-<path fill={data.color2.code} opacity="1.000000" stroke="none" 
-	d="
+z"
+                />
+                <path
+                  fill={color2}
+                  opacity="1.000000"
+                  stroke="none"
+                  d="
 M398.999908,32.958939 
 	C423.281006,32.959045 447.062073,32.959045 471.005768,32.959045 
 	C471.005768,44.964172 471.005768,56.066387 471.005768,67.421570 
@@ -464,9 +556,13 @@ M339.961121,38.172047
 	C320.297485,54.013439 324.958588,61.130600 332.555450,62.474117 
 	C338.204834,63.473221 343.903381,60.306740 346.265717,54.855785 
 	C348.896301,48.785812 346.968994,43.214485 339.961121,38.172047 
-z"/>
-<path fill={data.color2.code} opacity="1.000000" stroke="none" 
-	d="
+z"
+                />
+                <path
+                  fill={color2}
+                  opacity="1.000000"
+                  stroke="none"
+                  d="
 M494.084991,33.887054 
 	C520.012268,35.265392 545.446838,36.667210 570.887329,37.952820 
 	C574.847595,38.152943 576.755310,39.578449 576.991882,43.823456 
@@ -474,9 +570,13 @@ M494.084991,33.887054
 	C548.426880,67.417160 518.173279,67.417160 487.563080,67.417160 
 	C487.563080,56.302200 487.563080,45.268963 487.563080,33.872356 
 	C489.669098,33.872356 491.631683,33.872356 494.084991,33.887054 
-z"/>
-<path fill={data.color2.code} opacity="1.000000" stroke="none" 
-	d="
+z"
+                />
+                <path
+                  fill={color2}
+                  opacity="1.000000"
+                  stroke="none"
+                  d="
 M96.999847,67.675735 
 	C81.191566,67.675728 65.883286,67.675728 49.673298,67.675728 
 	C50.892307,58.775833 51.889862,50.263927 53.404678,41.845097 
@@ -485,38 +585,51 @@ M96.999847,67.675735
 	C112.524612,34.646881 118.873383,35.013706 125.602112,35.013706 
 	C125.602112,45.227322 125.602112,56.127808 125.602112,67.675743 
 	C116.374100,67.675743 106.936974,67.675743 96.999847,67.675735 
-z"/>
-<path fill="#050505" opacity="1.000000" stroke="none" 
-	d="
+z"
+                />
+                <path
+                  fill="#050505"
+                  opacity="1.000000"
+                  stroke="none"
+                  d="
 M340.295105,38.366966 
 	C346.968994,43.214485 348.896301,48.785812 346.265717,54.855785 
 	C343.903381,60.306740 338.204834,63.473221 332.555450,62.474117 
 	C324.958588,61.130600 320.297485,54.013439 322.125000,46.547600 
 	C323.946655,39.105637 331.437836,35.587894 340.295105,38.366966 
-z"/>
-</svg>
+z"
+                />
+              </svg>
+            </div>
+          </div>
+          <div className="combinationDetails">
+            <h1>{data.name}</h1>
+            <div className="combiDetail">
+              <label htmlFor="">Color 1	 </label>{" "}
+              <span>{data.color1.name}</span>
+            </div>
+            <div className="combiDetail">
+              <label htmlFor="">Color 2 </label>{" "}
+              <span>{data.color2.name}</span>
+            </div>
+            <div className="combiDetail">
+              <label htmlFor="">Prefered Climate </label>{" "}
+              <span>{data.climate}</span>
+            </div>
+            <div className="combiDetail">
+              <label htmlFor="">Prefered Mood </label> <span>{data.mood}</span>
+            </div>
+            <div className="combiDetail">
+              <label htmlFor="">Style </label> <span>{data.style}</span>
+            </div>
+		  <div class="tooltip" onClick={handleChange}>
+  <div class="icon"><FlipCameraAndroidIcon/></div>
+  <div class="tooltiptext">Reverse Color</div>
+</div>
           </div>
         </div>
-        <div className="combinationDetails">
-            <h1>{data.name}</h1>
-            <div>
-                <label htmlFor="">Color 1: </label> <span>{data.color1.name}</span>
-            </div>
-            <div>
-                <label htmlFor="">Color 2: </label> <span>{data.color2.name}</span>
-            </div>
-            <div>
-                <label htmlFor="">Prefered Climate:  </label> <span>{data.climate}</span>
-            </div>
-            <div>
-                <label htmlFor="">Prefered Mood:  </label> <span>{data.mood}</span>
-            </div>
-            <div>
-                <label htmlFor="">Style:  </label> <span>{data.style}</span>
-            </div>
-        </div>
-      </div>)}
-
+      )}
+	  <Footer/>
     </div>
   );
 };

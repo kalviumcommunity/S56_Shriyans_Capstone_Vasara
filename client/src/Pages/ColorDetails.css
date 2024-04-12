@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap');
+
 .colorDetailsCont {
   /* border: 2px solid red; */
   height: 87vh;
   box-sizing: border-box;
   display: flex;
+  font-family: "Tilt Neon", sans-serif;
 }
 .displayCombination {
   /* border: 2px solid green; */
@@ -10,17 +13,32 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #efefef;
+
 }
 .combinationDetails {
-  border: 2px solid blue;
+  /* border: 2px solid blue; */
+  /* border-left: 2px solid gray; */
   width: 50vw;
   padding: 10px 20px;
 }
 .combinationDetails h1 {
-  font-size: 35px;
+  font-size: 50px;
   padding: 10px 0;
-  width: 50%;
+  color: #414642;
+  padding-right: 50px;
+  width: fit-content;
   border-bottom: 5px solid rgb(203, 227, 255);
+  margin-bottom: 40px;
+}
+.combinationDetails .combiDetail{
+  font-size: 20px;
+  margin: 30px 10px;
+  border-bottom: 1px solid gray;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px ;
+  
 }
 .displayJeans svg {
   width: 200px;
@@ -35,4 +53,58 @@
 .displayPolo {
   z-index: 10;
   width: 400px;
+}
+
+
+.tooltip {
+  margin: 0px 10px;
+  padding: 10px ;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  font-family: "Arial", sans-serif;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+.tooltiptext {
+  visibility: hidden;
+  width: 150px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 10px;
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: 70%;
+  margin-left: -100px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  margin-left: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent #333 transparent;
+}
+
+.tooltip .icon {
+  width: 40px;
+  height: 40px;
+  background-color: #4caf50;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
