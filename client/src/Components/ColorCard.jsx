@@ -41,9 +41,7 @@ const ColorCard = ({props}) => {
     }
   };
   return (
-<div className="color-container" onClick={()=>{
-  console.log(data)
-}}>
+<div className="color-container">
   <div className="palette">
     <div className="color" style={{backgroundColor: color1}}><span>{data.color1.name}</span></div>
     <div className="color" style={{backgroundColor: color2}}><span>{data.color2.name}</span></div>

@@ -6,6 +6,7 @@ import axios from "axios";
 import Footer from "../Components/Footer";
 import FlipCameraAndroidIcon from '@mui/icons-material/FlipCameraAndroid';
 const ColorDetails = () => {
+	// console.log(API_URI)
   const id = useParams().id;
   const [data, setData] = useState([]);
   const [color1, setColor1] = useState("");
@@ -13,18 +14,20 @@ const ColorDetails = () => {
   
   const [loader, setLoader] = useState(true);
   useEffect(() => {
-    axios
-      .get(`http://localhost:3001/colordetail/${id}`)
-      .then((res) => {
-        // console.log(res.data);
-        setData(res.data);
+	axios
+	  .get(`${API_URI}/colordetail/${id}`)
+	  .then((res) => {
+		// console.log(res.data);
+		setData(res.data);
 		setColor1(res.data.color1.code);
 		setColor2(res.data.color2.code);
-      })
-      .catch((err) => console.log(err))
-      .finally(() => setLoader(false));
-  }, []);
-
+	  })
+	  .catch((err) => {
+		console.error('Error fetching color details:', err);
+	  })
+	  .finally(() => setLoader(false));
+  }, [id]);
+  
   let handleChange = () => {
 	let temp = color1
 	setColor1(color2)
@@ -622,9 +625,9 @@ z"
             <div className="combiDetail">
               <label htmlFor="">Style </label> <span>{data.style}</span>
             </div>
-		  <div class="tooltip" onClick={handleChange}>
-  <div class="icon"><FlipCameraAndroidIcon/></div>
-  <div class="tooltiptext">Reverse Color</div>
+		  <div className="tooltip" onClick={handleChange}>
+  <div className="icon"><FlipCameraAndroidIcon/></div>
+  <div className="tooltiptext">Reverse Color</div>
 </div>
           </div>
         </div>
