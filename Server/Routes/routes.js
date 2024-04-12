@@ -195,5 +195,15 @@ router.put("/favorites/:id",(req,res)=>{
 }   
 )
 
+router.get("/colordetail/:id",async(req,res)=>{
+    try{
+        const color = await ColorModal.findById(req.params.id)
+        res.status(200).json(color)
+    }catch(error){
+        res.status(500).json({message:"Failed to get color",error})
+    }
+}
+)
+
 router.get('*', (req, res) => res.status(404).send('Page not found'))
 module.exports= {router}
