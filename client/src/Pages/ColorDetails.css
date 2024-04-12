@@ -2,7 +2,7 @@
 
 .colorDetailsCont {
   /* border: 2px solid red; */
-  height: 87vh;
+  height: 71s0px;
   box-sizing: border-box;
   display: flex;
   font-family: "Tilt Neon", sans-serif;
@@ -18,7 +18,6 @@
 }
 .combinationDetails {
   /* border: 2px solid blue; */
-  /* border-left: 2px solid gray; */
   width: 50vw;
   padding: 10px 20px;
 }
@@ -55,7 +54,7 @@
   width: 400px;
 }
 
-
+/* reverse button */
 .tooltip {
   margin: 0px 10px;
   padding: 10px ;
