@@ -49,7 +49,7 @@ const ColorCard = ({props}) => {
   </div>
   <div className='color-name-container'> 
 
-    <Link to={`./colordetails/${data._id}`}>
+    <Link to={`../colordetails/${data._id}`}>
     <h2>{data.name}</h2>
     </Link>
     <div className="heart-container" title="Like" onClick={handleFav}>

@@ -107,3 +107,15 @@
   align-items: center;
   justify-content: center;
 }
+
+.similar-colors{
+  /* border: 2px solid black; */
+  margin-top: 50px;
+  padding: 0px 100px;
+}
+
+.similar-colors-cont{
+  display: grid;
+  grid-template-columns: repeat(3,350px);
+  gap: 90px;
+}

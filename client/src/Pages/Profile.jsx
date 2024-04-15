@@ -25,7 +25,7 @@ const Profile = () => {
       try {
         const response = await axios.get(`https://s56-shriyans-capstone-vasara.onrender.com/profile/${tokenFromCookie}`);
         
-        // console.log(response.data);
+        console.log(response.data);
         setData(response.data);
       } catch (error) {
         console.error("Error fetching profile data:", error);
@@ -95,12 +95,12 @@ const Profile = () => {
 
         <div className="user-favourites">
           <div className="favourite-colors">
-            <h2>Colors</h2>
+            <h2>Favourite Colors</h2>
             <div className="colors">
-              <div className="color1 color"></div>
-              <div className="color2 color"></div>
-              <div className="color3 color"></div>
-              <div className="color4 color"></div>
+              <div className="color1 color" style={{backgroundColor:`${data.Colors.Color1}`}}></div>
+              <div className="color2 color"style={{backgroundColor:`${data.Colors.Color2}`}}></div>
+              <div className="color3 color"style={{backgroundColor:`${data.Colors.Color3}`}}></div>
+              <div className="color4 color" style={{backgroundColor:`${data.Colors.Color4}`}}></div>
             </div>
           </div>
 

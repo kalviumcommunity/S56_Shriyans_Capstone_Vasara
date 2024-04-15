@@ -25,7 +25,7 @@ function App() {
   <Route path='/updateProfile/:id' element={<UpdateUserData/>}/>
   <Route path="/Colors" element={<ColorsPage/>}/>
   <Route path='/contact_us' element={<Contact/>}/>
-  <Route path='/colors/colordetails/:id' element={<ColorDetails/>}/>
+  <Route path='/colordetails/:id' element={<ColorDetails/>}/>
 </Routes>
     </>
   )

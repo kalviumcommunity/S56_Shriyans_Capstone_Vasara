@@ -7,18 +7,20 @@ import Cookies from "js-cookie"
 import DrawerMobileNavigation from './Mobile_navigation'
 
 const Navbar = () => {
-  let token = Cookies.get("token")
   const [isloggedin,SetIsloggedin]=useState(false)
   var [w,setW] = useState(window.innerWidth)
-    useEffect(()=>{
-    setW(window.innerWidth);
+  let token = Cookies.get("token")
+  useEffect(()=>{
+     token = Cookies.get("token")
 
+    setW(window.innerWidth);
+    
   })
   useEffect(()=>{
     if(token){
       SetIsloggedin(true)
     }
-
+    
 },[])
   return (
     <div>
