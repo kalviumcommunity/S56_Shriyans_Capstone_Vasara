@@ -3,6 +3,9 @@ import Navbar from './Navbar'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import "./UpdateProfile.css"
+import AlertDialog from './Alert'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const UpdateUserData = () => {
 const {id} = useParams()
@@ -21,11 +24,14 @@ useEffect(() => {
   }, []);
   const handleSubmit = (e) => {
     e.preventDefault();
+    let loading = toast.loading("Updating...",{position: "top-center"})
     axios.put(`https://s56-shriyans-capstone-vasara.onrender.com/updateProfile/${id}`,{...data,Colors}).then((res) => {
         console.log(res);
-        }
+        toast.update(loading,{render:"Profile Updated!",type:"success",isLoading:false,position: "top-center",autoClose: 2000})  
+      }
     ).catch((err) => {
         console.log(err);
+        toast.update(loading,{render:"Try Again Later!",type:"success",isLoading:false,position: "top-center",autoClose: 2000})  
     }
     )
   };
@@ -54,10 +60,12 @@ useEffect(() => {
         <div style={{textAlign:"center"}}>
 
         <button type="submit">Submit</button>
+        <AlertDialog className="alert"/>
         </div>
       </form>
       </div>
 }
+<ToastContainer />
     </div>
   )
 }

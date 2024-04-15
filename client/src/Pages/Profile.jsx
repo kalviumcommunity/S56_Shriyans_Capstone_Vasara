@@ -25,7 +25,7 @@ const Profile = () => {
       try {
         const response = await axios.get(`https://s56-shriyans-capstone-vasara.onrender.com/profile/${tokenFromCookie}`);
         
-        console.log(response.data);
+        // console.log(response.data);
         setData(response.data);
       } catch (error) {
         console.error("Error fetching profile data:", error);
@@ -62,7 +62,7 @@ const Profile = () => {
             <div className="outer-circle">
               <div className="profile-picture" style={{backgroundImage: `url(${data.Image})`}}>
               <form  className="upload-profile-pic">
-        <input type="file" name='image' onChange={handleFileChange} />
+        <input type="file" onChange={handleFileChange} />
       </form>
         <h2 className="upload-image">Upload Image</h2>
               </div>

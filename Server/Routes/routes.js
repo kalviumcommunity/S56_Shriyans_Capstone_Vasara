@@ -205,6 +205,17 @@ router.get("/colordetail/:id", async (req, res) => {
     }
 });
 
+router.delete("/updateprofile/:id", async (req, res) => {
+    try {
+        const id = req.params.id;
+        const deletedUser = await User.findByIdAndDelete(id);
+        res.json(deletedUser);
+    } catch (err) {
+        res.json(err);
+    }
+});
+
+
 
 router.get('*', (req, res) => res.status(404).send('Page not found'))
 module.exports= {router}
