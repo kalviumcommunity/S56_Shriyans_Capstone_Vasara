@@ -7,7 +7,10 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
 const Signup = () => {
+  const navigate = useNavigate();
   const [regist, setRegist] = useState(false);
   let Colors = {
     Color1: "",
@@ -22,6 +25,9 @@ const Signup = () => {
   } = useForm();
   const onSubmit = (val) => {
     // console.log(val);
+    let loading = toast.loading("Registering...", {
+      position: "top-center",
+    });
     axios
       .post("https://s56-shriyans-capstone-vasara.onrender.com/signup", {
         firstName: val.firstName,
@@ -36,29 +42,27 @@ const Signup = () => {
       })
       .then((res) => {
         setRegist(true);
-        toast.success("Registration Successful!", {
+        toast.update(loading, {
+          render: "Registration Successful!",
+          type: "success",
+          isLoading: false,
           position: "top-center",
-          autoClose: 1000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
+          autoClose: 2000,
         });
+        setTimeout(() => {
+          navigate("/login");
+        }, 1000);
       })
       .catch((error) => {
         console.log(error.response.data);
-        toast.error(`${error.response.data}`, {
+        toast.update(loading, {
+          render: `${error.response.data}`,
+          type: "error",
+          isLoading: false,
           position: "top-center",
           autoClose: 2000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
         });
+
       });
   };
   return (

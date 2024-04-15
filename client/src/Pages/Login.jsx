@@ -21,22 +21,13 @@ const Login = () => {
 
       const onSubmit=(val)=>{
         // console.log(val)
+        let loading = toast.loading("Logging in...",{position: "top-center"})
           axios.post("https://s56-shriyans-capstone-vasara.onrender.com/login",{email:val.email.toLowerCase(),password:val.password})
           .then((res)=>{
             Cookies.set('token', res.data.token, { expires: 7 , path: ''})
             console.log(res.data)
             setRegist(true)
-            
-            toast.success('Login Successful!', {
-              position: "top-center",
-              autoClose: 1000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              theme: "light",
-              });
+            toast.update(loading,{render:"Login Successful!",type:"success",isLoading:false,position: "top-center",autoClose: 2000})
               setTimeout(() => {
                 
                 navigate("/")
@@ -44,16 +35,7 @@ const Login = () => {
           })
           .catch((error)=>{
             console.log(error.response.data)
-            toast.error(`${error.response.data}`, {
-              position: "top-center",
-              autoClose: 2000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              theme: "light",
-              });
+            toast.update(loading,{render:`${error.response.data}`,type:"error",isLoading:false,position: "top-center",autoClose: 2000})
 
 
           })
