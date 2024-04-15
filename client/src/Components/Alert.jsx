@@ -32,7 +32,7 @@ export default function AlertDialog() {
         toast.update(loading,{render:"Account Deleted!",type:"success",isLoading:false,position: "top-center",autoClose: 2000})
         setTimeout(() => {
         navigate('/')
-        // window.location.reload()
+        window.location.reload()
         }
         ,2000)
         console.log(res);
