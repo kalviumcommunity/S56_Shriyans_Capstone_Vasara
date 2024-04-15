@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from './Navbar'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import "./UpdateProfile.css"
 import AlertDialog from './Alert'
@@ -12,7 +12,6 @@ const {id} = useParams()
 let [loading,setLoading] = useState(true)
 let [data,setData] = useState();
 let [Colors,setColors] = useState()
-const navigate = useNavigate()
 useEffect(() => {
     axios.get(`https://s56-shriyans-capstone-vasara.onrender.com/updateProfile/${id}`).then((res) => {
       setData(res.data);

@@ -25,6 +25,7 @@ export default function AlertDialog() {
   };
   let handleDelete = () => {
     console.log("delete");
+    setOpen(false);
     let loading = toast.loading("Deleting...",{position: "top-center"})
     axios.delete(`http://localhost:3001/updateprofile/${id}`).then((res) => {
         Cookies.remove('token')
@@ -64,7 +65,7 @@ export default function AlertDialog() {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>No</Button>
-          <Button onClick={handleClose} autoFocus onClickCapture={handleDelete}>
+          <Button autoFocus onClick={handleDelete}>
             Yes
           </Button>
         </DialogActions>
