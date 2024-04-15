@@ -27,7 +27,7 @@ export default function AlertDialog() {
     console.log("delete");
     setOpen(false);
     let loading = toast.loading("Deleting...",{position: "top-center"})
-    axios.delete(`http://localhost:3001/updateprofile/${id}`).then((res) => {
+    axios.delete(`${API_URI}/updateprofile/${id}`).then((res) => {
         Cookies.remove('token')
         toast.update(loading,{render:"Account Deleted!",type:"success",isLoading:false,position: "top-center",autoClose: 2000})
         setTimeout(() => {
