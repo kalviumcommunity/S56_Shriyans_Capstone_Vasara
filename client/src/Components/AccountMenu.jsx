@@ -14,9 +14,25 @@ import Logout from '@mui/icons-material/Logout';
 import Cookies from 'js-cookie';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 export default function AccountMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
+  const token = Cookies.get('token')
+  let [user,setUser] = React.useState({})
+  React.useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axios.get(`http://localhost:3001/profile/${token}`);
+        setUser(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    
+    fetchData();
+  }, []);
+  
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -88,13 +104,18 @@ export default function AccountMenu() {
           <Avatar /> My account
         </MenuItem> */}
         {/* <Divider /> */}
-        {/* <MenuItem onClick={handleClose}>
+        {user.role=='admin' &&(       
+            <Link to={`/admin`}>
+            <MenuItem onClick={handleClose}>
           <ListItemIcon>
             <PersonAdd fontSize="small" />  
           </ListItemIcon>
-          Add another account
+          Admin
         </MenuItem>
-        <MenuItem onClick={handleClose}>
+            </Link>
+        ) }
+
+       {/* <MenuItem onClick={handleClose}>
           <ListItemIcon>
             <Settings fontSize="small" />
           </ListItemIcon>
@@ -105,7 +126,6 @@ export default function AccountMenu() {
             <Logout fontSize="small" />
           </ListItemIcon>
           <p onClick={handleLogout}>
-
           Logout
           </p>
         </MenuItem>
