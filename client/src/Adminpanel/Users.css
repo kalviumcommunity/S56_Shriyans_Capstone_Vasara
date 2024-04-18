@@ -1,6 +1,9 @@
 .users{
     /* border: 2px solid red; */
     width:  100%;
+    height: 100vh;
+    overflow: hidden;
+
 }
 .userHeading{
     border-bottom: 1px solid;
@@ -9,7 +12,7 @@
     align-items: center;
     padding: 0px 40px;
     justify-content: space-between;
-    height: 75.5px;
+    height: 78px;
 }
 .userHeading h1{
     margin: 0%;
@@ -17,4 +20,8 @@
 .search{
     border-radius: 5px;
     width: 300px;
+}
+.usersTable{
+ height:calc(100% - 82px); 
+    /* border: 2px solid black; */
 }

@@ -215,6 +215,16 @@ router.delete("/updateprofile/:id", async (req, res) => {
     }
 });
 
+router.get("/getallusers",async(req,res)=>{
+    try{
+        const users = await User.find({})
+        res.status(200).json(users)
+    }catch(error){
+        res.status(500).json({message:"Failed to get users",error})
+    }
+}
+)
+
 
 
 router.get('*', (req, res) => res.status(404).send('Page not found'))
