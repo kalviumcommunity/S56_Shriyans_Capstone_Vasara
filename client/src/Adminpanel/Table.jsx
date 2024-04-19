@@ -7,18 +7,19 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
-import axios from 'axios';
-import BlockIcon from '@mui/icons-material/Block';
 import EditIcon from '@mui/icons-material/Edit';
+import BlockModal from "./BlockModal";
+import axios from "axios";
+import EditModal from "./EditModal";
 
 const columns = [
   {id:"Sr.No", label: "Sr.No", minWidth: 80, align: "left"},
-  { id: "firstName", label: "First Name", minWidth: 170 },
-  { id: "age", label: "Age", minWidth: 100 },
-  { id: "gender", label: "Gender", minWidth: 100 },
-  { id: "role", label: "Role", minWidth: 170, align: "right" },
+  { id: "Name", label: "Name", minWidth: 170 },
+  { id: "age", label: "Age", minWidth: 60 },
+  { id: "gender", label: "Gender", minWidth: 60 },
+  { id: "role", label: "Role", minWidth: 60, align: "right" },
   { id: "email", label: "Email", minWidth: 170, align: "right" },
-  { id: "actions", label: "Action", minWidth: 170, align: "right" }, 
+  { id: "actions", label: "Action", minWidth: 100, align: "right" }, 
 ];
 
 const StickyHeadTable = () => {
@@ -46,7 +47,7 @@ const StickyHeadTable = () => {
   }
   return (
     <Paper sx={{ width: "100%"}}>
-      <TableContainer sx={{ height:'83vh'}}>
+      <TableContainer sx={{ height:'82vh'}}>
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
             <TableRow>
@@ -63,15 +64,22 @@ const StickyHeadTable = () => {
                 {columns.map((column) => {
                   if (column.id === 'actions') {
                     return (
-                      <TableCell key={column.id} align={column.align}>
-                        <BlockIcon style={{ marginRight: 10 }} />
-                        <EditIcon onClick={()=>handleEdit(row._id)}/>
+                      <TableCell key={column.id} align={column.align} sx={{display:"flex", alignItems:"center"}}>
+                        <BlockModal props={row._id} />
+                          <EditModal props={row._id} />
                       </TableCell>
                     );
                   } else if(column.id === 'Sr.No') {
                     return (
                       <TableCell key={column.id} align={column.align}>
                         {i+1}
+                      </TableCell>
+                    );
+                  }
+                  else if(column.id === 'Name') {
+                    return (
+                      <TableCell key={column.id} align={column.align} sx={{textTransform: 'capitalize'}}>
+                        {row.firstName} {row.lastName}
                       </TableCell>
                     );
                   }

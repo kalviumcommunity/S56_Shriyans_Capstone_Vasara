@@ -10,13 +10,12 @@ const Contact = () => {
         email: "",
         message: ""
     })
-    let feedbackUrl = 'https://s56-shriyans-capstone-vasara.onrender.com/feedback'
     const handlesubmit = (e) => {
         e.preventDefault();
         console.log(data)
         // alert("Your message has been sent successfully! We will get back to you soon.")
 
-        axios.post(feedbackUrl,data)
+        axios.post(`${API_URI}/feedback`,data)
         .then((res)=>{
             console.log(res.data)
             toast.success('Message sent', {

@@ -9,7 +9,7 @@ const [data,setData] = useState([])
 useEffect(() => {
     const fetchData = async () => {
         try {
-            const response = await axios.get("https://s56-shriyans-capstone-vasara.onrender.com/colors");
+            const response = await axios.get(`${API_URI}/colors`);
             setData(response.data);
         } catch (error) {
             console.log(error);

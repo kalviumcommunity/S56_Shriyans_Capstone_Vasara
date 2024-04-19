@@ -13,7 +13,7 @@ const Profile = () => {
     const formData = new FormData();
     const tokenFromCookie = Cookies.get("token");
     formData.append('image', e.target.files[0]);
-    axios.put(`https://s56-shriyans-capstone-vasara.onrender.com/profile/${tokenFromCookie}`, formData).then((res) => {
+    axios.put(`${API_URI}/profile/${tokenFromCookie}`, formData).then((res) => {
       console.log(res);
     }).catch((err) => {
       console.log(err);
@@ -23,7 +23,7 @@ const Profile = () => {
     const fetchProfileData = async () => {
       const tokenFromCookie = Cookies.get("token");
       try {
-        const response = await axios.get(`https://s56-shriyans-capstone-vasara.onrender.com/profile/${tokenFromCookie}`);
+        const response = await axios.get(`${API_URI}/profile/${tokenFromCookie}`);
         
         console.log(response.data);
         setData(response.data);

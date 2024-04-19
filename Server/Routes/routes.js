@@ -75,8 +75,9 @@ router.post("/login",async(req,res)=>{
 })
 router.get("/profile/:id", (req, res) => {
     try {
-        const id = jwt.verify(req.params.id, process.env.JWT_Token);
-        User.findById({ _id: id.id })
+        // const id = jwt.verify(req.params.id, process.env.JWT_Token);
+        const id = req.params.id
+        User.findById({ _id: id })
             .then((el) => res.json(el))
             .catch(err => res.status(400).json({ error: "Invalid or expired token" }));
     } catch (err) {
@@ -225,6 +226,15 @@ router.get("/getallusers",async(req,res)=>{
 }
 )
 
+router.delete("/blockuser/:id",async(req,res)=>{
+    try{
+        const user= await User.findByIdAndDelete(req.params.id)   
+        res.status(200).json(user)
+    }catch(error){
+        res.status(500).json({message:"Failed to block user",error})
+    }
+}
+)
 
 
 router.get('*', (req, res) => res.status(404).send('Page not found'))

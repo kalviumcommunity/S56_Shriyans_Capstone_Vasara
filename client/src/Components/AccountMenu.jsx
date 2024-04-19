@@ -100,10 +100,6 @@ export default function AccountMenu() {
           <Avatar /> Profile
         </MenuItem>
           </Link>
-        {/* <MenuItem onClick={handleClose}>
-          <Avatar /> My account
-        </MenuItem> */}
-        {/* <Divider /> */}
         {user.role=='admin' &&(       
             <Link to={`/admin`}>
             <MenuItem onClick={handleClose}>
@@ -114,13 +110,6 @@ export default function AccountMenu() {
         </MenuItem>
             </Link>
         ) }
-
-       {/* <MenuItem onClick={handleClose}>
-          <ListItemIcon>
-            <Settings fontSize="small" />
-          </ListItemIcon>
-          Settings
-        </MenuItem> */}
         <MenuItem onClick={handleClose}>
           <ListItemIcon>
             <Logout fontSize="small" />

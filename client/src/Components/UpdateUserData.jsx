@@ -13,7 +13,7 @@ let [loading,setLoading] = useState(true)
 let [data,setData] = useState();
 let [Colors,setColors] = useState()
 useEffect(() => {
-    axios.get(`https://s56-shriyans-capstone-vasara.onrender.com/updateProfile/${id}`).then((res) => {
+    axios.get(`${API_URI}/updateProfile/${id}`).then((res) => {
       setData(res.data);
       setColors(res.data.Colors);
     }).catch((err) => {
@@ -25,7 +25,7 @@ useEffect(() => {
   const handleSubmit = (e) => {
     e.preventDefault();
     let loading = toast.loading("Updating...",{position: "top-center"})
-    axios.put(`https://s56-shriyans-capstone-vasara.onrender.com/updateProfile/${id}`,{...data,Colors}).then((res) => {
+    axios.put(`${API_URI}updateProfile/${id}`,{...data,Colors}).then((res) => {
         console.log(res);
         toast.update(loading,{render:"Profile Updated!",type:"success",isLoading:false,position: "top-center",autoClose: 2000})  
       }

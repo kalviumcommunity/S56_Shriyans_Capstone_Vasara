@@ -29,7 +29,7 @@ const Signup = () => {
       position: "top-center",
     });
     axios
-      .post("https://s56-shriyans-capstone-vasara.onrender.com/signup", {
+      .post(`${API_URI}/signup`, {
         firstName: val.firstName,
         lastName: val.lastName,
         age: val.age,
