@@ -21,7 +21,7 @@ const ColorDetails = () => {
     let isMounted = true;
     Promise.all([
       axios.get(`${API_URI}/colordetail/${id}`),
-      axios.get("http://localhost:3001/colors")
+      axios.get(`${API_URI}/colors`)
     ])
     .then(([colorDetailRes, similarColorsRes]) => {
       if (isMounted) {

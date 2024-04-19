@@ -10,13 +10,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@chakra-ui/modal": "^2.3.1",
+    "@chakra-ui/react": "^2.8.2",
     "@emotion/react": "^11.11.4",
-    "@emotion/styled": "^11.11.0",
+    "@emotion/styled": "^11.11.5",
     "@mui/icons-material": "^5.15.14",
     "@mui/joy": "^5.0.0-beta.32",
     "@mui/material": "^5.15.14",
     "@mui/styled-engine-sc": "^6.0.0-alpha.18",
     "axios": "^1.6.8",
+    "framer-motion": "^11.1.5",
     "js-cookie": "^3.0.5",
     "loadenv": "^2.2.0",
     "react": "^18.2.0",
@@ -25,6 +28,7 @@
     "react-icons": "^5.0.1",
     "react-router-dom": "^6.22.3",
     "react-toastify": "^10.0.5",
+    "react-virtuoso": "^4.7.8",
     "styled-components": "^6.1.8"
   },
   "devDependencies": {

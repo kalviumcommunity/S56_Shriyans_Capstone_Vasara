@@ -10,6 +10,7 @@ import UpdateUserData from './Components/UpdateUserData'
 import ColorsPage from './Pages/ColorsPage'
 import Contact from './Pages/Contact'
 import ColorDetails from './Pages/ColorDetails'
+import AdminPanel from './Adminpanel/AdminPanel'
 // import HOME from './Pages/HOME.JSX'
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
   <Route path="/Colors" element={<ColorsPage/>}/>
   <Route path='/contact_us' element={<Contact/>}/>
   <Route path='/colordetails/:id' element={<ColorDetails/>}/>
+  <Route path='/admin' element={<AdminPanel/>}/>
 </Routes>
     </>
   )

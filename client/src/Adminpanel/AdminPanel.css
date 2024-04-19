@@ -1,0 +1,8 @@
+.adminPanel{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+}
+.admin-navbar{
+    width: 301px;
+}

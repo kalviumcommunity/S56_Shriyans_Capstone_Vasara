@@ -22,9 +22,9 @@ const Login = () => {
       const onSubmit=(val)=>{
         // console.log(val)
         let loading = toast.loading("Logging in...",{position: "top-center"})
-          axios.post("https://s56-shriyans-capstone-vasara.onrender.com/login",{email:val.email.toLowerCase(),password:val.password})
+          axios.post(`${API_URI}/login`,{email:val.email.toLowerCase(),password:val.password})
           .then((res)=>{
-            Cookies.set('token', res.data.token, { expires: 7 , path: ''})
+            Cookies.set('token', res.data.user._id, { expires: 7 , path: ''})
             console.log(res.data)
             setRegist(true)
             toast.update(loading,{render:"Login Successful!",type:"success",isLoading:false,position: "top-center",autoClose: 2000})
