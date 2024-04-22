@@ -23,7 +23,7 @@ export default function AccountMenu() {
   React.useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(`http://localhost:3001/profile/${token}`);
+        const res = await axios.get(`${API_URI}/profile/${token}`);
         setUser(res.data);
       } catch (err) {
         console.log(err);
