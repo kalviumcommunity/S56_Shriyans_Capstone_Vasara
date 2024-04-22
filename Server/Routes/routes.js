@@ -8,6 +8,17 @@ const cloudinary = require('../Cloudinary')
 const upload = require('../multer')
 const FeedbackModal = require("../models/FeedbackModal")
 const ColorModal = require("../models/ColorsModal")
+const nodemailer = require("nodemailer");
+
+var transporter = nodemailer.createTransport({
+    service:"gmail",
+    host: "smtp.gmail.com",
+    port: 587,
+    auth: {
+        user: "vasarateam@gmail.com",
+        pass: process.env.Gmail_Pass
+    }
+});
 
 
 require("dotenv").config()
@@ -232,6 +243,63 @@ router.delete("/blockuser/:id",async(req,res)=>{
         res.status(200).json(user)
     }catch(error){
         res.status(500).json({message:"Failed to block user",error})
+    }
+}
+)
+
+router.post("/resetPassword",async(req,res)=>{
+    try{
+        const user = await User.findOne({email:req.body.email})
+        if(!user){
+            return res.status(400).json({message:"User not found"})
+        }
+
+        let otp = Math.floor(100000 + Math.random() * 900000)
+        let main = {
+            from: {
+                name:"Vasara",
+                address:"vasarateam@gmail.com"
+            }
+            ,
+            to:user.email,
+            subject:"Reset Password",
+            text:`Your OTP is ${otp}`
+        }
+        transporter.sendMail(main,(err, info) => {
+            try {
+                if (err) {
+                    console.log(err);
+                    return res.status(500).json({ message: "Failed to send email", error: err });
+                }
+                console.log(info);
+                res.status(200).json({ otp: otp });
+            } catch (error) {
+                console.log(error);
+                res.status(500).json({ message: "Failed to send email", error });
+            }
+        });
+        
+
+        res.status(200).json({otp:otp})
+    }catch(error){
+        res.status(500).json({message:"Failed to find user",error})
+    }
+
+}
+)
+
+router.post("/updatePassword",async(req,res)=>{
+    try{
+        const user = await User .findOne({email:req.body.email}) 
+        if(!user){
+            return res.status(400).json({message:"User not found"})
+        }
+        const hashedPassword = await bcrypt.hash(req.body.password,12)
+        const updatedUser = await User
+        .findOneAndUpdate({email:req.body.email},{password:hashedPassword})
+        res.status(200).json(updatedUser)
+    }catch(error){
+        res.status(500).json({message:"Failed to update password",error})
     }
 }
 )
