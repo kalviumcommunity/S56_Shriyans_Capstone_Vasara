@@ -8,6 +8,8 @@ import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import AppleIcon from '@mui/icons-material/Apple';
+import Footer from "../Components/Footer";
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -18,13 +20,14 @@ const Signup = () => {
     Color3: "",
     Color4: "",
   };
+  
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
   const onSubmit = (val) => {
-    // console.log(val);
+    console.log(val)
     let loading = toast.loading("Registering...", {
       position: "top-center",
     });
@@ -54,7 +57,6 @@ const Signup = () => {
         }, 1000);
       })
       .catch((error) => {
-        console.log(error.response.data);
         toast.update(loading, {
           render: `${error.response.data}`,
           type: "error",
@@ -62,86 +64,79 @@ const Signup = () => {
           position: "top-center",
           autoClose: 2000,
         });
-
       });
   };
+
   return (
     <div className="signup">
       <Navbar />
       <div className="sigun_container">
         <div className="signup_image">
           {/* <img src={Singup_image} alt="" /> */}
+
         </div>
-        <div className="signup_form">
-          <h1 className="register">Register</h1>
-          <form action="" className="form" onSubmit={handleSubmit(onSubmit)}>
-            <div className="inp">
+        <div className="login-cont">
+          <form className="form" onSubmit={handleSubmit(onSubmit)}>
+          <h1 className="Register">Register</h1>
+            <div className="inputForm">
               <input
                 type="text"
-                placeholder="Enter your First Name"
-                name="firstName"
-                {...register("firstName", {
-                  required: "First Name is required",
-                })}
+                className='input'
+                placeholder='Enter your First Name'
+                {...register("firstName", { required: "First Name is required" })}
               />
-              {errors.firstName && (
-                <p className="err">{errors.firstName.message}</p>
-              )}
             </div>
-            <div className="inp">
+              {errors.firstName && <p className='err'>{errors.firstName.message}</p>}
+
+            <div className="inputForm">
               <input
                 type="text"
-                placeholder="Enter your Last Name"
-                name="lastName"
+                className='input'
+                placeholder='Enter your Last Name'
                 {...register("lastName")}
               />
-              {errors.lastName && (
-                <p className="err">{errors.lastName.message}</p>
-              )}
             </div>
-            <div className="inp">
+              {errors.lastName && <p className='err'>{errors.lastName.message}</p>}
+
+            <div className="inputForm">
               <input
                 type="number"
-                placeholder="Enter your Age"
-                name="age"
+                className='input'
+                placeholder='Enter your Age'
                 {...register("age")}
               />
-              {errors.age && <p className="err">{errors.age.message}</p>}
             </div>
+              {errors.age && <p className='err'>{errors.age.message}</p>}
+              <div className="inputForm">
+  <select
+    className='input'
+    {...register("gender", { required: "Gender is required" })}
+  >
+    <option value="">Select Gender</option>
+    <option value="Male">Male</option>
+    <option value="Female">Female</option>
+    <option value="Other">Other</option>
+    {/* Add more options as needed */}
+  </select>
+</div>
+{errors.gender && <p className='err'>{errors.gender.message}</p>}
 
-            <div className="inp">
-              <select
-                name="gender"
-                className="gender-select"
-                {...register("gender", {
-                  required: "Gender is required",
-                })}
-              >
-                <option value="">Select Gender</option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-                <option value="Other">Other</option>
-              </select>
-              {errors.gender && <p className="err">{errors.gender.message}</p>}
-            </div>
 
-            <div className="inp">
+            <div className="inputForm">
               <input
                 type="email"
-                placeholder="Enter your Email"
-                name="email"
-                {...register("email", {
-                  required: "Email is required",
-                  pattern: { value: /^\S+@\S+$/i, message: "Invalid Email" },
-                })}
+                className='input'
+                placeholder='Enter your email'
+                {...register("email", { required: "Email is required", pattern: { value: /^\S+@\S+$/i, message: "Invalid Email" } })}
               />
-              {errors.email && <p className="err">{errors.email.message}</p>}
             </div>
-            <div className="inp">
+              {errors.email && <p className='err'>{errors.email.message}</p>}
+
+            <div className="inputForm">
               <input
                 type="password"
-                placeholder="Enter your password"
-                name="password"
+                className='input'
+                placeholder='Enter your password'
                 {...register("password", {
                   required: "Password is required",
                   minLength: {
@@ -154,19 +149,16 @@ const Signup = () => {
                   },
                 })}
               />
-              {errors.password && (
-                <p className="err">{errors.password.message}</p>
-              )}
             </div>
-            <input className="signup_btn btn" type="submit" value="Signup" />
-            <br />
-            <Link to={"/login"} className="loginbtn">
-              Login
-            </Link>
+              {errors.password && <p className='err'>{errors.password.message}</p>}
+
+            <button className="button-submit" type="submit">Sign Up</button>
+            <p className="p">Already have an account? <Link to={"/login"} className="span">Sign In</Link></p>
           </form>
         </div>
       </div>
       <ToastContainer />
+      <Footer/>
     </div>
   );
 };

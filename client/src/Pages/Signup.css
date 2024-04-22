@@ -9,7 +9,7 @@
 
     display: flex;
     justify-content: center;
-    /* align-items: center; */
+    align-items: center;
 }
 .signup_image {
     background-image: url(../assets/register.png);
@@ -19,34 +19,31 @@
     height: 90vh;
     /* border: 2px solid; */
 }
-.signup_form{
-    width: 35vw;
-    /* border: 2px solid red; */
-    height: 80vh;
-    text-align: center;
-    padding: 0px 20px;
+
+
+/* Hide the increment and decrement buttons for number input */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
-.gender-select
-    {
-        width: 91%;
-        padding:15px;
-        margin-bottom: 12px;
-        background-color: white;
-    
-        border-radius: 5px;
-        margin-bottom: 20px;
-        border: 1px solid black;
-        margin-bottom: 0;
-      }
-.signup_btn{
-    background-color: #839C96;
-    color: white;
-    border: 1px solid black;
+input[type=number] {
+    -moz-appearance: textfield; /* Firefox */
 }
-.register{
-    color: #713A11;
-    margin-bottom: 0%;
+
+.Register{
+    margin: 0%;
+
 }
-.loginbtn{
-    color: black;
-}
+select {
+    /* Remove default arrow */
+    appearance: none;
+    -webkit-appearance: none; /* For older versions of Chrome and Safari */
+  
+    /* Add custom arrow if needed */
+    background-image: url('path/to/your/custom-arrow.svg');
+    background-repeat: no-repeat;
+    background-position: right center;
+    padding-right: 20px; /* Adjust padding to make space for the custom arrow */
+  }
+  

@@ -75,9 +75,9 @@ router.post("/login",async(req,res)=>{
 })
 router.get("/profile/:id", (req, res) => {
     try {
-        // const id = jwt.verify(req.params.id, process.env.JWT_Token);
-        const id = req.params.id
-        User.findById({ _id: id })
+        const id = jwt.verify(req.params.id, process.env.JWT_Token);
+        // const id = req.params.id
+        User.findById({ _id: id.id })
             .then((el) => res.json(el))
             .catch(err => res.status(400).json({ error: "Invalid or expired token" }));
     } catch (err) {

@@ -11,6 +11,7 @@ import ColorsPage from './Pages/ColorsPage'
 import Contact from './Pages/Contact'
 import ColorDetails from './Pages/ColorDetails'
 import AdminPanel from './Adminpanel/AdminPanel'
+import ResetPassword from './Pages/ResetPassword'
 // import HOME from './Pages/HOME.JSX'
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
   <Route path='/contact_us' element={<Contact/>}/>
   <Route path='/colordetails/:id' element={<ColorDetails/>}/>
   <Route path='/admin' element={<AdminPanel/>}/>
+  <Route path='/resetpassword' element={<ResetPassword/>}/>
 </Routes>
     </>
   )
