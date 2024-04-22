@@ -28,7 +28,7 @@ const Login = () => {
           axios.post(`${API_URI}/login`,{email:val.email.toLowerCase(),password:val.password})
           .then((res)=>{
             Cookies.set('token', res.data.token, { expires: 7 , path: ''})
-            console.log(res.data)
+            // console.log(res.data)
             setRegist(true)
             toast.update(loading,{render:"Login Successful!",type:"success",isLoading:false,position: "top-center",autoClose: 2000})
               setTimeout(() => {
