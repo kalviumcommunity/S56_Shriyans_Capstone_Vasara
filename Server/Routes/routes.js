@@ -16,7 +16,7 @@ var transporter = nodemailer.createTransport({
     port: 587,
     auth: {
         user: "vasarateam@gmail.com",
-        pass: "crit hsga eawu togl"
+        pass: process.env.Gmail_Pass
     }
 });
 
@@ -249,7 +249,6 @@ router.delete("/blockuser/:id",async(req,res)=>{
 
 router.post("/resetPassword",async(req,res)=>{
     try{
-        console.log(req.body)
         const user = await User.findOne({email:req.body.email})
         if(!user){
             return res.status(400).json({message:"User not found"})
@@ -266,13 +265,20 @@ router.post("/resetPassword",async(req,res)=>{
             subject:"Reset Password",
             text:`Your OTP is ${otp}`
         }
-        transporter.sendMail(main,(err,info)=>{
-            if(err){
-                console.log(err)
-            }else{
-                console.log(info)
+        transporter.sendMail(main,(err, info) => {
+            try {
+                if (err) {
+                    console.log(err);
+                    return res.status(500).json({ message: "Failed to send email", error: err });
+                }
+                console.log(info);
+                res.status(200).json({ otp: otp });
+            } catch (error) {
+                console.log(error);
+                res.status(500).json({ message: "Failed to send email", error });
             }
-        })
+        });
+        
 
         res.status(200).json({otp:otp})
     }catch(error){
