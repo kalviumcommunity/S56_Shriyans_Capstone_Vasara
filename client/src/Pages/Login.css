@@ -6,10 +6,17 @@
     width: 100%;
     /* overflow: hidden; */
 }
+.loginContainer{
+  background-image: url("https://res.cloudinary.com/ddlelands/image/upload/v1713527827/Designer_h3qmce.png");
+  background-size:100% 100%;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+}
 .login-cont{
-    background-image: url("https://res.cloudinary.com/ddlelands/image/upload/v1713527827/Designer_h3qmce.png");
-    background-size:100% 100%;
-    background-position: center;
     height: 100%;
     display: flex;
     justify-content: center;

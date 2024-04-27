@@ -304,6 +304,28 @@ router.post("/updatePassword",async(req,res)=>{
 }
 )
 
+router.post("/addColors/:id", async (req, res) => {
+    try {
+        const decodedId = jwt.verify(req.params.id, process.env.JWT_Token);
+        if (!decodedId || !decodedId.id) {
+            return res.status(401).json({ error: "Unauthorized: Invalid or expired token." });
+        }
+        const createdBy = decodedId.id;
+        const data = {
+            ...req.body,
+            createdby: createdBy
+        };
+        
+        const newColor = await ColorModal.create(data);
+        res.json(newColor);
+    } catch (error) {
+        console.error("Error occurred while adding color:", error);
+        res.status(500).json({ message: "An error occurred while processing your request.", error: error });
+    }
+});
+
+
+
 
 router.get('*', (req, res) => res.status(404).send('Page not found'))
 module.exports= {router}

@@ -37,6 +37,10 @@ const userSchema = new mongoose.Schema({
     Colors:favColors,
     Image: String,
     favColors:[String],
+    createOn:{
+        type:Date,
+        default:Date(),
+    }
 
 })
 

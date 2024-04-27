@@ -25,13 +25,13 @@ useEffect(() => {
   const handleSubmit = (e) => {
     e.preventDefault();
     let loading = toast.loading("Updating...",{position: "top-center"})
-    axios.put(`${API_URI}updateProfile/${id}`,{...data,Colors}).then((res) => {
+    axios.put(`${API_URI}/updateProfile/${id}`,{...data,Colors}).then((res) => {
         console.log(res);
         toast.update(loading,{render:"Profile Updated!",type:"success",isLoading:false,position: "top-center",autoClose: 2000})  
       }
     ).catch((err) => {
         console.log(err);
-        toast.update(loading,{render:"Try Again Later!",type:"success",isLoading:false,position: "top-center",autoClose: 2000})  
+        toast.update(loading,{render:"Try Again Later!",type:"error",isLoading:false,position: "top-center",autoClose: 2000})  
     }
     )
   };

@@ -52,6 +52,7 @@ const ColorCard = ({props}) => {
     <Link to={`../colordetails/${data._id}`}>
     <h2>{data.name}</h2>
     </Link>
+
     <div className="heart-container" title="Like" onClick={handleFav}>
             <input type="checkbox" className="checkbox" id="Give-It-An-Id" checked={favorites.includes(data._id)}/>
             <div className="svg-container">
