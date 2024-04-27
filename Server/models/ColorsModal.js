@@ -2,11 +2,13 @@ const mongoose = require("mongoose")
 
 const ColorSchema = new mongoose.Schema({
     name: {
-        type: String
+        type: String,
+        required: true
       },
       color1: {
         name: {
-          type: String
+          type: String,
+          required: true
         },
         code: {
           type: String,
@@ -15,7 +17,8 @@ const ColorSchema = new mongoose.Schema({
       },
       color2: {
         name: {
-          type: String
+          type: String,
+          required: true
         },
         code: {
           type: String,
@@ -33,12 +36,16 @@ const ColorSchema = new mongoose.Schema({
       },
       status: {
         type: String,
-        default: "not varified"
+        default: "not verified"
       },
       createdby: {
         type: String,
         required: true
-      }
+      },
+      createOn:{
+        type:Date,
+        default:Date(),
+    }
 })
 
 const ColorModal = mongoose.model("colors",ColorSchema)

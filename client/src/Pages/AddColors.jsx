@@ -10,8 +10,8 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const AddColors = () => {
     const [name, setName] = useState('')
-    const [color1, setColor1] = useState('')
-    const [color2, setColor2] = useState('')
+    const [color1, setColor1] = useState('#000000')
+    const [color2, setColor2] = useState('#000000')
     const [climate, setClimate] = useState('')
     const [mood, setMood] = useState('')
     const [style, setStyle] = useState('')
@@ -54,7 +54,7 @@ const AddColors = () => {
       <label>Name </label></div>
       <div className="inputForm">
 
-<input type="text" className='input' onChange={(e)=>setName(e.target.value)} />
+<input type="text" className='input' required onChange={(e)=>setName(e.target.value)} />
       </div>
 
       <div className="flex-column">
@@ -62,7 +62,7 @@ const AddColors = () => {
       <div className="inputForm">
 
 {/* <input type="text" className='input' placeholder='Enter Color1 Name' /> */}
-<input type="color" className='input'  onChange={(e)=>setColor1(e.target.value)}/>
+<input type="color" className='input' required onChange={(e)=>setColor1(e.target.value)} value={color1}/>
       </div>
 
       <div className="flex-column">
@@ -70,7 +70,7 @@ const AddColors = () => {
       <div className="inputForm">
 
 {/* <input type="text" className='input' placeholder='Enter Color2 Name' /> */}
-<input type="color" className='input' onChange={(e)=>setColor2(e.target.value)}  />
+<input type="color" className='input' required onChange={(e)=>setColor2(e.target.value)} value={color2} />
       </div>
 
     <div className="flex-column">
