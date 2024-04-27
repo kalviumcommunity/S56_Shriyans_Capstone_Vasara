@@ -304,6 +304,22 @@ router.post("/updatePassword",async(req,res)=>{
 }
 )
 
+router.post("/addColors/:id", async (req, res) => {
+    try {
+        const decodedId = jwt.verify(req.params.id, process.env.JWT_Token);
+        const createdBy = decodedId.id;
+        const data = {
+            ...req.body,
+            createdby: createdBy
+        };
+        
+        const newColor = await ColorModal.create(data);
+        res.json(newColor);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
 
 router.get('*', (req, res) => res.status(404).send('Page not found'))
 module.exports= {router}

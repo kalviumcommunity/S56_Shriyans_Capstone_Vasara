@@ -2,13 +2,11 @@ const mongoose = require("mongoose")
 
 const ColorSchema = new mongoose.Schema({
     name: {
-        type: String,
-        required: true
+        type: String
       },
       color1: {
         name: {
-          type: String,
-          required: true
+          type: String
         },
         code: {
           type: String,
@@ -17,8 +15,7 @@ const ColorSchema = new mongoose.Schema({
       },
       color2: {
         name: {
-          type: String,
-          required: true
+          type: String
         },
         code: {
           type: String,
@@ -26,14 +23,19 @@ const ColorSchema = new mongoose.Schema({
         }
       },
       climate: {
-        type: String,
-        required: true
+        type: String
       },
       mood: {
-        type: String,
-        required: true
+        type: String
       },
       style: {
+        type: String
+      },
+      status: {
+        type: String,
+        default: "not varified"
+      },
+      createdby: {
         type: String,
         required: true
       }

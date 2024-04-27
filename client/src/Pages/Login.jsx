@@ -48,6 +48,7 @@ const Login = () => {
     <div className='Login'>
       <ToastContainer/>
       <Navbar/>
+      <div className="loginContainer">
       <div className="login-cont">
         <form className="form" onSubmit={handleSubmit(onSubmit)}>
           <h1>Login</h1>
@@ -93,6 +94,7 @@ const Login = () => {
         <AppleIcon/>
         Apple 
 </button></div></form>
+      </div>
       </div>
       <Footer/>
     </div>
