@@ -23,27 +23,33 @@ const ResetPassword = () => {
 
   let submitEmail = (e) => {
     e.preventDefault();
-    // console.log("Email Submitted");
+    let loading = toast.loading("Sending...",{position: "top-center"})
 
     axios
       .post(`${API_URI}/resetPassword`, { email: email })
       .then((res) => {
         // console.log(res.data.otp);
+        toast.update(loading,{render:"OTP SENT",type:"success",isLoading:false,position: "top-center",autoClose: 1000})
         setOtp(res.data.otp);
         setSteps(2);
+        setTimeout(() => {
+          toast.warn('OTP Expired', {
+            position: "top-center",
+            autoClose: 1000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            });
+          setSteps(1);
+
+        }, 60000);
       })
       .catch((err) => {
         // console.log(err.response.data.message);
-        toast.error(`${err.response.data.message}`, {
-          position: "top-center",
-          autoClose: 1000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-          });
+        toast.update(loading,{render:`${err.response.data.message}`,type:"error",isLoading:false,position: "top-center",autoClose: 1000})
       });
   };
 
@@ -70,7 +76,7 @@ const ResetPassword = () => {
     e.preventDefault();
     // console.log("Password Updated",e.target[0].value);
     axios.post(`${API_URI}/updatePassword`, { email: email, password: e.target[0].value }).then((res) => {
-      // console.log(res.data);
+      console.log(res.data);
 
       toast.success("Password Updated", {
         position: "top-center",
@@ -115,7 +121,7 @@ const ResetPassword = () => {
                 type="text"
                 className="input"
                 placeholder="Enter your Email"
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => setEmail((e.target.value).trim())}
               />
             </div>
 
