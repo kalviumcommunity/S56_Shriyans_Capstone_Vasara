@@ -9,6 +9,8 @@ const upload = require('../multer')
 const FeedbackModal = require("../models/FeedbackModal")
 const ColorModal = require("../models/ColorsModal")
 const nodemailer = require("nodemailer");
+const fs = require("fs");
+
 
 var transporter = nodemailer.createTransport({
     service:"gmail",
@@ -247,46 +249,49 @@ router.delete("/blockuser/:id",async(req,res)=>{
 }
 )
 
-router.post("/resetPassword",async(req,res)=>{
-    try{
-        const user = await User.findOne({email:req.body.email})
-        if(!user){
-            return res.status(400).json({message:"User not found"})
+router.post("/resetPassword", async (req, res) => {
+    try {
+        const user = await User.findOne({ email: req.body.email });
+        if (!user) {
+            return res.status(400).json({ message: "User not found" });
         }
 
-        let otp = Math.floor(100000 + Math.random() * 900000)
-        let main = {
+        let otp = Math.floor(100000 + Math.random() * 900000);
+
+        let htmlData;
+        try {
+            htmlData = fs.readFileSync('../Server/OTP_Template.html', 'utf8');
+        } catch (err) {
+            console.error('Error reading HTML file:', err);
+            return res.status(500).json({ message: "Failed to send email", error: err });
+        }
+
+        const emailContent = htmlData.replace('Tomy', user.firstName).replace('123456', otp);
+
+        let mailOptions = {
             from: {
-                name:"Vasara",
-                address:"vasarateam@gmail.com"
+                name: "Vasara",
+                address: process.env.Email
+            },
+            to: user.email,
+            subject: "Reset Password",
+            html: emailContent
+        };
+
+        transporter.sendMail(mailOptions, (err, info) => {
+            if (err) {
+                console.error('Error sending email:', err);
+                return res.status(500).json({ message: "Failed to send email", error: err });
             }
-            ,
-            to:user.email,
-            subject:"Reset Password",
-            text:`Your OTP is ${otp}`
-        }
-        transporter.sendMail(main,(err, info) => {
-            try {
-                if (err) {
-                    console.log(err);
-                    return res.status(500).json({ message: "Failed to send email", error: err });
-                }
-                console.log(info);
-                res.status(200).json({ otp: otp });
-            } catch (error) {
-                console.log(error);
-                res.status(500).json({ message: "Failed to send email", error });
-            }
+            console.log('Email sent:', info);
+            res.status(200).json({ otp: otp });
         });
-        
-
-        res.status(200).json({otp:otp})
-    }catch(error){
-        res.status(500).json({message:"Failed to find user",error})
+    } catch (error) {
+        console.error('Error:', error);
+        res.status(500).json({ message: "Failed to find user", error });
     }
+});
 
-}
-)
 
 router.post("/updatePassword",async(req,res)=>{
     try{
