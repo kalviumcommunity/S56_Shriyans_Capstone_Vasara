@@ -133,8 +133,8 @@ const ResetPassword = () => {
           <div className="otp-box">
             <form className="form" onSubmit={handleOTP}>
               {" "}
-              <div className="title">OTP</div>{" "}
-              <div className="title">Verification Code</div>{" "}
+              {/* <div className="title">OTP</div>{" "} */}
+              <div className="title">Enter OTP</div>{" "}
               <p className="message">
                 We have sent a verification code to your Email
               </p>{" "}

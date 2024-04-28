@@ -271,7 +271,7 @@ router.post("/resetPassword", async (req, res) => {
         let mailOptions = {
             from: {
                 name: "Vasara",
-                address: "vasarateam@gmail.com"
+                address: process.env.Email
             },
             to: user.email,
             subject: "Reset Password",
