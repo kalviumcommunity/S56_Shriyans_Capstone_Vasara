@@ -223,7 +223,7 @@ router.delete("/updateprofile/:id", async (req, res) => {
     try {
         const id = req.params.id;
         const deletedUser = await User.findByIdAndDelete(id);
-        res.json(deletedUser);
+        res.json({Message:"User data deleted",user:deletedUser});
     } catch (err) {
         res.json(err);
     }
