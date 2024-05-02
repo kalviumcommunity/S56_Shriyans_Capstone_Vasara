@@ -37,7 +37,7 @@ const StickyHeadTable = () => {
 
   const [rows, setRows] = useState([]);
   useEffect(() => {
-    axios.get("http://localhost:3001/getallusers").then((res) => {
+    axios.get(`${API_URI}/getallusers`).then((res) => {
       setRows(res.data);
     });
   }, []);

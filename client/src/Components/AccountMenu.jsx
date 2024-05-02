@@ -119,7 +119,7 @@ export default function AccountMenu() {
           Logout
           </p>
         </MenuItem>
-          <Link to={"./add-colors"} style={{color:"black"}}>
+          <Link to={"/add-colors"} style={{color:"black"}}>
         <MenuItem onClick={handleClose}>
           <ListItemIcon>
           <AddCircleOutlineIcon fontSize="small"/> 
