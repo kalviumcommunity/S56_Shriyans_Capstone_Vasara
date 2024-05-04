@@ -10,12 +10,13 @@ const ColorCard = ({props}) => {
     let color2 = data.color2.code
     let token = Cookies.get('token')
 
-    const [favorites, setFavorites] = useState([]);
+    const [favorites, setFavorites] = useState(sessionStorage.getItem('favorites') ? JSON.parse(sessionStorage.getItem('favorites')) : [] )
 
     useEffect(() => {
       axios.get(`${API_URI}/favorites/${token}`)
       .then(res => {
         setFavorites(res.data.favColors || []);
+        sessionStorage.setItem('favorites', JSON.stringify(res.data.favColors || []));
       })
       .catch(err => console.log(err));
     }
@@ -29,12 +30,15 @@ const ColorCard = ({props}) => {
   
       if (favColors.includes(data._id)) {
         const updatedFavorites = favColors.filter(id => id !== data._id);
-        await axios.put(`${API_URI}/favorites/${token}`, { favColors: updatedFavorites });
+        sessionStorage.setItem('favorites', JSON.stringify(updatedFavorites));
         setFavorites(updatedFavorites);
+        await axios.put(`${API_URI}/favorites/${token}`, { favColors: updatedFavorites });
+        
       } else {
         const updatedFavorites = [...favColors, data._id];
-        await axios.put(`${API_URI}/favorites/${token}`, { favColors: updatedFavorites });
+        sessionStorage.setItem('favorites', JSON.stringify(updatedFavorites));
         setFavorites(updatedFavorites);
+        await axios.put(`${API_URI}/favorites/${token}`, { favColors: updatedFavorites });
       }
     } catch (error) {
       console.error('Error handling favorites:', error);
