@@ -14,7 +14,7 @@ const Profile = () => {
     const tokenFromCookie = Cookies.get("token");
     formData.append('image', e.target.files[0]);
     axios.put(`${API_URI}/profile/${tokenFromCookie}`, formData).then((res) => {
-      console.log(res);
+      // console.log(res);
     }).catch((err) => {
       console.log(err);
     });
@@ -25,7 +25,7 @@ const Profile = () => {
       try {
         const response = await axios.get(`${API_URI}/profile/${tokenFromCookie}`);
         
-        console.log(response.data);
+        // console.log(response.data);
         setData(response.data);
       } catch (error) {
         console.error("Error fetching profile data:", error);

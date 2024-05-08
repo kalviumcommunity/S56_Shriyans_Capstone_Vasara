@@ -39,7 +39,7 @@ router.post("/signup",async(req,res)=>{
             password: hashedPassword,
         })
         const token = jwt.sign({_id:newUser._id},process.env.JWT_Token,{
-            expiresIn:'90d',
+            expiresIn:'5d',
         })
         res.status(201).json({
             status:"success",
@@ -68,7 +68,7 @@ router.post("/login",async(req,res)=>{
         }
     
         const token = jwt.sign({id:user._id},process.env.JWT_Token,{
-            expiresIn:'90d',
+            expiresIn:'5d',
         })
 
         res.status(200).json({
@@ -86,6 +86,77 @@ router.post("/login",async(req,res)=>{
     }
     
 })
+
+router.post("/signup_with_google", async (req, res) => {
+    try {
+        const { email, name, picture } = jwt.decode(req.body.token);
+        const [firstName, lastName] = name.split(" ");
+        
+        const existingUser = await User.findOne({ email: email });
+        if (existingUser) {
+            return res.status(200).json({
+                status: "success",
+                message: "User already exists",
+                user: existingUser
+            });
+        }
+        
+        const newUser = await User.create({
+            firstName: firstName,
+            lastName: lastName,
+            email: email.toLowerCase(),
+            Image: picture,
+            favColors: [],
+            Colors : {
+                Color1: "",
+                Color2: "",
+                Color3: "",
+                Color4: "",
+              }
+        });
+        
+        const token = jwt.sign({ _id: newUser._id }, process.env.JWT_Token, {
+            expiresIn: '5d',
+        });
+        
+        res.status(201).json({
+            status: "success",
+            message: "User registered successfully",
+            token
+        });
+    } catch (error) {
+        res.status(500).json({ message: "Failed to register user", error });
+    }
+});
+
+router.post("/singin_with_google",async(req,res)=>{
+    try {
+        const { email,email_verified } = jwt.decode(req.body.token);
+        // console.log(email,email_verified)
+        if (!email_verified) {
+            return res.status(400).json({ message: "Email not verified" });
+        }
+        const existingUser = await User.findOne({ email: email });
+        
+        if (!existingUser) {
+            return res.status(400).json({ message: "User not found" });
+        }
+        const token = jwt.sign({ id: existingUser._id }, process.env.JWT_Token, {
+            expiresIn: '5d',
+        });
+        res.status(200).json({
+            status:"sucess",
+            token,
+            message:"Logged in successfully",
+        })
+
+
+  }  catch (error) {
+    res.send(error)  
+  }})
+
+
+
 router.get("/profile/:id", (req, res) => {
     try {
         const id = jwt.verify(req.params.id, process.env.JWT_Token);

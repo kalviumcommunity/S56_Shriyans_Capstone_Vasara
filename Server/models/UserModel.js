@@ -18,7 +18,6 @@ const userSchema = new mongoose.Schema({
     },
     gender:{
         type:String,
-        required: true,
     },
     role:{
         type:String,
@@ -32,7 +31,6 @@ const userSchema = new mongoose.Schema({
     },
     password:{
         type:String,
-        required:true,
     },
     Colors:favColors,
     Image: String,

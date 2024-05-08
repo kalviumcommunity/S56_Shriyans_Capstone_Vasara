@@ -25,25 +25,23 @@ const ColorCard = ({props}) => {
   const handleFav = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.get(`${API_URI}/favorites/${token}`);
+      const res = await axios.get(`https://s56-shriyans-capstone-vasara.onrender.com/favorites/${token}`);
       const favColors = res.data.favColors || [];
   
       if (favColors.includes(data._id)) {
         const updatedFavorites = favColors.filter(id => id !== data._id);
-        sessionStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+        await axios.put(`https://s56-shriyans-capstone-vasara.onrender.com/favorites/${token}`, { favColors: updatedFavorites });
         setFavorites(updatedFavorites);
-        await axios.put(`${API_URI}/favorites/${token}`, { favColors: updatedFavorites });
-        
       } else {
         const updatedFavorites = [...favColors, data._id];
-        sessionStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+        await axios.put(`https://s56-shriyans-capstone-vasara.onrender.com/favorites/${token}`, { favColors: updatedFavorites });
         setFavorites(updatedFavorites);
-        await axios.put(`${API_URI}/favorites/${token}`, { favColors: updatedFavorites });
       }
     } catch (error) {
       console.error('Error handling favorites:', error);
     }
   };
+    
   return (
 <div className="color-container">
   <div className="palette">
