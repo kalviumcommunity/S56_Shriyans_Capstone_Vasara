@@ -10,8 +10,20 @@ const FeedbackModal = require("../models/FeedbackModal")
 const ColorModal = require("../models/ColorsModal")
 const nodemailer = require("nodemailer");
 const fs = require("fs");
+const rateLimit = require("express-rate-limit");
 
+// RSA private key
+const privateKey = fs.readFileSync('../Server/private.key');
+// RSA public key
+const publicKey = fs.readFileSync('../Server/public.key');
 
+const RateLimiter = rateLimit({
+    windowMs: 10 * 60 * 1000, 
+    max: 100, 
+    message: "Too many requests, please try again later."
+  });
+
+  
 var transporter = nodemailer.createTransport({
     service:"gmail",
     host: "smtp.gmail.com",
@@ -38,13 +50,9 @@ router.post("/signup",async(req,res)=>{
             ...req.body,
             password: hashedPassword,
         })
-        const token = jwt.sign({_id:newUser._id},process.env.JWT_Token,{
-            expiresIn:'90d',
-        })
         res.status(201).json({
             status:"success",
             message:"User registered sucess",
-            token
         })
     } catch (error) {
         res.send(error)
@@ -67,9 +75,7 @@ router.post("/login",async(req,res)=>{
             return res.status(401).send("Incorrect email or password")
         }
     
-        const token = jwt.sign({id:user._id},process.env.JWT_Token,{
-            expiresIn:'90d',
-        })
+        const token = jwt.sign({id:user._id}, {key: privateKey, passphrase: process.env.passphrase}, { algorithm: 'RS256' })
 
         res.status(200).json({
             status:"sucess",
@@ -86,9 +92,84 @@ router.post("/login",async(req,res)=>{
     }
     
 })
+const verifyToken = (token) => {
+    try {
+        const decoded = jwt.decode(token);
+        return decoded;
+    } catch (error) {
+        // Token is invalid
+        throw new Error('Invalid token');
+    }
+};
+
+router.post("/signup_with_google", RateLimiter,async (req, res) => {
+    try {
+        // const { email, name, picture } = jwt.decode(req.body.token);
+        const { email, name, picture } = verifyToken(req.body.token);;
+        const [firstName, lastName] = name.split(" ");
+        
+        const existingUser = await User.findOne({ email: email });
+        if (existingUser) {
+            return res.json({
+                status: "warning",
+                message: "User already exists",
+                user: existingUser
+            });
+        }
+        
+        const newUser = await User.create({
+            firstName: firstName,
+            lastName: lastName,
+            email: email.toLowerCase(),
+            Image: picture,
+            favColors: [],
+            password:"",
+            Colors : {
+                Color1: "",
+                Color2: "",
+                Color3: "",
+                Color4: "",
+              }
+        });
+        
+        res.status(201).json({
+            status: "success",
+            message: "User registered successfully",
+        });
+    } catch (error) {
+        res.status(500).json({ message: "Failed to register user", error });
+    }
+});
+
+router.post("/signin_with_google",RateLimiter,async(req,res)=>{
+    try {
+        const { email,email_verified } = jwt.decode(req.body.token);
+        // console.log(email,email_verified)
+        if (!email_verified) {
+            return res.status(400).json({ message: "Email not verified" });
+        }
+        const existingUser = await User.findOne({ email: email });
+        
+        if (!existingUser) {
+            return res.status(400).json({ message: "User not found" });
+        }
+        const token = jwt.sign({ id: existingUser._id },  {key: privateKey, passphrase: process.env.passphrase}, { algorithm: 'RS256' });
+        res.status(200).json({
+            status:"sucess",
+            token,
+            message:"Logged in successfully",
+        })
+
+
+  }  catch (error) {
+    res.send(error)  
+  }})
+
+
+
 router.get("/profile/:id", (req, res) => {
     try {
-        const id = jwt.verify(req.params.id, process.env.JWT_Token);
+        const id = jwt.verify(req.params.id, publicKey);
         // const id = req.params.id
         User.findById({ _id: id.id })
             .then((el) => res.json(el))
@@ -100,7 +181,7 @@ router.get("/profile/:id", (req, res) => {
 
 router.put("/profile/:id", upload.single('image'), (req, res) => {
     try {
-        const id = jwt.verify(req.params.id, process.env.JWT_Token);
+        const id = jwt.verify(req.params.id,publicKey);
         cloudinary.uploader.upload(req.file.path, function (error, result) {
             if (error) {
                 res.status(400).json({ error: "Error uploading image" });
@@ -167,7 +248,7 @@ router.get("/colors",async(req,res)=>{
 
 router.get("/favorites/:id", (req, res) => {
     try {
-        const id = jwt.verify(req.params.id, process.env.JWT_Token);
+        const id = jwt.verify(req.params.id, publicKey);
         User.findById({ _id: id.id })
             .then((el) => res.json(el))
             .catch(err => res.status(400).json({ error: "Invalid or expired token" }));
@@ -178,7 +259,7 @@ router.get("/favorites/:id", (req, res) => {
 
 router.put("/favorites/:id", async (req, res) => {
     try {
-        const id = jwt.verify(req.params.id, process.env.JWT_Token);
+        const id = jwt.verify(req.params.id, publicKey);
         if (req.body.favColors.some(colorId => !mongoose.Types.ObjectId.isValid(colorId))) {
             return res.status(400).json({ error: "Invalid favColors array" });
         }
@@ -296,7 +377,7 @@ router.post("/updatePassword",async(req,res)=>{
 
 router.post("/addColors/:id", async (req, res) => {
     try {
-        const decodedId = jwt.verify(req.params.id, process.env.JWT_Token);
+        const decodedId = jwt.verify(req.params.id, publicKey);
         if (!decodedId || !decodedId.id) {
             return res.status(401).json({ error: "Unauthorized: Invalid or expired token." });
         }
