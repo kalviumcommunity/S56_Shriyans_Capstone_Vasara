@@ -25,16 +25,16 @@ const ColorCard = ({props}) => {
   const handleFav = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.get(`https://s56-shriyans-capstone-vasara.onrender.com/favorites/${token}`);
+      const res = await axios.get(`${API_URI}/favorites/${token}`);
       const favColors = res.data.favColors || [];
   
       if (favColors.includes(data._id)) {
         const updatedFavorites = favColors.filter(id => id !== data._id);
-        await axios.put(`https://s56-shriyans-capstone-vasara.onrender.com/favorites/${token}`, { favColors: updatedFavorites });
+        await axios.put(`${API_URI}/favorites/${token}`, { favColors: updatedFavorites });
         setFavorites(updatedFavorites);
       } else {
         const updatedFavorites = [...favColors, data._id];
-        await axios.put(`https://s56-shriyans-capstone-vasara.onrender.com/favorites/${token}`, { favColors: updatedFavorites });
+        await axios.put(`${API_URI}/favorites/${token}`, { favColors: updatedFavorites });
         setFavorites(updatedFavorites);
       }
     } catch (error) {
@@ -54,8 +54,7 @@ const ColorCard = ({props}) => {
     <Link to={`../colordetails/${data._id}`}>
     <h2>{data.name}</h2>
     </Link>
-
-    <div className="heart-container" title="Like" onClick={handleFav}>
+{token == undefined ?(<p></p>) :(<div className="heart-container" title="Like" onClick={handleFav}>
             <input type="checkbox" className="checkbox" id="Give-It-An-Id" checked={favorites.includes(data._id)}/>
             <div className="svg-container">
                 <svg viewBox="0 0 24 24" className="svg-outline" xmlns="http://www.w3.org/2000/svg">
@@ -75,7 +74,8 @@ const ColorCard = ({props}) => {
                     <polygon points="80,80 70,70"></polygon>
                 </svg>
             </div>
-        </div>
+        </div>)}
+
         </div>
 </div>
   )

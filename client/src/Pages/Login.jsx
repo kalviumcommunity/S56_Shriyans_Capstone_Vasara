@@ -47,16 +47,14 @@ const Login = () => {
 
       }
       const SigninwithGoogle = (response) => {
-        console.log(response);
         let token = response.credential
         // console.log(token)
         let loading = toast.loading("Logging in...",{position: "top-center"})
 
-        axios.post(`${API_URI}/singin_with_google`,{token})
+        axios.post(`${API_URI}/signin_with_google`,{token})
         .then((res)=>{
-          console.log(res)
+          // console.log(res)
           Cookies.set('token', res.data.token, { expires: 7 , path: ''})
-          console.log(res.data)
           setRegist(true)
           toast.update(loading,{render:"Login Successful!",type:"success",isLoading:false,position: "top-center",autoClose: 2000})
             setTimeout(() => {

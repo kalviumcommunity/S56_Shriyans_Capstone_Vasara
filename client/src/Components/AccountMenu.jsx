@@ -42,7 +42,7 @@ export default function AccountMenu() {
   };
   let handleLogout=()=>{
     Cookies.remove('token', { path: '' })
-    window.location.reload()
+    window.location.href = "/"
   }
   return (
     <React.Fragment>

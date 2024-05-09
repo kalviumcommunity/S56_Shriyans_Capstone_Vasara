@@ -83,15 +83,17 @@ const Signup = () => {
       .then((res) => {
         setRegist(true);
         toast.update(loading, {
-          render: "Registration Successful!",
-          type: "success",
+          render: `${res.data.message}`,
+          type: `${res.data.status}`,
           isLoading: false,
           position: "top-center",
           autoClose: 2000,
         });
-        setTimeout(() => {
-          navigate("/login");
-        }, 1000);
+        if (res.data.status === "success") {
+          setTimeout(() => {
+            navigate("/");
+          }, 1000);
+        }
       })
       .catch((error) => {
         toast.update(loading, {
