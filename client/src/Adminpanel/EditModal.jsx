@@ -53,7 +53,7 @@ export default function EditModal({props}) {
   let [email,setEmail] = React.useState("");
 
   React.useEffect(() => {
-    axios.get(`${API_URI}/profile/${id}`).then((res) => {
+    axios.get(`${API_URI}/updateProfile/${id}`).then((res) => {
       setFirstName(res.data.firstName);
       setLastName(res.data.lastName);
       setRole(res.data.role);
