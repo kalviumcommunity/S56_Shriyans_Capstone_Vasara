@@ -113,7 +113,6 @@ const Login = () => {
     <div className="flex-row">
     <GoogleOAuthProvider clientId="430112489474-l6g9p9p6oojc2r393irlur8r20bv8np0.apps.googleusercontent.com">
                 <GoogleLogin
-                  
                   onSuccess={SigninwithGoogle}
                   onError={() => {
                     console.log("Login Failed");
