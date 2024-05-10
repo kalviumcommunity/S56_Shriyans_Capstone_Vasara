@@ -260,10 +260,6 @@ router.get("/favorites/:id", (req, res) => {
 router.put("/favorites/:id", async (req, res) => {
     try {
         const id = jwt.verify(req.params.id, publicKey);
-        if (req.body.favColors.some(colorId => !mongoose.Types.ObjectId.isValid(colorId))) {
-            return res.status(400).json({ error: "Invalid favColors array" });
-        }
-        
         const updatedUser = await User.findByIdAndUpdate(id.id, { $set: { favColors: req.body.favColors } }, { new: true });
         res.json(updatedUser);
     } catch (err) {
