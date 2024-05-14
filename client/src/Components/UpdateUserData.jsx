@@ -6,6 +6,7 @@ import "./UpdateProfile.css"
 import AlertDialog from './Alert'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Footer from './Footer'
 
 const UpdateUserData = () => {
 const {id} = useParams()
@@ -41,31 +42,67 @@ useEffect(() => {
       <Navbar/>
       {loading ? <h1>Loading...</h1> :
       <div className="update-profile-container">
-      <form action="" className='update-profile-form' onSubmit={handleSubmit}>
+       
+      <div className="login-cont">
+      <form className="form" onSubmit={handleSubmit}>
         <h1>Update Profile</h1>
-        <label htmlFor="">First Name</label>
-      <input type="text" placeholder='name' value={data.firstName} onChange={(e)=>setData({...data,firstName:e.target.value})}/> 
-        <label htmlFor="">Last Name</label>
-        <input type="text" placeholder='lastname' value={data.lastName} onChange={(e)=>setData({...data,lastName:e.target.value})}/>
-        <label htmlFor="">Age</label>
-        <input type="text" placeholder='age' value={data.age} onChange={(e)=>setData({...data,age:e.target.value})}/>
-        <label htmlFor="">Favourite Color 1</label>
-        <input type="text" placeholder='color1' value={Colors.Color1} onChange={(e)=>setColors({...Colors,Color1:e.target.value})}/>
-        <label htmlFor="">Favourite Color 2</label>
-        <input type="text" placeholder='color2' value={Colors.Color2} onChange={(e)=>setColors({...Colors,Color2:e.target.value})}/>
-        <label htmlFor="">Favourite Color 3</label>
-        <input type="text" placeholder='color3' value={Colors.Color3} onChange={(e)=>setColors({...Colors,Color3:e.target.value})}/>
-        <label htmlFor="">Favourite Color 4</label>
-        <input type="text" placeholder='color4' value={Colors.Color4} onChange={(e)=>setColors({...Colors,Color4:e.target.value})}/>
-        <div style={{textAlign:"center"}}>
+  <div className="flex-column">
+    <label>First Name </label></div>
+    <div className="inputForm">
 
-        <button type="submit">Submit</button>
-        <AlertDialog className="alert"/>
-        </div>
-      </form>
-      </div>
+<input type="text" className='input' required value={data.firstName} onChange={(e)=>setData({...data,firstName:e.target.value})} />
+    </div>
+
+    <div className="flex-column">
+    <label>Last Name</label></div>
+    <div className="inputForm">
+
+{/* <input type="text" className='input' placeholder='Enter Color1 Name' /> */}
+<input type="text" className='input' required value={data.lastName} onChange={(e)=>setData({...data,lastName:e.target.value})} />
+    </div>
+
+    <div className="flex-column">
+    <label>Age</label></div>
+    <div className="inputForm">
+
+{/* <input type="text" className='input' placeholder='Enter Color2 Name' /> */}
+<input type="number" className='input' required value={data.age} onChange={(e)=>setData({...data,age:e.target.value})} />
+    </div>
+
+  <div className="flex-column">
+    <label>Favourite Color 1</label></div>
+    <div className="inputForm">
+
+<input type="color" className='input' value={Colors.Color1} onChange={(e)=>setColors({...Colors,Color1:e.target.value})} />
+    </div>
+  <div className="flex-column">
+    <label>Favourite Color 2</label></div>
+    <div className="inputForm">
+
+<input type="color" className='input' value={Colors.Color2} onChange={(e)=>setColors({...Colors,Color2:e.target.value})} />
+    </div>
+  <div className="flex-column">
+    <label>Favourite Color 3</label></div>
+    <div className="inputForm">
+
+<input type="color" className='input' value={Colors.Color3} onChange={(e)=>setColors({...Colors,Color3:e.target.value})} />
+    </div>
+  <div className="flex-column">
+    <label>Favourite Color 4</label></div>
+    <div className="inputForm">
+
+<input type="color" className='input' value={Colors.Color4} onChange={(e)=>setColors({...Colors,Color4:e.target.value})} />
+    </div>
+
+
+  <button className="button-submit">Submit</button>
+</form>
+    </div>
+      
+</div>
 }
 <ToastContainer />
+<Footer/>
     </div>
   )
 }
