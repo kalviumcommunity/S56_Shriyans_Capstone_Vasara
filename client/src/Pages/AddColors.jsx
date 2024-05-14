@@ -20,7 +20,7 @@ const AddColors = () => {
 
     const handleSubmit = async(e) => {
         e.preventDefault()
-        let loading = toast.loading("Logging in...",{position: "top-center"})
+        let loading = toast.loading("Adding Data...",{position: "top-center"})
         let color1code = color1.substring(1)
         let color2code = color2.substring(1)
         const color1name = await axios.get(`https://www.thecolorapi.com/id?hex=%23${color1code}&format=JSON`)
@@ -33,7 +33,7 @@ const AddColors = () => {
             mood: mood,
             style: style
         }
-        axios.post(`http://localhost:3001/addcolors/${id}`,data)
+        axios.post(`${API_URI}/addcolors/${id}`,data)
         .then((el) => {
           toast.update(loading,{render:"Data Added",type:"success",isLoading:false,position: "top-center",autoClose: 2000})
         })
