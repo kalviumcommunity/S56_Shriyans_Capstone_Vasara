@@ -345,8 +345,8 @@ router.post("/resetPassword", async (req, res) => {
                 console.error('Error sending email:', err);
                 return res.status(500).json({ message: "Failed to send email", error: err });
             }
-            console.log('Email sent:', info);
-            res.status(200).json({ otp: otp });
+            // console.log('Email sent:', info);
+            res.status(200).json({ otp: otp});
         });
     } catch (error) {
         console.error('Error:', error);
@@ -357,7 +357,7 @@ router.post("/resetPassword", async (req, res) => {
 
 router.post("/updatePassword",async(req,res)=>{
     try{
-        const user = await User .findOne({email:req.body.email}) 
+        const user = await User.findOne({email:req.body.email}) 
         if(!user){
             return res.status(400).json({message:"User not found"})
         }

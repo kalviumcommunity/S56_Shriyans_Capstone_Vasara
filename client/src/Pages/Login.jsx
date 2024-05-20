@@ -106,7 +106,8 @@ const Login = () => {
     </div>
     <button className="button-submit">Sign In</button>
     <p className="p">Don't have an account? 
-    <span className="span">Sign Up</span>
+    <Link to={"/signup"} className="span"><span className="span">Sign Up</span></Link>
+    
 
     </p><p className="p line">Or With</p>
 
