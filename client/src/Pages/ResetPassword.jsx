@@ -1,4 +1,4 @@
-import React, { useState,useRef } from "react";
+import React, { useState,useEffect } from "react";
 import Navbar from "../Components/Navbar";
 import "./ResetPassword.css";
 import Footer from "../Components/Footer";
@@ -28,24 +28,10 @@ const ResetPassword = () => {
     axios
       .post(`${API_URI}/resetPassword`, { email: email })
       .then((res) => {
-        // console.log(res.data.otp);
         toast.update(loading,{render:"OTP SENT",type:"success",isLoading:false,position: "top-center",autoClose: 1000})
         setOtp(res.data.otp);
         setSteps(2);
-        setTimeout(() => {
-          toast.warn('OTP Expired', {
-            position: "top-center",
-            autoClose: 1000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-            });
-          setSteps(1);
 
-        }, 60000);
       })
       .catch((err) => {
         // console.log(err.response.data.message);
@@ -69,15 +55,14 @@ const ResetPassword = () => {
         });
       return;
     }
-    setSteps(3);
+      setSteps(3);
   };
 
   let updatePass = (e) => {
     e.preventDefault();
     // console.log("Password Updated",e.target[0].value);
-    axios.post(`${API_URI}/updatePassword`, { email: email, password: e.target[0].value }).then((res) => {
-      console.log(res.data);
-
+    axios.post(`${API_URI}/updatePassword`, { email: email, password: e.target[0].value}).then((res) => {
+      // console.log(res.data);
       toast.success("Password Updated", {
         position: "top-center",
         autoClose: 1000,
