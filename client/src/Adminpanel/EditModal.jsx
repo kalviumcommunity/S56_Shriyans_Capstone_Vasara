@@ -8,17 +8,27 @@ import EditIcon from '@mui/icons-material/Edit';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
 const styles = {
   form: {
     display: 'flex',
     flexDirection: 'column',
+    flexWrap: 'wrap',
+    gap: '1rem',
+    alignItems: 'center',
   },
   inputGroup: {
+    display: 'flex',
+    flexDirection: 'row',
     marginBottom: '1rem',
   },
   label: {
     marginBottom: '0.5rem',
     fontWeight: 'bold',
+    width:'100px',
+    padding: '0.5rem',
+    fontSize: '1rem',
+
   },
   input: {
     padding: '0.5rem',
@@ -26,6 +36,7 @@ const styles = {
     border: '1px solid #ccc',
     borderRadius: '4px',
     outline: 'none',
+    width: '200px',  // Adjust this width as needed
   },
 };
 
