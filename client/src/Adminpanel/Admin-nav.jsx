@@ -15,10 +15,11 @@ const Admin_nav = () => {
 
   return (
     <div className='admin-nav'>
+      <Link to={"/"}>
       <div className="logo">
         <img src={logo} alt="Logo" />
         <h1>Vasara</h1>
-      </div>
+      </div></Link>
       <Link to={"/admin/users"}>
       <div 
         className={`nav-item ${activeItem === 'Users' ? 'active' : ''}`} 
