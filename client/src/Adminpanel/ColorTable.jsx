@@ -15,10 +15,9 @@ import EditModal from "./EditModal";
 const columns = [
   {id:"Sr.No", label: "Sr.No", minWidth: 80, align: "left"},
   { id: "Name", label: "Name", minWidth: 170 },
-  { id: "age", label: "Age", minWidth: 60 },
-  { id: "gender", label: "Gender", minWidth: 60 },
-  { id: "role", label: "Role", minWidth: 60, align: "right" },
-  { id: "email", label: "Email", minWidth: 170, align: "right" },
+  { id: "color1", label: "Color1", minWidth: 60 },
+  { id: "Color2", label: "Color2", minWidth: 60 },
+  { id: "status", label: "Status", minWidth: 100, align: "right" }, 
   { id: "actions", label: "Action", minWidth: 100, align: "right" }, 
 ];
 
@@ -36,12 +35,19 @@ const StickyHeadTable = () => {
   };
 
   const [rows, setRows] = useState([]);
+
   useEffect(() => {
-    axios.get(`${API_URI}/getallusers`).then((res) => {
-      setRows(res.data);
+    axios.get(`${API_URI}/colors`).then((res) => {
+      const updatedData = res.data.map(item => {
+        if (!item.status) {
+          return { ...item, status: "verified" };
+        }
+        return item;
+      });
+      setRows(updatedData);
     });
   }, []);
-
+  
   const handleEdit = (id) => {
     console.log(id)
   }
@@ -65,7 +71,7 @@ const StickyHeadTable = () => {
                   if (column.id === 'actions') {
                     return (
                       <TableCell key={column.id} align={column.align} sx={{display:"flex", alignItems:"center"}}>
-                        <BlockModal props={row._id} />
+                        <BlockModal props={{id:row._id,delete:'deletecolor' }} />
                           <EditModal props={row._id} />
                       </TableCell>
                     );
@@ -79,13 +85,28 @@ const StickyHeadTable = () => {
                   else if(column.id === 'Name') {
                     return (
                       <TableCell key={column.id} align={column.align} sx={{textTransform: 'capitalize'}}>
-                        {row.firstName} {row.lastName}
+                        {row.name} 
+                      </TableCell>
+                    );
+                  }
+                  else if(column.id === 'color1') {
+                    return (
+                      <TableCell key={column.id} align={column.align} sx={{textTransform: 'capitalize'}}>
+                        {row.color1.name} 
+                      </TableCell>
+                    );
+                  }
+                  else if(column.id === 'Color2') {
+                    return (
+                      <TableCell key={column.id} align={column.align} sx={{textTransform: 'capitalize'}}>
+                        {row.color2.name} 
                       </TableCell>
                     );
                   }
                    else {
                     return (
                       <TableCell key={column.id} align={column.align}>
+                        {}
                         {row[column.id]}
                       </TableCell>
                     );

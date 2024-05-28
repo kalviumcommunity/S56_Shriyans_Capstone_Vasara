@@ -13,7 +13,9 @@ import ColorDetails from './Pages/ColorDetails'
 import AdminPanel from './Adminpanel/AdminPanel'
 import ResetPassword from './Pages/ResetPassword'
 import AddColors from './Pages/AddColors'
+import Users from './Adminpanel/Users'
 // import HOME from './Pages/HOME.JSX'
+import Colors from './Adminpanel/Colors';
 
 function App() {
 
@@ -29,9 +31,12 @@ function App() {
   <Route path="/Colors" element={<ColorsPage/>}/>
   <Route path='/contact_us' element={<Contact/>}/>
   <Route path='/colordetails/:id' element={<ColorDetails/>}/>
-  <Route path='/admin' element={<AdminPanel/>}/>
+  {/* <Route path='/admin' element={<AdminPanel/>}/> */}
+  <Route path='/admin/users' element={<Users/>}/>
   <Route path='/resetpassword' element={<ResetPassword/>}/>
   <Route path='/add-colors' element={<AddColors/>}/>
+  <Route path='/admin/users' element={<Users/>}/>
+  <Route path='/admin/colors' element={<Colors/>}/>
 </Routes>
     </>
   )

@@ -102,7 +102,7 @@ export default function AccountMenu() {
         </MenuItem>
           </Link>
         {user.role=='admin' &&(       
-            <Link to={`/admin`}>
+            <Link to={`/admin/users`}>
             <MenuItem onClick={handleClose}>
           <ListItemIcon>
             <PersonAdd fontSize="small" />  
