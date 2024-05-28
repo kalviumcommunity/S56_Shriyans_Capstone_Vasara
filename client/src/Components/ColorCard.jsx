@@ -10,12 +10,13 @@ const ColorCard = ({props}) => {
     let color2 = data.color2.code
     let token = Cookies.get('token')
 
-    const [favorites, setFavorites] = useState([]);
+    const [favorites, setFavorites] = useState(sessionStorage.getItem('favorites') ? JSON.parse(sessionStorage.getItem('favorites')) : [] )
 
     useEffect(() => {
       axios.get(`${API_URI}/favorites/${token}`)
       .then(res => {
         setFavorites(res.data.favColors || []);
+        sessionStorage.setItem('favorites', JSON.stringify(res.data.favColors || []));
       })
       .catch(err => console.log(err));
     }
@@ -40,6 +41,7 @@ const ColorCard = ({props}) => {
       console.error('Error handling favorites:', error);
     }
   };
+    
   return (
 <div className="color-container">
   <div className="palette">
@@ -52,7 +54,7 @@ const ColorCard = ({props}) => {
     <Link to={`../colordetails/${data._id}`}>
     <h2>{data.name}</h2>
     </Link>
-    <div className="heart-container" title="Like" onClick={handleFav}>
+{token == undefined ?(<p></p>) :(<div className="heart-container" title="Like" onClick={handleFav}>
             <input type="checkbox" className="checkbox" id="Give-It-An-Id" checked={favorites.includes(data._id)}/>
             <div className="svg-container">
                 <svg viewBox="0 0 24 24" className="svg-outline" xmlns="http://www.w3.org/2000/svg">
@@ -72,7 +74,8 @@ const ColorCard = ({props}) => {
                     <polygon points="80,80 70,70"></polygon>
                 </svg>
             </div>
-        </div>
+        </div>)}
+
         </div>
 </div>
   )

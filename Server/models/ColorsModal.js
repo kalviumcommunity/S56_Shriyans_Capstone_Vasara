@@ -26,17 +26,26 @@ const ColorSchema = new mongoose.Schema({
         }
       },
       climate: {
-        type: String,
-        required: true
+        type: String
       },
       mood: {
+        type: String
+      },
+      style: {
+        type: String
+      },
+      status: {
+        type: String,
+        default: "not verified"
+      },
+      createdby: {
         type: String,
         required: true
       },
-      style: {
-        type: String,
-        required: true
-      }
+      createOn:{
+        type:Date,
+        default:Date(),
+    }
 })
 
 const ColorModal = mongoose.model("colors",ColorSchema)

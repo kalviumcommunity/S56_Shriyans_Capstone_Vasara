@@ -15,6 +15,7 @@ import Cookies from 'js-cookie';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 export default function AccountMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -23,7 +24,7 @@ export default function AccountMenu() {
   React.useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(`http://localhost:3001/profile/${token}`);
+        const res = await axios.get(`${API_URI}/profile/${token}`);
         setUser(res.data);
       } catch (err) {
         console.log(err);
@@ -41,7 +42,7 @@ export default function AccountMenu() {
   };
   let handleLogout=()=>{
     Cookies.remove('token', { path: '' })
-    window.location.reload()
+    window.location.href = "/"
   }
   return (
     <React.Fragment>
@@ -118,6 +119,16 @@ export default function AccountMenu() {
           Logout
           </p>
         </MenuItem>
+          <Link to={"/add-colors"} style={{color:"black"}}>
+        <MenuItem onClick={handleClose}>
+          <ListItemIcon>
+          <AddCircleOutlineIcon fontSize="small"/> 
+          </ListItemIcon>
+          {/* <p onClick={handleLogout}> */}
+          Add Colors
+          {/* </p> */}
+        </MenuItem>
+          </Link>
       </Menu>
     </React.Fragment>
   );

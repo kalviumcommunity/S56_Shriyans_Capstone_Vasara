@@ -24,7 +24,7 @@ export default function BlockModal({props}) {
   };
 
     const handleBlock = () => {
-        axios.delete(`${API_URI}/${props.delete}/${id}`).then((res) => {
+        axios.delete(`http://localhost:3001/blockuser/${id}`).then((res) => {
                 toast.success("User Blocked Successfully",{position: "top-center",autoClose: 2000})
                 setOpen(false);
         }

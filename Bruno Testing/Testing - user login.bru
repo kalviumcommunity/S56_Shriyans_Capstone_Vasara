@@ -1,0 +1,25 @@
+meta {
+  name: Testing - user login
+  type: http
+  seq: 8
+}
+
+post {
+  url: https://s56-shriyans-capstone-vasara.onrender.com/login
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+  "email":"shreyas123@gmail.com",
+  "password":"shreyas@123"
+  }
+}
+
+body:xml {
+  {
+  "email":"shreyas123@gmail.com",
+  "password":"12345"
+  }
+}

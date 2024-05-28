@@ -6,6 +6,7 @@ import axios from 'axios'
 const ColorsPage = () => {
 
 const [data,setData] = useState([])
+const [loading,setLoading] = useState(true)
 useEffect(() => {
     const fetchData = async () => {
         try {
@@ -13,6 +14,9 @@ useEffect(() => {
             setData(response.data);
         } catch (error) {
             console.log(error);
+        }
+        finally{
+            setLoading(false)
         }
     };
 
@@ -22,14 +26,15 @@ useEffect(() => {
   return (
     <div>
         <Navbar/>
-        <div className="color-card-container">
+        {loading ? <h1>Loading...</h1> : (        <div className="color-card-container">
         {data.map((color,i) => {
             return (
             <ColorCard  key ={i} props={color}/>
             )
         })}
 
-        </div>
+        </div>)}
+
     </div>
   )
 }

@@ -11,8 +11,6 @@ import ColorsPage from './Pages/ColorsPage'
 import Contact from './Pages/Contact'
 import ColorDetails from './Pages/ColorDetails'
 import AdminPanel from './Adminpanel/AdminPanel'
-import Users from './Adminpanel/Users'
-import Colors from './Adminpanel/Colors'
 // import HOME from './Pages/HOME.JSX'
 
 function App() {
@@ -30,8 +28,6 @@ function App() {
   <Route path='/contact_us' element={<Contact/>}/>
   <Route path='/colordetails/:id' element={<ColorDetails/>}/>
   <Route path='/admin' element={<AdminPanel/>}/>
-  <Route path='/admin/users' element={<Users/>}/>
-  <Route path='/admin/colors' element={<Colors/>}/>
 </Routes>
     </>
   )
