@@ -236,6 +236,18 @@ router.delete("/blockuser/:id",async(req,res)=>{
 }
 )
 
+router.delete("/deletecolor/:id",async(req,res)=>{
+    try{
+        const color
+        = await ColorModal.findByIdAndDelete(req.params.id)
+        res.status(200).json(color)
+    }catch(error){
+        res.status(500).json({message:"Failed to delete color",error})
+    }
+}
+)
+
+
 
 router.get('*', (req, res) => res.status(404).send('Page not found'))
 module.exports= {router}

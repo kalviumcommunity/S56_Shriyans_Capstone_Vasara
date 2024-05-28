@@ -12,7 +12,8 @@ import axios from 'axios';
 
 export default function BlockModal({props}) {
   const [open, setOpen] = React.useState(false);
-  const id = props;
+  const { id } = props;
+
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -23,7 +24,7 @@ export default function BlockModal({props}) {
   };
 
     const handleBlock = () => {
-        axios.delete(`http://localhost:3001/blockuser/${id}`).then((res) => {
+        axios.delete(`${API_URI}/${props.delete}/${id}`).then((res) => {
                 toast.success("User Blocked Successfully",{position: "top-center",autoClose: 2000})
                 setOpen(false);
         }
@@ -43,12 +44,13 @@ export default function BlockModal({props}) {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle id="alert-dialog-title">
-          {"Block User"}
-        </DialogTitle>
+<DialogTitle id="alert-dialog-title">
+  {props.delete === 'blockuser' ? "Block User" : "Delete Color"}
+</DialogTitle>
+
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-          Are you sure you want to block this user?
+          {props.delete === 'blockuser' ? "Are you sure you want to block this user?" : "Are you sure you want to Delete this color?"}
           </DialogContentText>
         </DialogContent>
         <DialogActions>
