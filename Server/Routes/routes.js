@@ -391,6 +391,28 @@ router.post("/addColors/:id", async (req, res) => {
     }
 });
 
+router.get("/findColor/:id", async (req, res) => {
+    try {
+        const color = await ColorModal.findById(req.params.id);
+        res.status(200).json(color);
+    } catch (error) {
+        res.status(500).json({ message: "Failed to get color", error });
+    }
+}
+)
+
+router.put("/findColor/:id", async (req, res) => {
+    try {
+        const updatedColor = await ColorModal.findByIdAndUpdate(req
+            .params.id, req.body);
+        res.status(200).json(updatedColor);
+
+    } catch (error) {
+        res.status(500).json({ message: "Failed to update color", error });
+    }
+}
+)
+
 
 
 

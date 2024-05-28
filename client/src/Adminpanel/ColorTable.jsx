@@ -10,7 +10,7 @@ import TableRow from "@mui/material/TableRow";
 import EditIcon from '@mui/icons-material/Edit';
 import BlockModal from "./BlockModal";
 import axios from "axios";
-import EditModal from "./EditModal";
+import EditColor from "./EditColor";
 
 const columns = [
   {id:"Sr.No", label: "Sr.No", minWidth: 80, align: "left"},
@@ -38,13 +38,15 @@ const StickyHeadTable = () => {
 
   useEffect(() => {
     axios.get(`${API_URI}/colors`).then((res) => {
-      const updatedData = res.data.map(item => {
-        if (!item.status) {
-          return { ...item, status: "verified" };
-        }
-        return item;
-      });
-      setRows(updatedData);
+      // const updatedData = res.data.map(item => {
+      //   if (!item.status) {
+      //     return { ...item, status: "verified" };
+      //   }
+      //   return item;
+      // });
+      // setRows(updatedData);
+      // console.log(updatedData);
+      setRows(res.data);
     });
   }, []);
   
@@ -72,7 +74,7 @@ const StickyHeadTable = () => {
                     return (
                       <TableCell key={column.id} align={column.align} sx={{display:"flex", alignItems:"center"}}>
                         <BlockModal props={{id:row._id,delete:'deletecolor' }} />
-                          <EditModal props={row._id} />
+                          <EditColor props={row._id} />
                       </TableCell>
                     );
                   } else if(column.id === 'Sr.No') {
