@@ -9,7 +9,7 @@ const AdminPanel = () => {
         <div className="admin-navbar">
       <Admin_nav/>
         </div>
-      <Users/>
+      {/* <Users/> */}
 
     </div>
   )
