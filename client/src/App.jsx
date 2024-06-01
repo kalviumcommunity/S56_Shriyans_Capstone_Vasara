@@ -16,6 +16,7 @@ import AddColors from './Pages/AddColors'
 import Users from './Adminpanel/Users'
 // import HOME from './Pages/HOME.JSX'
 import Colors from './Adminpanel/Colors';
+import Wardrobe from './Pages/Wardrobe'
 
 function App() {
 
@@ -37,6 +38,7 @@ function App() {
   <Route path='/add-colors' element={<AddColors/>}/>
   <Route path='/admin/users' element={<Users/>}/>
   <Route path='/admin/colors' element={<Colors/>}/>
+  <Route path='/wardrobe' element={<Wardrobe/>}/>
 </Routes>
     </>
   )

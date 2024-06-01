@@ -25,6 +25,7 @@
     list-style: none;
     font-size: 18px;
     color: beige;
+    /* border: 2px solid white; */
 }
 .nav-items a{
     text-decoration: none;

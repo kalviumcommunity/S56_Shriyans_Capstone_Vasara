@@ -8,6 +8,7 @@ const cloudinary = require('../Cloudinary')
 const upload = require('../multer')
 const FeedbackModal = require("../models/FeedbackModal")
 const ColorModal = require("../models/ColorsModal")
+const Wardrobe = require("../models/WardrobeModal")
 const nodemailer = require("nodemailer");
 const fs = require("fs");
 const rateLimit = require("express-rate-limit");
@@ -412,7 +413,29 @@ router.put("/findColor/:id", async (req, res) => {
     }
 }
 )
+router.post("/add-dress/:id",upload.single('image'),(req,res)=>{
+    try{
+        const id = jwt.verify(req.params.id,publicKey);
+        cloudinary.uploader.upload(req.file.path,function(error,result){
+            if(error){
+                res.status(400).json({error:"Error uploading image"})
+                return;
+            }
+            const newDress = new Wardrobe({
+                image: result.secure_url,
+                userId: id.id,
+                clothImage: result.secure_url,
+            });
+            newDress.save()
+                .then((el) => res.json(el))
+                .catch(err => res.status(400).json(err));
 
+        });
+    }catch(err){
+        res.status(400).json({error:"Invalid or expired token"})
+    }
+}
+)
 
 
 
