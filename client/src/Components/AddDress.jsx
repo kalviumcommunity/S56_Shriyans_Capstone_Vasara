@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const AddDress = () => {
   const [step, setStep] = useState(1);
-    const [flavors, setFlavors] = useState({
+    const [category, setCategory] = useState({
         Tops: false,
         Bottoms: false,
         Outerwear: false,
@@ -18,23 +18,29 @@ const AddDress = () => {
         Shoes: false,
       });
     
-      const handleCheckboxChange = (event) => {
-        const { name, checked } = event.target;
-        setFlavors((prevFlavors) => ({
-          ...prevFlavors,
-          [name]: checked,
-        }));
-      };
+      const handleRadioChange = (event) => {
+        const { name } = event.target;
+        setCategory({
+          Tops: false,
+          Bottoms: false,
+          Outerwear: false,
+          Dresses: false,
+          Accessories: false,
+          Shoes: false,
+          [name]: true,
+        });
+
+      };    
 
       const handleSubmit = async (e) => {
         e.preventDefault();
         try {
         // console.log(e.target.image.files[0]);
         let loading = toast.loading("Uploading...",{position: "top-center"})
-        const file = await removeBackground(e.target.image.files[0]);
+        // const file = await removeBackground(e.target.image.files[0]);
         // console.log(file);
         const formData = new FormData();
-        formData.append('image', file);
+        formData.append('image', e.target.image.files[0]);
 
           axios.post(`${API_URI}/add-dress/${Cookies.get('token')}`, formData).then((res) => {
             // console.log(res);
@@ -42,6 +48,7 @@ const AddDress = () => {
             setStep(2);
           }
           ).catch((err) => {
+            toast.update(loading,{render:"Error",type:"error",isLoading:false,position: "top-center",autoClose: 1000})
             console.log(err);
           });
 
@@ -50,43 +57,63 @@ const AddDress = () => {
         }
       };
     
-      const handleImageUpload = (e) => {
-        const file = e.target.files[0];
-        removeBackground(file);
-      };
+      // const handleImageUpload = (e) => {
+      //   const file = e.target.files[0];
+      //   removeBackground(file);
+      // };
 
-      const removeBackground = (file) => {
-        return new Promise((resolve, reject) => {
-          const formData = new FormData();
-          formData.append('image_file', file);
-          formData.append('size', 'auto');
+      // const removeBackground = (file) => {
+      //   return new Promise((resolve, reject) => {
+      //     const formData = new FormData();
+      //     formData.append('image_file', file);
+      //     formData.append('size', 'auto');
       
-          const apiKey = 'QEfgAYoARWTLf2yKsbQNaJb4';
+      //     const apiKey = 'danmH4iLAQ8zqdgM8wTWToh5';
       
-          fetch('https://api.remove.bg/v1.0/removebg', {
-            method: 'POST',
-            headers: {
-              'X-Api-Key': apiKey,
-            },
-            body: formData,
-          })
-            .then((response) => {
-              if (!response.ok) {
-                throw new Error('Network response was not ok');
-              }
-              return response.blob();
-            })
-            .then((blob) => {
-              const processedFile = new File([blob], file.name, { type: blob.type });
-              resolve(processedFile);
-            })
-            .catch((error) => {
-              console.error('Error:', error);
-              reject(error);
-            });
-        });
-      };
+      //     fetch('https://api.remove.bg/v1.0/removebg', {
+      //       method: 'POST',
+      //       headers: {
+      //         'X-Api-Key': apiKey,
+      //       },
+      //       body: formData,
+      //     })
+      //       .then((response) => {
+      //         if (!response.ok) {
+      //           throw new Error('Network response was not ok');
+      //         }
+      //         return response.blob();
+      //       })
+      //       .then((blob) => {
+      //         const processedFile = new File([blob], file.name, { type: blob.type });
+      //         resolve(processedFile);
+      //       })
+      //       .catch((error) => {
+      //         console.error('Error:', error);
+      //         reject(error);
+      //       });
+      //   });
+      // };
       
+      const handlecategory = async () => {
+
+        try {
+          let categoryname = Object.keys(category).find(key => category[key] === true);
+          // console.log(x);
+          let loading = toast.loading("Adding Category...",{position: "top-center"})
+          axios.put(`${API_URI}/add-category/${Cookies.get('token')}`, {category:categoryname}).then((res) => {
+            console.log(res);
+            toast.update(loading,{render:"Category Added",type:"success",isLoading:false,position: "top-center",autoClose: 1000})
+            setStep(1);
+          }
+          ).catch((err) => {
+            toast.update(loading,{render:"Error",type:"error",isLoading:false,position: "top-center",autoClose: 1000})
+            console.log(err);
+          });
+        } catch (error) {
+          console.error(error);
+        }
+      }
+
 
   return (
     <div>
@@ -97,7 +124,7 @@ const AddDress = () => {
       <label>Add Image </label></div>
       <div className="inputForm">
 
-<input type="file" className='input'  name='image' onChange={handleImageUpload}  />
+<input type="file" className='input'  name='image'   />
       </div>
       <button className="button-submit" >Add</button>
 </form>
@@ -111,21 +138,21 @@ const AddDress = () => {
           <div className="flex-column"> 
       <label>category </label></div>
 
-   <div className="flavor-selector">
-      <div className="flavors">
-        {Object.keys(flavors).map((flavor) => (
-          <label key={flavor} style={{ fontSize: 12}} className="flavor-option" >
+      <div className="flavor-selector">
+      <div className="category">
+        {Object.keys(category).map((flavor) => (
+          <label key={flavor} style={{ fontSize: 12 }} className="flavor-option">
             <input
-              type="checkbox"
-              className='input'
+              type="radio"
+              className="input"
               name={flavor}
-              checked={flavors[flavor]}
-              onChange={handleCheckboxChange}
+              checked={category[flavor]}
+              onChange={handleRadioChange}
             />
             {flavor.charAt(0).toUpperCase() + flavor.slice(1)}
           </label>
         ))}
-        <button className="button-submit">Submit</button>
+        <button className="button-submit" onClick={handlecategory} >Submit</button>
       </div>
     </div>
 

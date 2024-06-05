@@ -425,6 +425,7 @@ router.post("/add-dress/:id",upload.single('image'),(req,res)=>{
                 image: result.secure_url,
                 userId: id.id,
                 clothImage: result.secure_url,
+                category:""
             });
             newDress.save()
                 .then((el) => res.json(el))
@@ -437,7 +438,17 @@ router.post("/add-dress/:id",upload.single('image'),(req,res)=>{
 }
 )
 
-
+router.put('/add-category/:id', async (req, res) => {
+    try {
+        const id = jwt.verify(req.params.id, publicKey);
+        console.log(req.body); // Should now correctly log the request body
+        let { category } = req.body;
+        const updated = await Wardrobe.findByIdAndUpdate(id.id, { category: category }, { new: true });
+        res.json(updated);
+    } catch (err) {
+        res.json(err);
+    }
+});
 
 router.get('*', (req, res) => res.status(404).send('Page not found'))
 module.exports= {router}
