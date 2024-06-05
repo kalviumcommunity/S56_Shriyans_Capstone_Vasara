@@ -14,9 +14,9 @@ const fs = require("fs");
 const rateLimit = require("express-rate-limit");
 
 // RSA private key
-const privateKey = fs.readFileSync('../Server/private.key');
+const privateKey = fs.readFileSync('../server/private.key');
 // RSA public key
-const publicKey = fs.readFileSync('../Server/public.key');
+const publicKey = fs.readFileSync('../server/public.key');
 
 const RateLimiter = rateLimit({
     windowMs: 10 * 60 * 1000, 
