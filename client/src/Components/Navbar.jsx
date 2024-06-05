@@ -35,9 +35,9 @@ const Navbar = () => {
                 
                 <li>
                   <Link to={"/colors"}>Colors</Link></li>
-                  {token && (                <li>
+                  {/* {token && (                <li>
                   <Link to={"/wardrobe"}>Wardrobe</Link>
-                  </li>)}
+                  </li>)} */}
 
                 <li>
                   <Link to={"/contact_us"}>

@@ -9,7 +9,7 @@
 
 }
 
-/* src/FlavorSelector.css */
+/* src/categoryelector.css */
 
 .flavor-selector {
     text-align: center;
@@ -19,7 +19,7 @@
 
   }
   
-  .flavors {
+  .category {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

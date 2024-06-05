@@ -4,7 +4,7 @@ const wardrobeSchema = new mongoose.Schema({
         type:String,
     },
     category:{
-        type:Array,
+        type:String,
     },
     createOn:{
         type:Date,
