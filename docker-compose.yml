@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  api:
+    build: ./Server
+    ports:
+      - "3000:3001"
+    volumes:
+      - ./Server/private.key:/keys/private.key
+      - ./Server/public.key:/keys/public.key
+  web:
+    build: ./client
+    ports:
+      - "5173:5173"
+
