@@ -16,8 +16,8 @@ const rateLimit = require("express-rate-limit");
 const path = require('path');
 
 // Assuming the keys are mounted to /keys directory in the container
-const privateKeyPath = path.resolve('/keys/private.key');
-const publicKeyPath = path.resolve('/keys/public.key');
+const privateKeyPath = path.resolve(process.env.PRIVATE_KEY_PATH || '../Server/private.key');
+const publicKeyPath = path.resolve(process.env.PUBLIC_KEY_PATH || '../Server/public.key');
 
 const privateKey = fs.readFileSync(privateKeyPath, 'utf8');
 const publicKey = fs.readFileSync(publicKeyPath, 'utf8');
