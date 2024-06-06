@@ -2,3 +2,5 @@ node_modules
 .dockerignore
 .git
 .gitignore
+public.key
+private.key

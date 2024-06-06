@@ -13,10 +13,14 @@ const nodemailer = require("nodemailer");
 const fs = require("fs");
 const rateLimit = require("express-rate-limit");
 
-// RSA private key
-const privateKey = fs.readFileSync('../server/private.key');
-// RSA public key
-const publicKey = fs.readFileSync('../server/public.key');
+const path = require('path');
+
+// Assuming the keys are mounted to /keys directory in the container
+const privateKeyPath = path.resolve('/keys/private.key');
+const publicKeyPath = path.resolve('/keys/public.key');
+
+const privateKey = fs.readFileSync(privateKeyPath, 'utf8');
+const publicKey = fs.readFileSync(publicKeyPath, 'utf8');
 
 const RateLimiter = rateLimit({
     windowMs: 10 * 60 * 1000, 

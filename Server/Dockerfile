@@ -1,6 +1,6 @@
 FROM node:slim
-WORKDIR /server
-COPY . /server
+WORKDIR /app
+COPY . .
 RUN npm install
 EXPOSE 3000
 CMD ["npm", "start"]
