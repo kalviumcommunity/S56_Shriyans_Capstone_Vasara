@@ -20,7 +20,7 @@ const ColorCard = ({props}) => {
       })
       .catch(err => console.log(err));
     }
-    , []);
+    , [favorites]);
 
   const handleFav = async (e) => {
     e.preventDefault();

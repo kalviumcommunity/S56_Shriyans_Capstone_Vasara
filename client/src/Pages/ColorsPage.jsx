@@ -7,22 +7,31 @@ const ColorsPage = () => {
 
 const [data,setData] = useState([])
 const [loading,setLoading] = useState(true)
+const [favorites, setFavorites] = useState(sessionStorage.getItem('favorites') ? JSON.parse(sessionStorage.getItem('favorites')) : [] )
 useEffect(() => {
     const fetchData = async () => {
         try {
-            const response = await axios.get(`${API_URI}/colors`);
-            setData(response.data);
+            const favoritesResponses = await Promise.all(
+                favorites.map(fav => axios.get(`${API_URI}/colordetail/${fav}`))
+            );
+            const favoritesData = favoritesResponses.map(response => response.data);
+
+            const colorsResponse = await axios.get(`${API_URI}/colors`);
+            const colorsData = colorsResponse.data;
+
+            // Combine both datasets
+            const newsColors = colorsData.filter(color => !favorites.includes(color._id));
+            setData([...favoritesData, ...newsColors]);
         } catch (error) {
-            console.log(error);
-        }
-        finally{
-            setLoading(false)
+            console.error(error);
+        } finally {
+            setLoading(false);
         }
     };
 
     fetchData();
+}, [favorites]); // Including `favorites` in the dependency array in case it changes
 
-}, []);
   return (
     <div>
         <Navbar/>
