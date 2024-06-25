@@ -19,7 +19,6 @@ useEffect(() => {
             const colorsResponse = await axios.get(`${API_URI}/colors`);
             const colorsData = colorsResponse.data;
 
-            // Combine both datasets
             const newsColors = colorsData.filter(color => !favorites.includes(color._id));
             setData([...favoritesData, ...newsColors]);
         } catch (error) {
@@ -30,7 +29,7 @@ useEffect(() => {
     };
 
     fetchData();
-}, [favorites]); // Including `favorites` in the dependency array in case it changes
+}, [favorites]); 
 
   return (
     <div>
