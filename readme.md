@@ -11,21 +11,17 @@ https://vasara.netlify.app/
 
 ## Features
 
-### Material Education
-- Detailed material guide explaining different fabric types, their properties, and care instructions.
-- Helps users choose the right materials for different seasons and activities.
+### Color Collection
+- Access a wide variety of color combinations for T-shirts and jeans.
 
-### Color Palette Tool
-- Recommendation system suggests color palettes based on user's preferences such as skin tone, hair color, current weather, temperature, and mood.
-- Pre-defined color palettes available for different styles to provide a starting point.
+### Visual Preview
+- See how each color combination looks in different clothing items.
 
-### Style Inspiration
-- Library of outfits categorized by style, including formal, casual, party wear, etc.
-- Subcategories for further refinements like business casual, smart casual.
-- User-submitted outfit photos categorized by style to encourage community engagement.
+### Upload Custom Colors
+- Upload and visualize your own color combinations.
 
-### Outfit Planning Calendar
-- Users can create a weekly outfit plan considering factors like weather forecast, scheduled events, and personal preferences.
+### User Profiles
+- Create a profile to save your favorite colors and upload a profile picture.
 
 ## Tech Stack
 - React
